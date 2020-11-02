@@ -1,0 +1,332 @@
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 0;
+}
+@font-face {
+  font-family: 'MyNewFont';
+  src: url("../font/newFont.ttf");
+}
+.wrap {
+  width: 1920px;
+  height: 1080px;
+}
+.wrap .head {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background: url("../img/header.png") no-repeat;
+  background-size: 100% 100%;
+}
+.wrap .head p {
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+  font-family: 'MyNewFont';
+  height: 90px;
+  line-height: 90px;
+  color: #fff;
+  margin: 0;
+}
+.left {
+  width: 420px;
+  height: calc(1080px - 90px);
+  position: absolute;
+  left: 0;
+  top: 90px;
+  padding: 23px 0;
+}
+.left .fkzt {
+  height: 270px;
+}
+.left .zdorgz {
+  height: 335px;
+}
+.left >div {
+  height: calc((1080px - 90px - 46px) / 3);
+  padding: 0 30px;
+  overflow: hidden;
+}
+.left >div >.title {
+  margin: 0;
+  font-size: 0;
+}
+.left >div >.title .title-triangle {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.left >div >.title span {
+  font-size: 26px;
+  color: #6ddcfb;
+  font-family: 'MyNewFont';
+  opacity: 0.5;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+.left >div >.title .active {
+  opacity: 1;
+}
+.left >div .ctx {
+  margin-top: 20px;
+}
+.left >div .ctx .num-plate {
+  list-style: none;
+  font-size: 0;
+  padding: 0;
+}
+.left >div .ctx .num-plate li {
+  width: 37px;
+  height: 40px;
+  font-size: 24px;
+  color: #23d3f1;
+  display: inline-block;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid rgba(34,223,255,0.4);
+  margin-right: 6px;
+  background: rgba(34,223,255,0.1);
+}
+.left >div .ctx .num-plate li:last-child {
+  margin: 0;
+}
+.left >div .ctx .info-card {
+  list-style: none;
+  font-size: 0;
+  padding: 0;
+  margin-top: 18px;
+}
+.left >div .ctx .info-card li {
+  width: 80px;
+  height: 105px;
+  background: rgba(34,223,255,0.1);
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 9px;
+  padding-top: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.left >div .ctx .info-card li >img {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 9px;
+}
+.left >div .ctx .info-card li >p {
+  margin: 0;
+  color: #fff;
+}
+.left >div .ctx .info-card li >.num {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 9px;
+}
+.left >div .ctx .info-card li >.text {
+  font-size: 12px;
+  font-weight: bold;
+}
+.right {
+  width: 420px;
+  height: calc(1080px - 90px);
+  position: absolute;
+  right: 0;
+  top: 90px;
+  padding: 23px 0;
+}
+.right >div {
+  height: calc((1080px - 90px - 46px) / 3);
+  padding: 0 30px;
+  overflow: hidden;
+}
+.right >div >.title {
+  margin: 0;
+  font-size: 0;
+  overflow: hidden;
+  line-height: 30px;
+}
+.right >div >.title .title-triangle {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.right >div >.title span {
+  font-size: 26px;
+  color: #6ddcfb;
+  font-family: 'MyNewFont';
+  opacity: 0.5;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+.right >div >.title .active {
+  opacity: 1;
+}
+.right >div >.title a {
+  font-size: 16px;
+  color: #24dfff;
+  float: right;
+}
+.right >div .ctx {
+  margin-top: 20px;
+}
+.right .gfxyjry .ctx .swiper-container {
+  height: 164px;
+}
+.right .gfxyjry .ctx .swiper-container .img-shadow {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 136px;
+}
+.right .gfxyjry .ctx .swiper-container .img-shadow:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+.right .gfxyjry .ctx .swiper-container .img-shadow img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  user-select: none;
+}
+.right .gfxyjry .ctx .swiper-container .swiper-slide-active .img-shadow {
+  position: relative;
+  width: 132px;
+  height: 164px;
+  z-index: 1000;
+}
+.right .gfxyjry .ctx .swiper-container .swiper-slide-active .img-shadow:after {
+  background: transparent;
+}
+.right .gfxyjry .ctx >p {
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 12px;
+}
+.right .gfxyjry .ctx .info {
+  color: #24dfff;
+  margin-top: 14px;
+}
+.right .gfxyjry .ctx .id,
+.right .gfxyjry .ctx .address {
+  color: #fff;
+}
+.right .gfxyj .ctx .yj-list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.right .gfxyj .ctx .yj-list li {
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+  color: #fff;
+  border-bottom: 1px solid rgba(34,223,255,0.2);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+.right .gfxyj .ctx .yj-list li .text {
+  display: inline-block;
+  width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.right .gfxyj .ctx .yj-list li .text .no-lamp {
+  display: inline-block;
+  overflow: hidden;
+}
+.right .gfxyj .ctx .yj-list li .text .lamp {
+  display: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.right .gfxyj .ctx .yj-list .active {
+  color: #6ddcfb;
+}
+.right .gfxyj .ctx .yj-list .active .text {
+  overflow: hidden;
+}
+.right .gfxyj .ctx .yj-list .active .text .no-lamp {
+  display: none;
+}
+.right .gfxyj .ctx .yj-list .active .text .lamp {
+  display: inline-block;
+}
+.right .fkld {
+  overflow: visible;
+}
+.yjfb {
+  position: absolute;
+  left: 420px;
+  right: 420px;
+  bottom: 110px;
+  box-sizing: border-box;
+  width: calc(1920px - 840px);
+  height: 250px;
+  padding: 0 30px;
+}
+.yjfb >.title {
+  margin: 0;
+  font-size: 0;
+  overflow: hidden;
+  line-height: 30px;
+}
+.yjfb >.title .title-triangle {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.yjfb >.title span {
+  font-size: 26px;
+  color: #6ddcfb;
+  font-family: 'MyNewFont';
+  opacity: 0.5;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+.yjfb >.title .active {
+  opacity: 1;
+}
+.yjfb >.title a {
+  font-size: 16px;
+  color: #24dfff;
+  float: right;
+}
+.yjfb .ctx {
+  margin-top: 20px;
+}
+#hyqx {
+  width: 100%;
+  height: 260px;
+}
+#fkld {
+  width: 100%;
+  height: 260px;
+}
+#yjfb {
+  width: 100%;
+  height: 200px;
+}
