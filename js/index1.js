@@ -92,7 +92,7 @@ $.ajax({
             for(let i = 0,l = d.length; i<l;i++){
                 yjLamp(d.eq(i))
             }
-            yjSwiper()
+            yjSwiper(data)
         }
     }
 })
@@ -101,9 +101,9 @@ $.ajax({
 function loadPic(data){
     data.forEach(e => {
         let h = $('<div class="swiper-slide">') 
-        let t = `<div class="img-shadow">
+        let t = `<a href="#" class="img-shadow">
                     <img src="${e.picUrl}" alt="">
-                </div> `
+                </a> `
             h.html(t)
         $('.gfxyjry .ctx .swiper-wrapper').append(h)
     });
@@ -128,7 +128,12 @@ function loadMsg(data){
 
 // 高风险预警 轮播
 let count = 0
-function yjSwiper() {
+function yjSwiper(data) {
+    $('.gfxyjry .info .name').text(data[0].name)
+    $('.gfxyjry .info .type').text(data[0].type)
+    $('.gfxyjry .info .id').text(data[0].id)
+    $('.gfxyjry .info .address').text(data[0].address)
+
     let l = 5, i = 1;
 
     setInterval(()=>{
@@ -136,6 +141,10 @@ function yjSwiper() {
         $('.yj-list li').eq(i).find('.lamp').css({
             'transform':'translateX('+ 0 +'px)'
         })
+        $('.gfxyjry .info .name').text(data[i].name)
+        $('.gfxyjry .info .type').text(data[i].type)
+        $('.gfxyjry .info .id').text(data[i].id)
+        $('.gfxyjry .info .address').text(data[i].address)
         count = 0
         mySwiper.slideNext()
         if(i == l){
