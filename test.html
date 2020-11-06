@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width='500' height='500'>测试</canvas>
+    <canvas id="Canvas" width="500" height="500"></canvas>
+    <script>
+
+    function hRender(v,b,n){
+        let Canvas = document.getElementById('Canvas')
+        let context = Canvas.getContext("2d")
+        //低风险
+        g = v + b + n + 15
+        context.save()
+        
+        context.fillStyle = 'rgba(255, 212, 64, 0.7)';
+        context.strokeStyle = 'rgba(0,0,0,1)';
+        context.lineWidth = 1;
+        context.translate(250,g);
+
+        context.beginPath();
+        context.moveTo(-70,0)
+        context.lineTo(-103,-n)
+        context.lineTo(-53,-(n+20))
+        context.lineTo(53,-(n+20))
+        // context.lineTo(68,-b)
+        // context.lineTo(103,0)
+        // context.lineTo(53,20)
+        // context.lineTo(-53,20)
+        // context.lineTo(-103,0)
+        context.closePath();
+        context.stroke();
+        context.fill()
+        //中风险
+        f = v + b + 5
+        context.restore()
+        context.save()
+        context.fillStyle = 'rgba(233, 112, 26, 0.7)';
+        context.strokeStyle = 'rgba(255,255,255,0)';
+        context.lineWidth = 1;
+        context.translate(250,f);
+
+        context.beginPath();
+        context.moveTo(-103,0)
+        context.lineTo(-68,-b)
+        context.lineTo(-36,-(b+11))
+        context.lineTo(36,-(b+11))
+        context.lineTo(68,-b)
+        context.lineTo(103,0)
+        context.lineTo(53,20)
+        context.lineTo(-53,20)
+        context.lineTo(-103,0)
+        context.closePath();
+        context.stroke();
+        context.fill()
+
+        context.beginPath();
+        context.fillStyle = 'rgba(243, 51, 35, 0.7)';
+        context.strokeStyle = '#EF741F';
+        context.lineWidth = 3;
+        context.moveTo(-68,-b)
+        context.lineTo(-36,-(b+11))
+        context.lineTo(36,-(b+11))
+        context.lineTo(68,-b)
+        context.lineTo(36,-(b-14))
+        context.lineTo(-36,-(b-14))
+        context.lineTo(-68,-b)
+        context.closePath();
+        context.stroke();
+
+        context.beginPath();
+        context.fillStyle = 'rgba(243, 51, 35, 0.7)';
+        context.strokeStyle = '#EF741F';
+        context.lineWidth = 3;
+        context.moveTo(-103,0)
+        context.lineTo(-53,-15)
+        context.lineTo(53,-15)
+        context.lineTo(103,0)
+        context.lineTo(53,20)
+        context.lineTo(-53,20)
+        context.lineTo(-103,0)
+        context.closePath();
+        context.stroke();
+
+        context.beginPath();
+        context.lineWidth = 1;
+        context.setLineDash([3,5]);
+        context.moveTo(-36,-(b-14));
+        context.lineTo(-53,20);
+        context.closePath();
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(36,-(b-14));
+        context.lineTo(53,20);
+        context.closePath();
+        context.stroke();
+
+        //高风险
+        context.restore()
+        context.save()
+        context.fillStyle = 'rgba(243, 51, 35, 0.7)';
+        context.strokeStyle = 'rgba(255,255,255,0)';
+        context.lineWidth = 1;
+        context.translate(250,v);
+        context.moveTo(-66,0)
+        context.beginPath();
+        context.lineTo(0,-v)
+        context.lineTo(67,0)
+        context.lineTo(33,12)
+        context.lineTo(-33,12)
+        context.lineTo(-67,0)
+        context.closePath();
+        context.stroke();
+        context.fill()
+
+        context.moveTo(-67,0)
+        context.beginPath();
+        context.fillStyle = 'rgba(243, 51, 35, 0.7)';
+        context.strokeStyle = '#F33323';
+        context.lineWidth = 3;
+        context.lineTo(-33,12)
+        context.lineTo(33,12)
+        context.lineTo(67,0)
+        context.lineTo(33,-12);
+        context.lineTo(-33,-12);
+        context.lineTo(-67,0);
+        context.closePath();
+        context.stroke();
+
+        context.beginPath();
+        context.lineWidth = 1;
+        context.moveTo(0,-v);
+        context.lineTo(-67,0);
+        context.stroke();
+        
+        context.moveTo(0,-v);
+        context.lineTo(67,0);  
+        context.lineTo(0,-v); 
+        context.stroke();
+
+        context.beginPath();
+        context.lineWidth = 1;
+        context.setLineDash([3,5]);
+        context.moveTo(0,-v);
+        context.lineTo(-33,12);
+        context.closePath();
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(0,-v);
+        context.lineTo(33,12);
+        context.closePath();
+        context.stroke();
+
+        
+    }
+    hRender(67,40,35)
+    </script>
+</body>
+</html>

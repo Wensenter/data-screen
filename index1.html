@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/index1.css">
+    <!-- 引入MineMap API插件 -->
     <link rel="stylesheet" href="https://minedata.cn/minemapapi/v2.1.0/minemap.css">
     <script src="https://minedata.cn/minemapapi/v2.1.0/minemap.js"></script>
+    <!-- <script src="https://minedata.cn/minemapapi/v2.1.0/plugins/echarts/echarts.3.8.5.min.js"></script> -->
+    <script src="js/echarts.js"></script>
+    <script src="https://minedata.cn/minemapapi/v2.1.0/plugins/template/template.js"></script>
 </head>
 <body>
     <div class="wrap">
@@ -109,10 +113,10 @@
                 <div class="menu-ctx">
                     <ul>
                         <li>
-                            <a href="#" class="active">户籍分布图</a>
+                            <a href="#" class="active" onclick="addScatter1Sources()">户籍分布图</a>
                         </li>
                         <li>
-                            <a href="#">赴京流向图</a>
+                            <a href="#" onclick="addLine1Sources()">赴京流向图</a>
                         </li>
                         <li>
                             <a href="#">来兰流向图</a>
@@ -260,7 +264,6 @@
 </body>
 <script src="js/map.js"></script>
 <script src="js/jquery-3.3-min.js"></script>
-<script src="js/echarts.js"></script>
 <script src="js/swiper.min.js"></script>
 <script src="js/index1.js"></script>
 </html>
