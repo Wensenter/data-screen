@@ -343,3 +343,14 @@ yjfbOption = {
 }
 
 yjfbChart.setOption(yjfbOption)
+
+//风控状态
+let a = 555,b = 1455,c = 1234;d = 666;
+let sum = a + b + c + d;
+let ca,cb,cc,cd;
+ca = ((a/sum).toFixed(2))*150
+cb = ((b/sum).toFixed(2))*150
+cc = ((c/sum).toFixed(2))*150
+cd = ((d/sum).toFixed(2))*150
+console.log(ca,cb,cc,cd)
+hRender(21,55,48,25)
