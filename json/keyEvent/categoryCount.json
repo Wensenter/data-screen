@@ -1,0 +1,14 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": {
+        "totalPerson": 3235,
+        "keyPerson": 1234,
+        "attentionPerson": 1335,
+        "normalPerson": 134,
+        "totalWarning": 9800,
+        "feedback": 2345,
+        "handled": 2135,
+        "activePercentage": 70
+    }
+}

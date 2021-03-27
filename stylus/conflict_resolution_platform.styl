@@ -1,0 +1,270 @@
+@import './common.styl'
+.left
+    width 480px
+    height calc(1080px - 90px)
+    position absolute
+    left 0
+    top 90px
+    padding 23px 0
+    >div
+        position relative
+        width 480px
+        padding-left 30px
+        >.title
+            margin 0
+            font-size 0
+            .title-triangle
+                vertical-align middle
+                margin-right 7px
+            span
+                font-size 26px
+                color #6DDCFB
+                font-family 'MyNewFont'
+                opacity 0.5
+                display inline-block
+                margin-right 20px
+                cursor pointer
+                user-select none
+                vertical-align middle
+            .active
+                opacity 1
+        .ctx
+            margin-top 10px
+    .mafats
+        height 625px
+    .zacyorsshr
+        margin-top 20px
+.right
+    width 452px
+    height calc(1080px - 90px)
+    position absolute
+    right 0
+    top 90px
+    padding 23px 0
+    >div
+        height calc((1080px - 90px - 46px) / 3)
+        padding 0 30px
+        overflow hidden
+        >.title
+            margin 0
+            font-size 0
+            overflow hidden
+            line-height 30px
+            .title-triangle
+                vertical-align middle
+                margin-right 7px
+            span
+                font-size 26px
+                color #6DDCFB
+                font-family 'MyNewFont'
+                opacity 0.5
+                display inline-block
+                margin-right 20px
+                cursor pointer
+                user-select none
+                vertical-align middle
+            .active
+                opacity 1
+            a
+                font-size 16px
+                color #24DFFF
+                float right
+        .ctx
+            margin-top 10px
+.menu
+    display flex
+    position absolute
+    left 50%
+    transform translateX(-50%)
+    top 660px 
+    .menu-item
+        margin-right 23px
+        display flex
+        flex-direction column
+        align-items center
+        cursor pointer
+        &:last-child
+            margin-right 0
+        >span 
+            width 34px
+            height 34px
+            display inline-block
+            border 1px solid #00B4FF
+            border-radius 50%
+            text-align center
+            line-height 34px
+            color #25DFFF
+            box-shadow 0 0 5px #25DFFF inset
+        >p
+            color rgba(37, 223, 255, 0.5)
+            padding 11px 0 0
+            font-size 16px
+    .active
+        >span
+            background #025E85
+            color #fff
+        >p
+            color rgba(37, 223, 255, 1)
+.fxhjts
+    position absolute
+    left 480px
+    right 480px
+    bottom 73px
+    box-sizing border-box
+    width calc(1920px - 960px)
+    height 250px
+    padding 0 30px
+    >.title
+        margin 0
+        font-size 0
+        overflow hidden
+        line-height 30px
+        .title-triangle
+            vertical-align middle
+            margin-right 7px
+        span
+            font-size 26px
+            color #6DDCFB
+            font-family 'MyNewFont'
+            opacity 0.5
+            display inline-block
+            margin-right 20px
+            cursor pointer
+            user-select none
+            vertical-align middle
+        .active
+            opacity 1
+        a
+            font-size 16px
+            color #24DFFF
+            float right
+    .ctx
+        margin-top 0px
+.hjzk
+    width 452px
+    .ctx
+        width 392px
+        height 260px
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        .panel-item
+            width 187px
+            height 115px
+            background rgba(34, 223, 255, .1)
+            display flex
+            align-items center
+            padding 22px
+            .panel-left
+                width 40px
+                height 40px
+                margin-right 22px
+            .panel-right
+                display flex
+                flex-direction column
+                font-size 0
+                .title
+                    font-size 16px
+                    color #fff
+                    display inline-block
+                    margin-bottom 10px
+                .num
+                    font-size 28px
+                    font-weight bold
+        .find
+            .num
+                color #55D7E5
+        .icon-early-warning
+            .num
+                color #FFDE48
+        .defuse
+            .num
+                color #42FF85
+        .pending
+            .num
+                color #FE4C4C
+.bdyj
+    height 323px
+    .ctx
+        .yj-list
+            width 100%
+            padding 0
+            margin 0
+            list-style none
+            li
+                height 44px
+                line-height 44px
+                font-size 16px
+                color #fff
+                border-bottom 1px solid rgba(34,223,255,0.2)
+                display flex
+                justify-content space-between
+                padding 0 5px
+                box-sizing border-box
+                cursor pointer
+                .text
+                    display inline-block
+                    width 170px
+                    white-space nowrap
+                    // text-overflow ellipsis
+                    overflow hidden
+                    .no-lamp
+                        width 170px
+                        display inline-block
+                        overflow hidden
+                        text-overflow ellipsis
+                    .lamp
+                        display none
+                        overflow hidden
+                .time
+                    display flex
+                    align-items center
+                    .location
+                        width 19px
+                        height 23px
+                        margin-left 15px
+            .active
+                color #6DDCFB
+                box-shadow 0px 0px 8px rgb(0,179,254) inset
+                .text
+                    overflow hidden
+                    .no-lamp
+                        display none
+                    .lamp
+                        display inline-block
+.qbly
+    overflow visible !important
+#mafats
+    position absolute
+    top 0
+    left 30px
+    width 405px
+    margin-top 0
+    height 625px
+#sshr
+    height 245px
+    width 405px
+    display flex
+#zacyorsshr-1,#zacyorsshr-2
+    width 50%
+#zacy1
+    height 245px
+    width 405px
+.labelY 
+    align-self flex-end
+    width 20%
+    display flex
+    align-items center
+    flex-direction column
+    justify-content space-evenly
+    height 76%
+    margin-bottom: 0.5%
+    >span
+        font-size 12px
+        color #fff
+#fxtshj
+    height 284px
+    position relative
+    top -30px
+#qbly
+    height 260px

@@ -1,0 +1,10 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": {
+        "findClue": 13356,
+        "triggerWarning": 2345,
+        "resolveWarning": 1223,
+        "todayTodo": 45
+    }
+}

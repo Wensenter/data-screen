@@ -1,0 +1,96 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": [
+        {
+            "areaCode": "620000",
+            "areaName": "省厅",
+            "activeCount": 998,
+            "totalCount": 1201
+        },
+        {
+            "areaCode": "620100",
+            "areaName": "兰州",
+            "activeCount": 1500,
+            "totalCount": 1500
+        },
+        {
+            "areaCode": "620200",
+            "areaName": "嘉峪关",
+            "activeCount": 1491,
+            "totalCount": 1488
+        },
+        {
+            "areaCode": "620300",
+            "areaName": "金昌",
+            "activeCount": 1482,
+            "totalCount": 1476
+        },
+        {
+            "areaCode": "620400",
+            "areaName": "白银",
+            "activeCount": 1473,
+            "totalCount": 1464
+        },
+        {
+            "areaCode": "620500",
+            "areaName": "天水",
+            "activeCount": 1464,
+            "totalCount": 1452
+        },
+        {
+            "areaCode": "620900",
+            "areaName": "酒泉",
+            "activeCount": 1455,
+            "totalCount": 1440
+        },
+        {
+            "areaCode": "620700",
+            "areaName": "张掖",
+            "activeCount": 1446,
+            "totalCount": 1428
+        },
+        {
+            "areaCode": "620600",
+            "areaName": "武威",
+            "activeCount": 1437,
+            "totalCount": 1416
+        },
+        {
+            "areaCode": "621100",
+            "areaName": "定西",
+            "activeCount": 1428,
+            "totalCount": 1404
+        },
+        {
+            "areaCode": "621200",
+            "areaName": "陇南",
+            "activeCount": 1419,
+            "totalCount": 1392
+        },
+        {
+            "areaCode": "620800",
+            "areaName": "平凉",
+            "activeCount": 1410,
+            "totalCount": 1380
+        },
+        {
+            "areaCode": "621000",
+            "areaName": "庆阳",
+            "activeCount": 1401,
+            "totalCount": 1368
+        },
+        {
+            "areaCode": "622900",
+            "areaName": "临夏",
+            "activeCount": 1392,
+            "totalCount": 1356
+        },
+        {
+            "areaCode": "623000",
+            "areaName": "甘南",
+            "activeCount": 1383,
+            "totalCount": 1344
+        }
+    ]
+}

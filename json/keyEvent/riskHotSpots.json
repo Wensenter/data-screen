@@ -1,0 +1,10 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": {
+        "areaCode": "6201",
+        "areaName": "兰州市",
+        "warningNum": 998,
+        "feedbackNum": 134
+    }
+}

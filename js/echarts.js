@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.echarts = {})));
+	(factory((global.echarts3 = {})));
 }(this, (function (exports) { 'use strict';
 
 /*
@@ -59,9 +59,9 @@ var guid = function () {
 };
 
 /**
- * echarts设备环境识别
+ * echarts3设备环境识别
  *
- * @desc echarts基于Canvas，纯Javascript图表库，提供直观，生动，可交互，可个性化定制的数据统计图表。
+ * @desc echarts3基于Canvas，纯Javascript图表库，提供直观，生动，可交互，可个性化定制的数据统计图表。
  * @author firede[firede@firede.us]
  * @desc thanks zepto.
  */
@@ -301,7 +301,7 @@ function $override(name, fn) {
  *
  * Caution: do not support clone Date, for performance consideration.
  * (There might be a large number of date in `series.data`).
- * So date should not be modified in and out of echarts.
+ * So date should not be modified in and out of echarts3.
  *
  * @param {*} source
  * @return {*} new
@@ -2073,7 +2073,7 @@ function addEventListener(el, name, handler, opt) {
         // See https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
         // We have not yet found a neat way to using passive. Because in zrender the dom event
         // listener delegate all of the upper events of element. Some of those events need
-        // to prevent default. For example, the feature `preventDefaultMouseMove` of echarts.
+        // to prevent default. For example, the feature `preventDefaultMouseMove` of echarts3.
         // Before passive can be adopted, these issues should be considered:
         // (1) Whether and how a zrender user specifies an event listener passive. And by default,
         // passive or not.
@@ -2265,7 +2265,7 @@ var recognizers = {
  * (e.g., standalone browser, headless browser, embed browser in mobild APP, ...).
  * But `HandlerProxy` can be replaced to support more non-standard environment
  * (e.g., mini app), or to support more feature that the default `HandlerProxy`
- * not provided (like echarts-gl did).
+ * not provided (like echarts3-gl did).
  * So the interface between `Handler` and `HandlerProxy` should be stable. Do not
  * make break changes util inevitable. The interface include the public methods
  * of `Handler` and the events listed in `handlerNames` below, by which `HandlerProxy`
@@ -4394,7 +4394,7 @@ var color = (Object.freeze || Object)({
 });
 
 /**
- * @module echarts/animation/Animator
+ * @module echarts3/animation/Animator
  */
 
 var arraySlice = Array.prototype.slice;
@@ -5611,7 +5611,7 @@ mixin(Element, Transformable);
 mixin(Element, Eventful);
 
 /**
- * @module echarts/core/BoundingRect
+ * @module echarts3/core/BoundingRect
  */
 
 var v2ApplyTransform = applyTransform;
@@ -5619,7 +5619,7 @@ var mathMin = Math.min;
 var mathMax = Math.max;
 
 /**
- * @alias module:echarts/core/BoundingRect
+ * @alias module:echarts3/core/BoundingRect
  */
 function BoundingRect(x, y, width, height) {
 
@@ -5655,7 +5655,7 @@ BoundingRect.prototype = {
     constructor: BoundingRect,
 
     /**
-     * @param {module:echarts/core/BoundingRect} other
+     * @param {module:echarts3/core/BoundingRect} other
      */
     union: function (other) {
         var x = mathMin(other.x, this.x);
@@ -5729,7 +5729,7 @@ BoundingRect.prototype = {
     },
 
     /**
-     * @param {(module:echarts/core/BoundingRect|Object)} b
+     * @param {(module:echarts3/core/BoundingRect|Object)} b
      * @return {boolean}
      */
     intersect: function (b) {
@@ -5765,7 +5765,7 @@ BoundingRect.prototype = {
     },
 
     /**
-     * @return {module:echarts/core/BoundingRect}
+     * @return {module:echarts3/core/BoundingRect}
      */
     clone: function () {
         return new BoundingRect(this.x, this.y, this.width, this.height);
@@ -7127,7 +7127,7 @@ Style.prototype = {
      * `false`/`null`/`undefined` are the same.
      * `false` is used to remove lineDash in some
      * case that `null`/`undefined` can not be set.
-     * (e.g., emphasis.lineStyle in echarts)
+     * (e.g., emphasis.lineStyle in echarts3)
      * @type {Array.<number>|boolean}
      */
     lineDash: null,
@@ -7173,7 +7173,7 @@ Style.prototype = {
     /**
      * If `fontSize` or `fontFamily` exists, `font` will be reset by
      * `fontSize`, `fontStyle`, `fontWeight`, `fontFamily`.
-     * So do not visit it directly in upper application (like echarts),
+     * So do not visit it directly in upper application (like echarts3),
      * but use `contain/text#makeFont` instead.
      * @type {string}
      */
@@ -10658,7 +10658,7 @@ Painter.prototype = {
             });
         }
         else {
-            // PENDING, echarts-gl and incremental rendering.
+            // PENDING, echarts3-gl and incremental rendering.
             var scope = {};
             var displayList = this.storage.getDisplayList(true);
             for (var i = 0; i < displayList.length; i++) {
@@ -10916,7 +10916,7 @@ Animation.prototype = {
         this.onframe(delta);
 
         // 'frame' should be triggered before stage, because upper application
-        // depends on the sequence (e.g., echarts-stream and finish
+        // depends on the sequence (e.g., echarts3-stream and finish
         // event judge)
         this.trigger('frame', delta);
 
@@ -11213,7 +11213,7 @@ var localDOMHandlers = {
 
         // There might be some doms created by upper layer application
         // at the same level of painter.getViewportRoot() (e.g., tooltip
-        // dom created by echarts), where 'globalout' event should not
+        // dom created by echarts3), where 'globalout' event should not
         // be triggered when mouse enters these doms. (But 'mouseout'
         // should be triggered at the original hovered element as usual).
         var element = event.toElement || event.relatedTarget;
@@ -12149,7 +12149,7 @@ function isDataItemOption(dataItem) {
  * Mapping to exists for merge.
  *
  * @public
- * @param {Array.<Object>|Array.<module:echarts/model/Component>} exists
+ * @param {Array.<Object>|Array.<module:echarts3/model/Component>} exists
  * @param {Object|Array.<Object>} newCptOptions
  * @return {Array.<Object>} Result, like [{exist: ..., option: ...}, {}],
  *                          index of which is the same as exists.
@@ -12248,7 +12248,7 @@ function mappingToExists(exists, newCptOptions) {
  */
 function makeIdAndName(mapResult) {
     // We use this id to hash component models and view instances
-    // in echarts. id can be specified by user, or auto generated.
+    // in echarts3. id can be specified by user, or auto generated.
 
     // The id generation rule ensures new view instance are able
     // to mapped to old instance when setOption are called in
@@ -12394,7 +12394,7 @@ function compressBatches(batchA, batchB) {
 }
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Object} payload Contains dataIndex (means rawIndex) / dataIndexInside / name
  *                         each of which can be Array or primary type.
  * @return {number|Array.<number>} dataIndex If not found, return undefined/null.
@@ -12449,7 +12449,7 @@ function makeInner() {
 var innerUniqueIndex = 0;
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @param {string|Object} finder
  *        If string, e.g., 'geo', means {geoIndex: 0}.
  *        If Object, could contain some of these properties below:
@@ -15117,7 +15117,7 @@ Path.prototype = {
 
     strokeContainThreshold: 5,
 
-    // This item default to be false. But in map series in echarts,
+    // This item default to be false. But in map series in echarts3,
     // in order to improve performance, it should be set to true,
     // so the shorty segment won't draw.
     segmentIgnoreThreshold: 0,
@@ -17307,13 +17307,13 @@ function registerShape(name, ShapeClass) {
  * fetching user defined shape.
  *
  * [Caution]:
- * (1) This method **MUST NOT be used inside echarts !!!**, unless it is prepared
+ * (1) This method **MUST NOT be used inside echarts3 !!!**, unless it is prepared
  * to use user registered shapes.
  * Because the built-in shape (see `getBuiltInShape`) will be registered by
  * `registerShape` by default. That enables users to get both built-in
  * shapes as well as the shapes belonging to themsleves. But users can overwrite
  * the built-in shapes by using names like 'circle', 'rect' via calling
- * `registerShape`. So the echarts inner featrues should not fetch shapes from here
+ * `registerShape`. So the echarts3 inner featrues should not fetch shapes from here
  * in case that it is overwritten by users, except that some features, like
  * `custom series`, `graphic component`, do it deliberately.
  *
@@ -17573,7 +17573,7 @@ function singleEnterEmphasis(el) {
     //    }
     // },
     // where properties of `emphasis` may not appear in `normal`. We previously use
-    // module:echarts/util/model#defaultEmphasis to merge `normal` to `emphasis`.
+    // module:echarts3/util/model#defaultEmphasis to merge `normal` to `emphasis`.
     // But consider rich text and setOption in merge mode, it is impossible to cover
     // all properties in merge. So we use merge mode when setting style here.
     // But we choose the merge strategy that only properties that is not `null/undefined`.
@@ -17783,7 +17783,7 @@ function setHoverStyle(el, hoverStyle) {
  *        @param {string} toState Can be "normal" or "emphasis".
  *
  *        FIXME
- *        CAUTION: Do not expose `highDownOnUpdate` outside echarts.
+ *        CAUTION: Do not expose `highDownOnUpdate` outside echarts3.
  *        Because it is not a complete solution. The update
  *        listener should not have been mount in element,
  *        and the normal/emphasis state should not have
@@ -17852,11 +17852,11 @@ function getHighlightDigit(highlightKey) {
  * See more info in `setTextStyleCommon`.
  * @param {Object|module:zrender/graphic/Style} normalStyle
  * @param {Object} emphasisStyle
- * @param {module:echarts/model/Model} normalModel
- * @param {module:echarts/model/Model} emphasisModel
+ * @param {module:echarts3/model/Model} normalModel
+ * @param {module:echarts3/model/Model} emphasisModel
  * @param {Object} opt Check `opt` of `setTextStyleCommon` to find other props.
  * @param {string|Function} [opt.defaultText]
- * @param {module:echarts/model/Model} [opt.labelFetcher] Fetch text by
+ * @param {module:echarts3/model/Model} [opt.labelFetcher] Fetch text by
  *      `opt.labelFetcher.getFormattedLabel(opt.labelDataIndex, 'normal'/'emphasis', null, opt.labelDimIndex, opt.labelProp)`
  * @param {number} [opt.labelDataIndex] Fetch text by
  *      `opt.textFetcher.getFormattedLabel(opt.labelDataIndex, 'normal'/'emphasis', null, opt.labelDimIndex, opt.labelProp)`
@@ -17950,7 +17950,7 @@ function modifyLabelStyle(el, normalStyleProps, emphasisStyleProps) {
  * Set basic textStyle properties.
  * See more info in `setTextStyleCommon`.
  * @param {Object|module:zrender/graphic/Style} textStyle
- * @param {module:echarts/model/Model} model
+ * @param {module:echarts3/model/Model} model
  * @param {Object} [specifiedTextStyle] Can be overrided by settings in model.
  * @param {Object} [opt] See `opt` of `setTextStyleCommon`.
  * @param {boolean} [isEmphasis]
@@ -17970,7 +17970,7 @@ function setTextStyle(
  * See more info in `setTextStyleCommon`.
  * @deprecated
  * @param {Object} textStyle
- * @param {module:echarts/model/Model} labelModel
+ * @param {module:echarts3/model/Model} labelModel
  * @param {string|boolean} defaultColor Default text color.
  *        If set as false, it will be processed as a emphasis style.
  */
@@ -18337,7 +18337,7 @@ function animateOrSetProps(isUpdate, el, props, animatableModel, dataIndex, cb) 
  *
  * @param {module:zrender/Element} el
  * @param {Object} props
- * @param {module:echarts/model/Model} [animatableModel]
+ * @param {module:echarts3/model/Model} [animatableModel]
  * @param {number} [dataIndex]
  * @param {Function} [cb]
  * @example
@@ -18363,7 +18363,7 @@ function updateProps(el, props, animatableModel, dataIndex, cb) {
  *
  * @param {module:zrender/Element} el
  * @param {Object} props
- * @param {module:echarts/model/Model} [animatableModel]
+ * @param {module:echarts3/model/Model} [animatableModel]
  * @param {number} [dataIndex]
  * @param {Function} cb
  */
@@ -18835,28 +18835,28 @@ var itemStyleMixin = {
 */
 
 /**
- * @module echarts/model/Model
+ * @module echarts3/model/Model
  */
 
 var mixin$1 = mixin;
 var inner = makeInner();
 
 /**
- * @alias module:echarts/model/Model
+ * @alias module:echarts3/model/Model
  * @constructor
  * @param {Object} [option]
- * @param {module:echarts/model/Model} [parentModel]
- * @param {module:echarts/model/Global} [ecModel]
+ * @param {module:echarts3/model/Model} [parentModel]
+ * @param {module:echarts3/model/Global} [ecModel]
  */
 function Model(option, parentModel, ecModel) {
     /**
-     * @type {module:echarts/model/Model}
+     * @type {module:echarts3/model/Model}
      * @readOnly
      */
     this.parentModel = parentModel;
 
     /**
-     * @type {module:echarts/model/Global}
+     * @type {module:echarts3/model/Global}
      * @readOnly
      */
     this.ecModel = ecModel;
@@ -18930,8 +18930,8 @@ Model.prototype = {
 
     /**
      * @param {string|Array.<string>} [path]
-     * @param {module:echarts/model/Model} [parentModel]
-     * @return {module:echarts/model/Model}
+     * @param {module:echarts3/model/Model} [parentModel]
+     * @return {module:echarts3/model/Model}
      */
     getModel: function (path, parentModel) {
         var obj = path == null
@@ -18977,7 +18977,7 @@ Model.prototype = {
     /**
      * @param {Function} getParentMethod
      *        param {Array.<string>|string} path
-     *        return {module:echarts/model/Model}
+     *        return {module:echarts3/model/Model}
      */
     customizeGetParent: function (getParentMethod) {
         inner(this).getParent = getParentMethod;
@@ -19247,7 +19247,7 @@ function _trim(str) {
 
 /**
  * Linear mapping a value from domain to range
- * @memberOf module:echarts/util/number
+ * @memberOf module:echarts3/util/number
  * @param  {(number|Array.<number>)} val
  * @param  {Array.<number>} domain Domain extent domain[0] can be bigger than domain[1]
  * @param  {Array.<number>} range  Range extent range[0] can be bigger than range[1]
@@ -19266,7 +19266,7 @@ function linearMap(val, domain, range, clamp) {
 
     // Avoid accuracy problem in edge, such as
     // 146.39 - 62.83 === 83.55999999999999.
-    // See echarts/test/ut/spec/util/number.js#linearMap#accuracyError
+    // See echarts3/test/ut/spec/util/number.js#linearMap#accuracyError
     // It is a little verbose for efficiency considering this method
     // is a hotspot.
     if (clamp) {
@@ -19302,7 +19302,7 @@ function linearMap(val, domain, range, clamp) {
 /**
  * Convert a percent string to absolute number.
  * Returns NaN if percent is not a valid string or number
- * @memberOf module:echarts/util/number
+ * @memberOf module:echarts3/util/number
  * @param {string|number} percent
  * @param {number} all
  * @return {number}
@@ -19973,8 +19973,8 @@ function pad(str, len) {
  * @param {string} tpl
  * @param {number} value
  * @param {boolean} [isUTC=false] Default in local time.
- *           see `module:echarts/scale/Time`
- *           and `module:echarts/util/number#parseDate`.
+ *           see `module:echarts3/scale/Time`
+ *           and `module:echarts3/util/number#parseDate`.
  * @inner
  */
 function formatTime(tpl, value, isUTC) {
@@ -20654,17 +20654,17 @@ var boxLayoutMixin = {
 /**
  * Component model
  *
- * @module echarts/model/Component
+ * @module echarts3/model/Component
  */
 
 var inner$1 = makeInner();
 
 /**
- * @alias module:echarts/model/Component
+ * @alias module:echarts3/model/Component
  * @constructor
  * @param {Object} option
- * @param {module:echarts/model/Model} parentModel
- * @param {module:echarts/model/Model} ecModel
+ * @param {module:echarts3/model/Model} parentModel
+ * @param {module:echarts3/model/Model} ecModel
  */
 var ComponentModel = Model.extend({
 
@@ -20712,7 +20712,7 @@ var ComponentModel = Model.extend({
     defaultOption: null,
 
     /**
-     * @type {module:echarts/model/Global}
+     * @type {module:echarts3/model/Global}
      * @readOnly
      */
     ecModel: null,
@@ -20720,7 +20720,7 @@ var ComponentModel = Model.extend({
     /**
      * key: componentType
      * value:  Component model list, can not be null.
-     * @type {Object.<string, Array.<module:echarts/model/Model>>}
+     * @type {Object.<string, Array.<module:echarts3/model/Model>>}
      * @readOnly
      */
     dependentModels: [],
@@ -20927,10 +20927,10 @@ var globalDefault = {
     // It is recommended that `hoverLayerThreshold` is equivalent to or less than
     // `progressiveThreshold`, otherwise hover will cause restart of progressive,
     // which is unexpected.
-    // see example <echarts/test/heatmap-large.html>.
+    // see example <echarts3/test/heatmap-large.html>.
     hoverLayerThreshold: 3000,
 
-    // See: module:echarts/scale/Time
+    // See: module:echarts3/scale/Time
     useUTC: false
 };
 
@@ -21208,8 +21208,8 @@ var BE_ORDINAL = {
 var inner$3 = makeInner();
 
 /**
- * @see {module:echarts/data/Source}
- * @param {module:echarts/component/dataset/DatasetModel} datasetModel
+ * @see {module:echarts3/data/Source}
+ * @param {module:echarts3/component/dataset/DatasetModel} datasetModel
  * @return {string} sourceFormat
  */
 function detectSourceFormat(datasetModel) {
@@ -21277,7 +21277,7 @@ function detectSourceFormat(datasetModel) {
  *     }]
  *
  * Get data from series itself or datset.
- * @return {module:echarts/data/Source} source
+ * @return {module:echarts3/data/Source} source
  */
 function getSource(seriesModel) {
     return inner$3(seriesModel).source;
@@ -21285,7 +21285,7 @@ function getSource(seriesModel) {
 
 /**
  * MUST be called before mergeOption of all series.
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  */
 function resetSourceDefaulter(ecModel) {
     // `datasetMap` is used to make default encode.
@@ -21306,7 +21306,7 @@ function resetSourceDefaulter(ecModel) {
  * series: [{encode: {x: 0, y: 1}}, {encode: {x: 0, y: 2}}, {encode: {x: 0, y: 3}}],
  * where the "y" have to be manually typed as "1, 2, 3, ...".
  *
- * @param {module:echarts/model/Series} seriesModel
+ * @param {module:echarts3/model/Series} seriesModel
  */
 function prepareSource(seriesModel) {
     var seriesOption = seriesModel.option;
@@ -21853,9 +21853,9 @@ function doGuessOrdinal(
 */
 
 /**
- * ECharts global model
+ * echarts3 global model
  *
- * @module {echarts/model/Global}
+ * @module {echarts3/model/Global}
  */
 
 
@@ -21869,16 +21869,16 @@ function doGuessOrdinal(
  * will be merged by index, and the result sequence of the components is
  * consistent to the original sequence.
  * (3) `reset` feature (in toolbox). Find detailed info in comments about
- * `mergeOption` in module:echarts/model/OptionManager.
+ * `mergeOption` in module:echarts3/model/OptionManager.
  */
 
 var OPTION_INNER_KEY = '\0_ec_inner';
 
 /**
- * @alias module:echarts/model/Global
+ * @alias module:echarts3/model/Global
  *
  * @param {Object} option
- * @param {module:echarts/model/Model} parentModel
+ * @param {module:echarts3/model/Model} parentModel
  * @param {Object} theme
  */
 var GlobalModel = Model.extend({
@@ -21889,13 +21889,13 @@ var GlobalModel = Model.extend({
         this.option = null; // Mark as not initialized.
 
         /**
-         * @type {module:echarts/model/Model}
+         * @type {module:echarts3/model/Model}
          * @private
          */
         this._theme = new Model(theme);
 
         /**
-         * @type {module:echarts/model/OptionManager}
+         * @type {module:echarts3/model/OptionManager}
          */
         this._optionManager = optionManager;
     },
@@ -22106,7 +22106,7 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @return {module:echarts/model/Model}
+     * @return {module:echarts3/model/Model}
      */
     getTheme: function () {
         return this._theme;
@@ -22115,7 +22115,7 @@ var GlobalModel = Model.extend({
     /**
      * @param {string} mainType
      * @param {number} [idx=0]
-     * @return {module:echarts/model/Component}
+     * @return {module:echarts3/model/Component}
      */
     getComponent: function (mainType, idx) {
         var list = this._componentsMap.get(mainType);
@@ -22132,7 +22132,7 @@ var GlobalModel = Model.extend({
      * @param {number|Array.<number>} [condition.index] Either input index or id or name.
      * @param {string|Array.<string>} [condition.id] Either input index or id or name.
      * @param {string|Array.<string>} [condition.name] Either input index or id or name.
-     * @return {Array.<module:echarts/model/Component>}
+     * @return {Array.<module:echarts3/model/Component>}
      */
     queryComponents: function (condition) {
         var mainType = condition.mainType;
@@ -22210,7 +22210,7 @@ var GlobalModel = Model.extend({
      *        do not filtering by query conditions, which is convenient for
      *        no-payload situations or when target of action is global.
      * @param {Function} [condition.filter] parameter: component, return boolean.
-     * @return {Array.<module:echarts/model/Component>}
+     * @return {Array.<module:echarts3/model/Component>}
      */
     findComponents: function (condition) {
         var query = condition.query;
@@ -22295,7 +22295,7 @@ var GlobalModel = Model.extend({
 
     /**
      * @param {string} name
-     * @return {Array.<module:echarts/model/Series>}
+     * @return {Array.<module:echarts3/model/Series>}
      */
     getSeriesByName: function (name) {
         var series = this._componentsMap.get('series');
@@ -22306,7 +22306,7 @@ var GlobalModel = Model.extend({
 
     /**
      * @param {number} seriesIndex
-     * @return {module:echarts/model/Series}
+     * @return {module:echarts3/model/Series}
      */
     getSeriesByIndex: function (seriesIndex) {
         return this._componentsMap.get('series')[seriesIndex];
@@ -22317,7 +22317,7 @@ var GlobalModel = Model.extend({
      * FIXME: rename to getRawSeriesByType?
      *
      * @param {string} subType
-     * @return {Array.<module:echarts/model/Series>}
+     * @return {Array.<module:echarts3/model/Series>}
      */
     getSeriesByType: function (subType) {
         var series = this._componentsMap.get('series');
@@ -22327,7 +22327,7 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @return {Array.<module:echarts/model/Series>}
+     * @return {Array.<module:echarts3/model/Series>}
      */
     getSeries: function () {
         return this._componentsMap.get('series').slice();
@@ -22395,7 +22395,7 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @param {module:echarts/model/Series} seriesModel
+     * @param {module:echarts3/model/Series} seriesModel
      */
     isSeriesFiltered: function (seriesModel) {
         assertSeriesInitialized(this);
@@ -22495,7 +22495,7 @@ function initBase(baseOption) {
     /**
      * Init with series: [], in case of calling findSeries method
      * before series initialized.
-     * @type {Object.<string, Array.<module:echarts/model/Model>>}
+     * @type {Object.<string, Array.<module:echarts3/model/Model>>}
      * @private
      */
     this._componentsMap = createHashMap({series: []});
@@ -22609,15 +22609,15 @@ mixin(GlobalModel, colorPaletteMixin);
 * under the License.
 */
 
-var echartsAPIList = [
+var echarts3APIList = [
     'getDom', 'getZr', 'getWidth', 'getHeight', 'getDevicePixelRatio', 'dispatchAction', 'isDisposed',
     'on', 'off', 'getDataURL', 'getConnectedDataURL', 'getModel', 'getOption',
     'getViewOfComponentModel', 'getViewOfSeriesModel'
 ];
-// And `getCoordinateSystems` and `getComponentByElement` will be injected in echarts.js
+// And `getCoordinateSystems` and `getComponentByElement` will be injected in echarts3.js
 
 function ExtensionAPI(chartInstance) {
-    each$1(echartsAPIList, function (name) {
+    each$1(echarts3APIList, function (name) {
         this[name] = bind(chartInstance[name], chartInstance);
     }, this);
 }
@@ -22701,9 +22701,9 @@ CoordinateSystemManager.get = function (type) {
 */
 
 /**
- * ECharts option manager
+ * echarts3 option manager
  *
- * @module {echarts/model/OptionManager}
+ * @module {echarts3/model/OptionManager}
  */
 
 
@@ -22733,7 +22733,7 @@ var QUERY_REG = /^(min|max)?(.+)$/;
  *
  * [rawOption]:
  *
- *     An object input to echarts.setOption. 'rawOption' may be an
+ *     An object input to echarts3.setOption. 'rawOption' may be an
  *     'option', or may be an object contains multi-options. For example:
  *     var option = {
  *         baseOption: {
@@ -22766,14 +22766,14 @@ var QUERY_REG = /^(min|max)?(.+)$/;
  *         ]
  *     };
  *
- * @alias module:echarts/model/OptionManager
- * @param {module:echarts/ExtensionAPI} api
+ * @alias module:echarts3/model/OptionManager
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function OptionManager(api) {
 
     /**
      * @private
-     * @type {module:echarts/ExtensionAPI}
+     * @type {module:echarts3/ExtensionAPI}
      */
     this._api = api;
 
@@ -22832,7 +22832,7 @@ OptionManager.prototype = {
     /**
      * @public
      * @param {Object} rawOption Raw option.
-     * @param {module:echarts/model/Global} ecModel
+     * @param {module:echarts3/model/Global} ecModel
      * @param {Array.<Function>} optionPreprocessorFuncs
      * @return {Object} Init option
      */
@@ -22907,7 +22907,7 @@ OptionManager.prototype = {
     },
 
     /**
-     * @param {module:echarts/model/Global} ecModel
+     * @param {module:echarts3/model/Global} ecModel
      * @return {Object}
      */
     getTimelineOption: function (ecModel) {
@@ -22930,7 +22930,7 @@ OptionManager.prototype = {
     },
 
     /**
-     * @param {module:echarts/model/Global} ecModel
+     * @param {module:echarts3/model/Global} ecModel
      * @return {Array.<Object>}
      */
     getMediaOption: function (ecModel) {
@@ -23574,7 +23574,7 @@ var backwardCompat = function (option, isTheme) {
 
 // (1) [Caution]: the logic is correct based on the premises:
 //     data processing stage is blocked in stream.
-//     See <module:echarts/stream/Scheduler#performDataProcessorTasks>
+//     See <module:echarts3/stream/Scheduler#performDataProcessorTasks>
 // (2) Only register once when import repeatly.
 //     Should be executed after series filtered and before stack calculation.
 var dataStack = function (ecModel) {
@@ -23988,7 +23988,7 @@ function converDataValue(value, dimInfo) {
 // value may be 0.91000000001, which have brings trouble to display.
 // TODO: consider how to treat null/undefined/NaN when display?
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} dataIndex
  * @param {string|number} [dim] dimName or dimIndex
  * @return {Array.<number>|string|number} can be null/undefined.
@@ -24026,7 +24026,7 @@ function retrieveRawValue(data, dataIndex, dim) {
  * ??? TODO
  * Supported detail options in data item when using 'arrayRows'.
  *
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} dataIndex
  * @param {string} attr like 'selected'
  */
@@ -24567,7 +24567,7 @@ var SeriesModel = ComponentModel.extend({
      */
     seriesIndex: 0,
 
-    // coodinateSystem will be injected in the echarts/CoordinateSystem
+    // coodinateSystem will be injected in the echarts3/CoordinateSystem
     coordinateSystem: null,
 
     /**
@@ -24629,7 +24629,7 @@ var SeriesModel = ComponentModel.extend({
         }
 
         /**
-         * @type {module:echarts/data/List|module:echarts/data/Tree|module:echarts/data/Graph}
+         * @type {module:echarts3/data/List|module:echarts3/data/Tree|module:echarts3/data/Graph}
          * @private
          */
         inner$4(this).dataBeforeProcessed = data;
@@ -24637,8 +24637,8 @@ var SeriesModel = ComponentModel.extend({
         // If we reverse the order (make data firstly, and then make
         // dataBeforeProcessed by cloneShallow), cloneShallow will
         // cause data.graph.data !== data when using
-        // module:echarts/data/Graph or module:echarts/data/Tree.
-        // See module:echarts/data/helper/linkList
+        // module:echarts3/data/Graph or module:echarts3/data/Tree.
+        // See module:echarts3/data/helper/linkList
 
         // Theoretically, it is unreasonable to call `seriesModel.getData()` in the model
         // init or merge stage, because the data can be restored. So we do not `restoreData`
@@ -24652,7 +24652,7 @@ var SeriesModel = ComponentModel.extend({
     /**
      * Util for merge default and theme to option
      * @param  {Object} option
-     * @param  {module:echarts/model/Global} ecModel
+     * @param  {module:echarts3/model/Global} ecModel
      */
     mergeDefaultAndTheme: function (option, ecModel) {
         var layoutMode = this.layoutMode;
@@ -24745,7 +24745,7 @@ var SeriesModel = ComponentModel.extend({
      * data in the stream procedure. So we fetch data from upstream
      * each time `task.perform` called.
      * @param {string} [dataType]
-     * @return {module:echarts/data/List}
+     * @return {module:echarts3/data/List}
      */
     getData: function (dataType) {
         var task = getCurrentTask(this);
@@ -24763,7 +24763,7 @@ var SeriesModel = ComponentModel.extend({
     },
 
     /**
-     * @param {module:echarts/data/List} data
+     * @param {module:echarts3/data/List} data
      */
     setData: function (data) {
         var task = getCurrentTask(this);
@@ -24790,8 +24790,8 @@ var SeriesModel = ComponentModel.extend({
     },
 
     /**
-     * @see {module:echarts/data/helper/sourceHelper#getSource}
-     * @return {module:echarts/data/Source} source
+     * @see {module:echarts3/data/helper/sourceHelper#getSource}
+     * @return {module:echarts3/data/Source} source
      */
     getSource: function () {
         return getSource(this);
@@ -24799,7 +24799,7 @@ var SeriesModel = ComponentModel.extend({
 
     /**
      * Get data before processed
-     * @return {module:echarts/data/List}
+     * @return {module:echarts3/data/List}
      */
     getRawData: function () {
         return inner$4(this).dataBeforeProcessed;
@@ -25024,7 +25024,7 @@ var SeriesModel = ComponentModel.extend({
      * @abstract
      * @param {Array.<string>|string} dim
      * @param {Array.<number>} value
-     * @param {module:echarts/coord/single/SingleAxis} baseAxis
+     * @param {module:echarts3/coord/single/SingleAxis} baseAxis
      * @return {Object} {dataIndices, nestestValue}.
      */
     getAxisTooltipData: null,
@@ -25038,7 +25038,7 @@ var SeriesModel = ComponentModel.extend({
     getTooltipPosition: null,
 
     /**
-     * @see {module:echarts/stream/Scheduler}
+     * @see {module:echarts3/stream/Scheduler}
      */
     pipeTask: null,
 
@@ -25295,25 +25295,25 @@ Chart.prototype = {
 
     /**
      * Init the chart.
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     init: function (ecModel, api) {},
 
     /**
      * Render the chart.
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      */
     render: function (seriesModel, ecModel, api, payload) {},
 
     /**
      * Highlight series or specified data item.
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      */
     highlight: function (seriesModel, ecModel, api, payload) {
@@ -25322,9 +25322,9 @@ Chart.prototype = {
 
     /**
      * Downplay series or specified data item.
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      */
     downplay: function (seriesModel, ecModel, api, payload) {
@@ -25333,8 +25333,8 @@ Chart.prototype = {
 
     /**
      * Remove self.
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     remove: function (ecModel, api) {
         this.group.removeAll();
@@ -25342,16 +25342,16 @@ Chart.prototype = {
 
     /**
      * Dispose self.
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     dispose: function () {},
 
     /**
      * Rendering preparation in progressive mode.
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      */
     incrementalPrepareRender: null,
@@ -25359,18 +25359,18 @@ Chart.prototype = {
     /**
      * Render in progressive mode.
      * @param  {Object} params See taskParams in `stream/task.js`
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      */
     incrementalRender: null,
 
     /**
      * Update transform directly.
-     * @param  {module:echarts/model/Series} seriesModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Series} seriesModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @param  {Object} payload
      * @return {Object} {update: true}
      */
@@ -25424,7 +25424,7 @@ function elSetState(el, state, highlightDigit) {
 }
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Object} payload
  * @param {string} state 'normal'|'emphasis'
  */
@@ -26068,7 +26068,7 @@ var aria = function (dom, ecModel) {
 var PI$1 = Math.PI;
 
 /**
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {Object} [opts]
  * @param {string} [opts.text]
  * @param {string} [opts.color]
@@ -26191,7 +26191,7 @@ var loadingDefault = function (api, opts) {
 */
 
 /**
- * @module echarts/stream/Scheduler
+ * @module echarts3/stream/Scheduler
  */
 
 /**
@@ -26203,8 +26203,8 @@ function Scheduler(ecInstance, api, dataProcessorHandlers, visualHandlers) {
     this.unfinished;
 
     // Fix current processors in case that in some rear cases that
-    // processors might be registered after echarts instance created.
-    // Register processors incrementally for a echarts instance is
+    // processors might be registered after echarts3 instance created.
+    // Register processors incrementally for a echarts3 instance is
     // not supported by this stream architecture.
     var dataProcessorHandlers = this._dataProcessorHandlers = dataProcessorHandlers.slice();
     var visualHandlers = this._visualHandlers = visualHandlers.slice();
@@ -26227,7 +26227,7 @@ function Scheduler(ecInstance, api, dataProcessorHandlers, visualHandlers) {
 var proto = Scheduler.prototype;
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @param {Object} payload
  */
 proto.restoreData = function (ecModel, payload) {
@@ -26693,7 +26693,7 @@ Scheduler.wrapStageHandler = function (stageHandler, visualType) {
 
 
 /**
- * Only some legacy stage handlers (usually in echarts extensions) are pure function.
+ * Only some legacy stage handlers (usually in echarts3 extensions) are pure function.
  * To ensure that they can work normally, they should work in block mode, that is,
  * they should not be started util the previous tasks finished. So they cause the
  * progressive rendering disabled. We try to detect the series type, to narrow down
@@ -26945,7 +26945,7 @@ theme.categoryAxis.splitLine.show = false;
 */
 
 /**
- * This module is imported by echarts directly.
+ * This module is imported by echarts3 directly.
  *
  * Notice:
  * Always keep this file exists for backward compatibility.
@@ -26965,7 +26965,7 @@ ComponentModel.extend({
         // 'row', 'column'
         seriesLayoutBy: SERIES_LAYOUT_BY_COLUMN,
 
-        // null/'auto': auto detect header, see "module:echarts/data/helper/sourceHelper"
+        // null/'auto': auto detect header, see "module:echarts3/data/helper/sourceHelper"
         sourceHeader: null,
 
         dimensions: null,
@@ -27709,13 +27709,13 @@ function parseSVG(xml, opt) {
 
 var storage = createHashMap();
 
-// For minimize the code size of common echarts package,
+// For minimize the code size of common echarts3 package,
 // do not put too much logic in this module.
 
 var mapDataStorage = {
 
-    // The format of record: see `echarts.registerMap`.
-    // Compatible with previous `echarts.registerMap`.
+    // The format of record: see `echarts3.registerMap`.
+    // Compatible with previous `echarts3.registerMap`.
     registerMap: function (mapName, rawGeoJson, rawSpecialAreas) {
 
         var records;
@@ -27876,7 +27876,7 @@ function createRegisterEventWithLowercaseName(method, ignoreDisposed) {
 }
 
 /**
- * @module echarts~MessageCenter
+ * @module echarts3~MessageCenter
  */
 function MessageCenter() {
     Eventful.call(this);
@@ -27887,9 +27887,9 @@ MessageCenter.prototype.one = createRegisterEventWithLowercaseName('one', true);
 mixin(MessageCenter, Eventful);
 
 /**
- * @module echarts~ECharts
+ * @module echarts3~echarts3
  */
-function ECharts(dom, theme$$1, opts) {
+function echarts3(dom, theme$$1, opts) {
     opts = opts || {};
 
     // Get theme by name
@@ -27918,7 +27918,7 @@ function ECharts(dom, theme$$1, opts) {
     if (__DEV__) {
         defaultRenderer = (
             typeof window === 'undefined' ? global : window
-        ).__ECHARTS__DEFAULT__RENDERER__ || defaultRenderer;
+        ).__echarts3__DEFAULT__RENDERER__ || defaultRenderer;
     }
 
     /**
@@ -27948,37 +27948,37 @@ function ECharts(dom, theme$$1, opts) {
     this._theme = theme$$1;
 
     /**
-     * @type {Array.<module:echarts/view/Chart>}
+     * @type {Array.<module:echarts3/view/Chart>}
      * @private
      */
     this._chartsViews = [];
 
     /**
-     * @type {Object.<string, module:echarts/view/Chart>}
+     * @type {Object.<string, module:echarts3/view/Chart>}
      * @private
      */
     this._chartsMap = {};
 
     /**
-     * @type {Array.<module:echarts/view/Component>}
+     * @type {Array.<module:echarts3/view/Component>}
      * @private
      */
     this._componentsViews = [];
 
     /**
-     * @type {Object.<string, module:echarts/view/Component>}
+     * @type {Object.<string, module:echarts3/view/Component>}
      * @private
      */
     this._componentsMap = {};
 
     /**
-     * @type {module:echarts/CoordinateSystem}
+     * @type {module:echarts3/CoordinateSystem}
      * @private
      */
     this._coordSysMgr = new CoordinateSystemManager();
 
     /**
-     * @type {module:echarts/ExtensionAPI}
+     * @type {module:echarts3/ExtensionAPI}
      * @private
      */
     var api = this._api = createExtensionAPI(this);
@@ -27991,14 +27991,14 @@ function ECharts(dom, theme$$1, opts) {
     sort(dataProcessorFuncs, prioritySortFunc);
 
     /**
-     * @type {module:echarts/stream/Scheduler}
+     * @type {module:echarts3/stream/Scheduler}
      */
     this._scheduler = new Scheduler(this, api, dataProcessorFuncs, visualFuncs);
 
     Eventful.call(this, this._ecEventProcessor = new EventProcessor());
 
     /**
-     * @type {module:echarts~MessageCenter}
+     * @type {module:echarts3~MessageCenter}
      * @private
      */
     this._messageCenter = new MessageCenter();
@@ -28016,13 +28016,13 @@ function ECharts(dom, theme$$1, opts) {
 
     bindRenderedEvent(zr, this);
 
-    // ECharts instance can be used as value.
+    // echarts3 instance can be used as value.
     setAsPrimitive(this);
 }
 
-var echartsProto = ECharts.prototype;
+var echarts3Proto = echarts3.prototype;
 
-echartsProto._onframe = function () {
+echarts3Proto._onframe = function () {
     if (this._disposed) {
         return;
     }
@@ -28090,14 +28090,14 @@ echartsProto._onframe = function () {
 /**
  * @return {HTMLElement}
  */
-echartsProto.getDom = function () {
+echarts3Proto.getDom = function () {
     return this._dom;
 };
 
 /**
  * @return {module:zrender~ZRender}
  */
-echartsProto.getZr = function () {
+echarts3Proto.getZr = function () {
     return this._zr;
 };
 
@@ -28115,7 +28115,7 @@ echartsProto.getZr = function () {
  * @param {boolean} [opts.notMerge=false]
  * @param {boolean} [opts.lazyUpdate=false] Useful when setOption frequently.
  */
-echartsProto.setOption = function (option, notMerge, lazyUpdate) {
+echarts3Proto.setOption = function (option, notMerge, lazyUpdate) {
     if (__DEV__) {
         assert(!this[IN_MAIN_PROCESS], '`setOption` should not be called during main process.');
     }
@@ -28167,42 +28167,42 @@ echartsProto.setOption = function (option, notMerge, lazyUpdate) {
 /**
  * @DEPRECATED
  */
-echartsProto.setTheme = function () {
-    console.error('ECharts#setTheme() is DEPRECATED in ECharts 3.0');
+echarts3Proto.setTheme = function () {
+    console.error('echarts3#setTheme() is DEPRECATED in echarts3 3.0');
 };
 
 /**
- * @return {module:echarts/model/Global}
+ * @return {module:echarts3/model/Global}
  */
-echartsProto.getModel = function () {
+echarts3Proto.getModel = function () {
     return this._model;
 };
 
 /**
  * @return {Object}
  */
-echartsProto.getOption = function () {
+echarts3Proto.getOption = function () {
     return this._model && this._model.getOption();
 };
 
 /**
  * @return {number}
  */
-echartsProto.getWidth = function () {
+echarts3Proto.getWidth = function () {
     return this._zr.getWidth();
 };
 
 /**
  * @return {number}
  */
-echartsProto.getHeight = function () {
+echarts3Proto.getHeight = function () {
     return this._zr.getHeight();
 };
 
 /**
  * @return {number}
  */
-echartsProto.getDevicePixelRatio = function () {
+echarts3Proto.getDevicePixelRatio = function () {
     return this._zr.painter.dpr || window.devicePixelRatio || 1;
 };
 
@@ -28212,7 +28212,7 @@ echartsProto.getDevicePixelRatio = function () {
  * @param {string} [opts.backgroundColor]
  * @return {string}
  */
-echartsProto.getRenderedCanvas = function (opts) {
+echarts3Proto.getRenderedCanvas = function (opts) {
     if (!env$1.canvasSupported) {
         return;
     }
@@ -28234,7 +28234,7 @@ echartsProto.getRenderedCanvas = function (opts) {
  * Get svg data url
  * @return {string}
  */
-echartsProto.getSvgDataURL = function () {
+echarts3Proto.getSvgDataURL = function () {
     if (!env$1.svgSupported) {
         return;
     }
@@ -28257,7 +28257,7 @@ echartsProto.getSvgDataURL = function () {
  * @param {string} [opts.backgroundColor]
  * @param {string} [opts.excludeComponents]
  */
-echartsProto.getDataURL = function (opts) {
+echarts3Proto.getDataURL = function (opts) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -28302,7 +28302,7 @@ echartsProto.getDataURL = function (opts) {
  * @param {string} [opts.pixelRatio=1]
  * @param {string} [opts.backgroundColor]
  */
-echartsProto.getConnectedDataURL = function (opts) {
+echarts3Proto.getConnectedDataURL = function (opts) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -28428,7 +28428,7 @@ echartsProto.getConnectedDataURL = function (opts) {
  * @param {Array|number} value
  * @return {Array|number} result
  */
-echartsProto.convertToPixel = curry(doConvertPixel, 'convertToPixel');
+echarts3Proto.convertToPixel = curry(doConvertPixel, 'convertToPixel');
 
 /**
  * Convert from pixel coordinate system to logical coordinate system.
@@ -28448,7 +28448,7 @@ echartsProto.convertToPixel = curry(doConvertPixel, 'convertToPixel');
  * @param {Array|number} value
  * @return {Array|number} result
  */
-echartsProto.convertFromPixel = curry(doConvertPixel, 'convertFromPixel');
+echarts3Proto.convertFromPixel = curry(doConvertPixel, 'convertFromPixel');
 
 function doConvertPixel(methodName, finder, value) {
     if (this._disposed) {
@@ -28495,7 +28495,7 @@ function doConvertPixel(methodName, finder, value) {
  * @param {Array|number} value
  * @return {boolean} result
  */
-echartsProto.containPixel = function (finder, value) {
+echarts3Proto.containPixel = function (finder, value) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -28552,7 +28552,7 @@ echartsProto.containPixel = function (finder, value) {
  *        visual will be fetched from first series.
  * @param {string} visualType 'color', 'symbol', 'symbolSize'
  */
-echartsProto.getVisual = function (finder, visualType) {
+echarts3Proto.getVisual = function (finder, visualType) {
     var ecModel = this._model;
 
     finder = parseFinder(ecModel, finder, {defaultMainType: 'series'});
@@ -28580,19 +28580,19 @@ echartsProto.getVisual = function (finder, visualType) {
 
 /**
  * Get view of corresponding component model
- * @param  {module:echarts/model/Component} componentModel
- * @return {module:echarts/view/Component}
+ * @param  {module:echarts3/model/Component} componentModel
+ * @return {module:echarts3/view/Component}
  */
-echartsProto.getViewOfComponentModel = function (componentModel) {
+echarts3Proto.getViewOfComponentModel = function (componentModel) {
     return this._componentsMap[componentModel.__viewId];
 };
 
 /**
  * Get view of corresponding series model
- * @param  {module:echarts/model/Series} seriesModel
- * @return {module:echarts/view/Chart}
+ * @param  {module:echarts3/model/Series} seriesModel
+ * @return {module:echarts3/view/Chart}
  */
-echartsProto.getViewOfSeriesModel = function (seriesModel) {
+echarts3Proto.getViewOfSeriesModel = function (seriesModel) {
     return this._chartsMap[seriesModel.__viewId];
 };
 
@@ -28869,7 +28869,7 @@ function updateDirectly(ecIns, method, payload, mainType, subType) {
  * @param {number} [opts.height] Can be 'auto' (the same as null/undefined)
  * @param {boolean} [opts.silent=false]
  */
-echartsProto.resize = function (opts) {
+echarts3Proto.resize = function (opts) {
     if (__DEV__) {
         assert(!this[IN_MAIN_PROCESS], '`resize` should not be called during main process.');
     }
@@ -28918,7 +28918,7 @@ function updateStreamModes(ecIns, ecModel) {
  * @param  {string} [name='default']
  * @param  {Object} [cfg]
  */
-echartsProto.showLoading = function (name, cfg) {
+echarts3Proto.showLoading = function (name, cfg) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -28947,7 +28947,7 @@ echartsProto.showLoading = function (name, cfg) {
 /**
  * Hide loading effect
  */
-echartsProto.hideLoading = function () {
+echarts3Proto.hideLoading = function () {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -28961,7 +28961,7 @@ echartsProto.hideLoading = function () {
  * @param {Object} eventObj
  * @return {Object}
  */
-echartsProto.makeActionFromEvent = function (eventObj) {
+echarts3Proto.makeActionFromEvent = function (eventObj) {
     var payload = extend({}, eventObj);
     payload.type = eventActionMap[eventObj.type];
     return payload;
@@ -28979,7 +28979,7 @@ echartsProto.makeActionFromEvent = function (eventObj) {
  *                  false: Not flush.
  *                  undefined: Auto decide whether perform flush.
  */
-echartsProto.dispatchAction = function (payload, opt) {
+echarts3Proto.dispatchAction = function (payload, opt) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -29152,7 +29152,7 @@ function bindRenderedEvent(zr, ecIns) {
  * @param {number} params.seriesIndex
  * @param {Array|TypedArray} params.data
  */
-echartsProto.appendData = function (params) {
+echarts3Proto.appendData = function (params) {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -29183,13 +29183,13 @@ echartsProto.appendData = function (params) {
  * Register event
  * @method
  */
-echartsProto.on = createRegisterEventWithLowercaseName('on', false);
-echartsProto.off = createRegisterEventWithLowercaseName('off', false);
-echartsProto.one = createRegisterEventWithLowercaseName('one', false);
+echarts3Proto.on = createRegisterEventWithLowercaseName('on', false);
+echarts3Proto.off = createRegisterEventWithLowercaseName('off', false);
+echarts3Proto.one = createRegisterEventWithLowercaseName('one', false);
 
 /**
  * Prepare view instances of charts and components
- * @param  {module:echarts/model/Global} ecModel
+ * @param  {module:echarts3/model/Global} ecModel
  * @private
  */
 function prepareView(ecIns, type, ecModel, scheduler) {
@@ -29259,7 +29259,7 @@ function prepareView(ecIns, type, ecModel, scheduler) {
 // /**
 //  * Encode visual infomation from data after data processing
 //  *
-//  * @param {module:echarts/model/Global} ecModel
+//  * @param {module:echarts3/model/Global} ecModel
 //  * @param {object} layout
 //  * @param {boolean} [layoutFilter] `true`: only layout,
 //  *                                 `false`: only not layout,
@@ -29364,7 +29364,7 @@ var MOUSE_EVENT_NAMES = [
 /**
  * @private
  */
-echartsProto._initEvents = function () {
+echarts3Proto._initEvents = function () {
     each(MOUSE_EVENT_NAMES, function (eveName) {
         var handler = function (e) {
             var ecModel = this.getModel();
@@ -29455,14 +29455,14 @@ echartsProto._initEvents = function () {
 /**
  * @return {boolean}
  */
-echartsProto.isDisposed = function () {
+echarts3Proto.isDisposed = function () {
     return this._disposed;
 };
 
 /**
  * Clear
  */
-echartsProto.clear = function () {
+echarts3Proto.clear = function () {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -29473,7 +29473,7 @@ echartsProto.clear = function () {
 /**
  * Dispose instance
  */
-echartsProto.dispose = function () {
+echarts3Proto.dispose = function () {
     if (this._disposed) {
         disposedWarning(this.id);
         return;
@@ -29498,7 +29498,7 @@ echartsProto.dispose = function () {
     delete instances[this.id];
 };
 
-mixin(ECharts, Eventful);
+mixin(echarts3, Eventful);
 
 function disposedWarning(id) {
     if (__DEV__) {
@@ -29533,8 +29533,8 @@ function updateHoverLayerStatus(ecIns, ecModel) {
 
 /**
  * Update chart progressive and blend.
- * @param {module:echarts/model/Series|module:echarts/model/Component} model
- * @param {module:echarts/view/Component|module:echarts/view/Chart} view
+ * @param {module:echarts3/model/Series|module:echarts3/model/Component} model
+ * @param {module:echarts3/view/Component|module:echarts3/view/Chart} view
  */
 function updateBlend(seriesModel, chartView) {
     var blendMode = seriesModel.get('blendMode') || null;
@@ -29560,8 +29560,8 @@ function updateBlend(seriesModel, chartView) {
 }
 
 /**
- * @param {module:echarts/model/Series|module:echarts/model/Component} model
- * @param {module:echarts/view/Component|module:echarts/view/Chart} view
+ * @param {module:echarts3/model/Series|module:echarts3/model/Component} model
+ * @param {module:echarts3/view/Component|module:echarts3/view/Chart} view
  */
 function updateZ(model, view) {
     var z = model.get('z');
@@ -29767,7 +29767,7 @@ var connectedGroups = {};
 
 var idBase = new Date() - 0;
 var groupIdBase = new Date() - 0;
-var DOM_ATTRIBUTE_KEY = '_echarts_instance_';
+var DOM_ATTRIBUTE_KEY = '_echarts3_instance_';
 
 function enableConnect(chart) {
     var STATUS_PENDING = 0;
@@ -29827,7 +29827,7 @@ function init(dom, theme$$1, opts) {
         if ((version$1.replace('.', '') - 0) < (dependencies.zrender.replace('.', '') - 0)) {
             throw new Error(
                 'zrender/src ' + version$1
-                + ' is too old for ECharts ' + version
+                + ' is too old for echarts3 ' + version
                 + '. Current version need ZRender '
                 + dependencies.zrender + '+'
             );
@@ -29861,7 +29861,7 @@ function init(dom, theme$$1, opts) {
         }
     }
 
-    var chart = new ECharts(dom, theme$$1, opts);
+    var chart = new echarts3(dom, theme$$1, opts);
     chart.id = 'ec_' + idBase++;
     instances[chart.id] = chart;
 
@@ -29873,7 +29873,7 @@ function init(dom, theme$$1, opts) {
 }
 
 /**
- * @return {string|Array.<module:echarts~ECharts>} groupId
+ * @return {string|Array.<module:echarts3~echarts3>} groupId
  */
 function connect(groupId) {
     // Is array of charts
@@ -29910,24 +29910,24 @@ var disconnect = disConnect;
 
 /**
  * Dispose a chart instance
- * @param  {module:echarts~ECharts|HTMLDomElement|string} chart
+ * @param  {module:echarts3~echarts3|HTMLDomElement|string} chart
  */
 function dispose(chart) {
     if (typeof chart === 'string') {
         chart = instances[chart];
     }
-    else if (!(chart instanceof ECharts)) {
+    else if (!(chart instanceof echarts3)) {
         // Try to treat as dom
         chart = getInstanceByDom(chart);
     }
-    if ((chart instanceof ECharts) && !chart.isDisposed()) {
+    if ((chart instanceof echarts3) && !chart.isDisposed()) {
         chart.dispose();
     }
 }
 
 /**
  * @param  {HTMLElement} dom
- * @return {echarts~ECharts}
+ * @return {echarts3~echarts3}
  */
 function getInstanceByDom(dom) {
     return instances[getAttribute(dom, DOM_ATTRIBUTE_KEY)];
@@ -29935,7 +29935,7 @@ function getInstanceByDom(dom) {
 
 /**
  * @param {string} key
- * @return {echarts~ECharts}
+ * @return {echarts3~echarts3}
  */
 function getInstanceById(key) {
     return instances[key];
@@ -30048,7 +30048,7 @@ function registerLayout(priority, layoutTask) {
 
 /**
  * @param {number} [priority=3000]
- * @param {module:echarts/stream/Task} visualTask
+ * @param {module:echarts3/stream/Task} visualTask
  */
 function registerVisual(priority, visualTask) {
     normalizeRegister(visualFuncs, priority, visualTask, PRIORITY_VISUAL_CHART, 'visual');
@@ -30153,8 +30153,8 @@ function extendChartView(opts/*, superClass*/) {
  * @param {Function} creator
  * @example
  *     var Canvas = require('canvas');
- *     var echarts = require('echarts');
- *     echarts.setCanvasCreator(function () {
+ *     var echarts3 = require('echarts3');
+ *     echarts3.setCanvasCreator(function () {
  *         // Small size is enough.
  *         return new Canvas(32, 32);
  *     });
@@ -30170,21 +30170,21 @@ function setCanvasCreator(creator) {
  *
  * @example GeoJSON
  *     $.get('USA.json', function (geoJson) {
- *         echarts.registerMap('USA', geoJson);
+ *         echarts3.registerMap('USA', geoJson);
  *         // Or
- *         echarts.registerMap('USA', {
+ *         echarts3.registerMap('USA', {
  *             geoJson: geoJson,
  *             specialAreas: {}
  *         })
  *     });
  *
  *     $.get('airport.svg', function (svg) {
- *         echarts.registerMap('airport', {
+ *         echarts3.registerMap('airport', {
  *             svg: svg
  *         }
  *     });
  *
- *     echarts.registerMap('eu', [
+ *     echarts3.registerMap('eu', [
  *         {svg: eu-topographic.svg},
  *         {geoJSON: eu.json}
  *     ])
@@ -30230,7 +30230,7 @@ registerTheme('light', lightTheme);
 registerTheme('dark', theme);
 
 // For backward compatibility, where the namespace `dataTool` will
-// be mounted on `echarts` is the extension `dataTool` is imported.
+// be mounted on `echarts3` is the extension `dataTool` is imported.
 var dataTool = {};
 
 /*
@@ -30682,7 +30682,7 @@ function DataDimensionInfo(opt) {
 
 /**
  * List for data storage
- * @module echarts/data/List
+ * @module echarts3/data/List
  */
 
 var isObject$4 = isObject$1;
@@ -30753,12 +30753,12 @@ function transferProperties(target, source) {
 
 /**
  * @constructor
- * @alias module:echarts/data/List
+ * @alias module:echarts3/data/List
  *
  * @param {Array.<string|Object|module:data/DataDimensionInfo>} dimensions
  *      For example, ['someDimName', {name: 'someDimName', type: 'someDimType'}, ...].
  *      Dimensions should be concrete names like x, y, z, lng, lat, angle, radius
- * @param {module:echarts/model/Model} hostModel
+ * @param {module:echarts3/model/Model} hostModel
  */
 var List = function (dimensions, hostModel) {
 
@@ -30810,12 +30810,12 @@ var List = function (dimensions, hostModel) {
     this._dimensionInfos = dimensionInfos;
 
     /**
-     * @type {module:echarts/model/Model}
+     * @type {module:echarts3/model/Model}
      */
     this.hostModel = hostModel;
 
     /**
-     * @type {module:echarts/model/Model}
+     * @type {module:echarts3/model/Model}
      */
     this.dataType;
 
@@ -30848,7 +30848,7 @@ var List = function (dimensions, hostModel) {
 
     /**
      * Models of data option is stored sparse for optimizing memory cost
-     * @type {Array.<module:echarts/model/Model>}
+     * @type {Array.<module:echarts3/model/Model>}
      * @private
      */
     this._optionModels = [];
@@ -31956,7 +31956,7 @@ listProto.each = function (dims, cb, context, contextCompat) {
         dims = [];
     }
 
-    // contextCompat just for compat echarts3
+    // contextCompat just for compat echarts33
     context = context || contextCompat || this;
 
     dims = map(normalizeDimensions(dims), this.getDimension, this);
@@ -32012,7 +32012,7 @@ listProto.filterSelf = function (dimensions, cb, context, contextCompat) {
         dimensions = [];
     }
 
-    // contextCompat just for compat echarts3
+    // contextCompat just for compat echarts33
     context = context || contextCompat || this;
 
     dimensions = map(
@@ -32222,7 +32222,7 @@ listProto.mapArray = function (dimensions, cb, context, contextCompat) {
         dimensions = [];
     }
 
-    // contextCompat just for compat echarts3
+    // contextCompat just for compat echarts33
     context = context || contextCompat || this;
 
     var result = [];
@@ -32287,7 +32287,7 @@ function getInitialExtent() {
 listProto.map = function (dimensions, cb, context, contextCompat) {
     'use strict';
 
-    // contextCompat just for compat echarts3
+    // contextCompat just for compat echarts33
     context = context || contextCompat || this;
 
     dimensions = map(
@@ -32429,8 +32429,8 @@ listProto.getItemModel = function (idx) {
 
 /**
  * Create a data differ
- * @param {module:echarts/data/List} otherList
- * @return {module:echarts/data/DataDiffer}
+ * @param {module:echarts3/data/List} otherList
+ * @return {module:echarts3/data/DataDiffer}
  */
 listProto.diff = function (otherList) {
     var thisList = this;
@@ -32708,11 +32708,11 @@ listProto.CHANGABLE_METHODS = ['filterSelf', 'selectRange'];
 
 /**
  * @deprecated
- * Use `echarts/data/helper/createDimensions` instead.
+ * Use `echarts3/data/helper/createDimensions` instead.
  */
 
 /**
- * @see {module:echarts/test/ut/spec/data/completeDimensions}
+ * @see {module:echarts3/test/ut/spec/data/completeDimensions}
  *
  * This method builds the relationship between:
  * + "what the coord sys or series requires (see `sysDims`)",
@@ -32730,7 +32730,7 @@ listProto.CHANGABLE_METHODS = ['filterSelf', 'selectRange'];
  *      [{dimsDef: [string|Object, ...]}, ...] dimsDef of sysDim item provides default dim name, and
  *                                    provide dims count that the sysDim required.
  *      [{ordinalMeta}] can be specified.
- * @param {module:echarts/data/Source|Array|Object} source or data (for compatibal with pervious)
+ * @param {module:echarts3/data/Source|Array|Object} source or data (for compatibal with pervious)
  * @param {Object} [opt]
  * @param {Array.<Object|string>} [opt.dimsDef] option.series.dimensions User defined dimensions
  *      For example: ['asdf', {name, type}, ...].
@@ -33001,7 +33001,7 @@ function genName(name, map$$1, fromZero) {
  * `completeDimensions` is to be deprecated.
  */
 /**
- * @param {module:echarts/data/Source|module:echarts/data/List} source or data.
+ * @param {module:echarts3/data/Source|module:echarts3/data/List} source or data.
  * @param {Object|Array} [opt]
  * @param {Array.<string|Object>} [opt.coordDimensions=[]]
  * @param {number} [opt.dimensionsCount]
@@ -33243,8 +33243,8 @@ function isCategory(axisModel) {
  * (have to create two-dimension inverted index), so in 3d case
  * we just support that stacked by index.
  *
- * @param {module:echarts/model/Series} seriesModel
- * @param {Array.<string|Object>} dimensionInfoList The same as the input of <module:echarts/data/List>.
+ * @param {module:echarts3/model/Series} seriesModel
+ * @param {Array.<string|Object>} dimensionInfoList The same as the input of <module:echarts3/data/List>.
  *        The input dimensionInfoList will be modified.
  * @param {Object} [opt]
  * @param {boolean} [opt.stackedCoordDimension=''] Specify a coord dimension if needed.
@@ -33298,7 +33298,7 @@ function enableDataStack(seriesModel, dimensionInfoList, opt) {
     }
 
     // Add stack dimension, they can be both calculated by coordinate system in `unionExtent`.
-    // That put stack logic in List is for using conveniently in echarts extensions, but it
+    // That put stack logic in List is for using conveniently in echarts3 extensions, but it
     // might not be a good way.
     if (stackedDimInfo) {
         // Use a weird name that not duplicated with other names.
@@ -33353,7 +33353,7 @@ function enableDataStack(seriesModel, dimensionInfoList, opt) {
 }
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {string} stackedDim
  */
 function isDimensionStacked(data, stackedDim /*, stackedByDim*/) {
@@ -33368,7 +33368,7 @@ function isDimensionStacked(data, stackedDim /*, stackedByDim*/) {
 }
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {string} targetDim
  * @param {string} [stackedByDim] If not input this parameter, check whether
  *                                stacked by index.
@@ -33400,8 +33400,8 @@ function getStackedDimension(data, targetDim) {
 */
 
 /**
- * @param {module:echarts/data/Source|Array} source Or raw data.
- * @param {module:echarts/model/Series} seriesModel
+ * @param {module:echarts3/data/Source|Array} source Or raw data.
+ * @param {module:echarts3/model/Series} seriesModel
  * @param {Object} [opt]
  * @param {string} [opt.generateCoord]
  * @param {boolean} [opt.useEncodeDefaulter]
@@ -33527,7 +33527,7 @@ function firstDataNotNull(data) {
 
 /**
  * // Scale class management
- * @module echarts/scale/Scale
+ * @module echarts3/scale/Scale
  */
 
 /**
@@ -33612,7 +33612,7 @@ Scale.prototype.unionExtent = function (other) {
 
 /**
  * Set extent from data
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {string} dim
  */
 Scale.prototype.unionExtentFromData = function (data, dim) {
@@ -33725,8 +33725,8 @@ function OrdinalMeta(opt) {
 }
 
 /**
- * @param {module:echarts/model/Model} axisModel
- * @return {module:echarts/data/OrdinalMeta}
+ * @param {module:echarts3/model/Model} axisModel
+ * @return {module:echarts3/data/OrdinalMeta}
  */
 OrdinalMeta.createByAxisModel = function (axisModel) {
     var option = axisModel.option;
@@ -33771,9 +33771,9 @@ proto$1.parseAndCollect = function (category) {
     // Optimize for the scenario:
     // category is ['2012-01-01', '2012-01-02', ...], where the input
     // data has been ensured not duplicate and is large data.
-    // Notice, if a dataset dimension provide categroies, usually echarts
-    // should remove duplication except user tell echarts dont do that
-    // (set axis.deduplication = false), because echarts do not know whether
+    // Notice, if a dataset dimension provide categroies, usually echarts3
+    // should remove duplication except user tell echarts3 dont do that
+    // (set axis.deduplication = false), because echarts3 do not know whether
     // the values in the category dimension has duplication (consider the
     // parallel-aqi example)
     if (needCollect && !this._deduplication) {
@@ -33836,7 +33836,7 @@ function getName(obj) {
 
 /**
  * Linear continuous scale
- * @module echarts/coord/scale/Ordinal
+ * @module echarts3/coord/scale/Ordinal
  *
  * http://en.wikipedia.org/wiki/Level_of_measurement
  */
@@ -33850,7 +33850,7 @@ var OrdinalScale = Scale.extend({
     type: 'ordinal',
 
     /**
-     * @param {module:echarts/data/OrdianlMeta|Array.<string>} ordinalMeta
+     * @param {module:echarts3/data/OrdianlMeta|Array.<string>} ordinalMeta
      */
     init: function (ordinalMeta, extent) {
         // Caution: Should not use instanceof, consider ec-extensions using
@@ -33939,7 +33939,7 @@ var OrdinalScale = Scale.extend({
 });
 
 /**
- * @return {module:echarts/scale/Time}
+ * @return {module:echarts3/scale/Time}
  */
 OrdinalScale.create = function () {
     return new OrdinalScale();
@@ -34047,14 +34047,14 @@ function fixExtent(niceTickExtent, extent) {
 
 /**
  * Interval scale
- * @module echarts/scale/Interval
+ * @module echarts3/scale/Interval
  */
 
 
 var roundNumber = round$1;
 
 /**
- * @alias module:echarts/coord/scale/Interval
+ * @alias module:echarts3/coord/scale/Interval
  * @constructor
  */
 var IntervalScale = Scale.extend({
@@ -34306,7 +34306,7 @@ var IntervalScale = Scale.extend({
 });
 
 /**
- * @return {module:echarts/scale/Time}
+ * @return {module:echarts3/scale/Time}
  */
 IntervalScale.create = function () {
     return new IntervalScale();
@@ -34348,7 +34348,7 @@ function getAxisKey(axis) {
 
 /**
  * @param {Object} opt
- * @param {module:echarts/coord/Axis} opt.axis Only support category axis currently.
+ * @param {module:echarts3/coord/Axis} opt.axis Only support category axis currently.
  * @param {number} opt.count Positive interger.
  * @param {number} [opt.barWidth]
  * @param {number} [opt.barMaxWidth]
@@ -34669,8 +34669,8 @@ function doCalBarWidthAndOffset(seriesInfoList) {
 
 /**
  * @param {Object} barWidthAndOffset The result of makeColumnLayout
- * @param {module:echarts/coord/Axis} axis
- * @param {module:echarts/model/Series} [seriesModel] If not provided, return all.
+ * @param {module:echarts3/coord/Axis} axis
+ * @param {module:echarts3/model/Series} [seriesModel] If not provided, return all.
  * @return {Object} {stackId: {offset, width}} or {offset, width} if seriesModel provided.
  */
 function retrieveColumnLayout(barWidthAndOffset, axis, seriesModel) {
@@ -34685,7 +34685,7 @@ function retrieveColumnLayout(barWidthAndOffset, axis, seriesModel) {
 
 /**
  * @param {string} seriesType
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  */
 function layout(seriesType, ecModel) {
 
@@ -34937,7 +34937,7 @@ var bisect = function (a, x, lo, hi) {
 };
 
 /**
- * @alias module:echarts/coord/scale/Time
+ * @alias module:echarts3/coord/scale/Time
  * @constructor
  */
 var TimeScale = IntervalScale.extend({
@@ -35091,8 +35091,8 @@ var scaleLevels = [
 ];
 
 /**
- * @param {module:echarts/model/Model}
- * @return {module:echarts/scale/Time}
+ * @param {module:echarts3/model/Model}
+ * @return {module:echarts3/scale/Time}
  */
 TimeScale.create = function (model) {
     return new TimeScale({useUTC: model.ecModel.get('useUTC')});
@@ -35119,7 +35119,7 @@ TimeScale.create = function (model) {
 
 /**
  * Log scale
- * @module echarts/scale/Log
+ * @module echarts3/scale/Log
  */
 
 // Use some method of IntervalScale
@@ -35537,9 +35537,9 @@ function niceScaleExtent(scale, model) {
 }
 
 /**
- * @param {module:echarts/model/Model} model
+ * @param {module:echarts3/model/Model} model
  * @param {string} [axisType] Default retrieve from model.type
- * @return {module:echarts/scale/*}
+ * @return {module:echarts3/scale/*}
  */
 function createScaleByModel(model, axisType) {
     axisType = axisType || model.get('type');
@@ -35573,7 +35573,7 @@ function ifAxisCrossZero(axis) {
 }
 
 /**
- * @param {module:echarts/coord/Axis} axis
+ * @param {module:echarts3/coord/Axis} axis
  * @return {Function} Label formatter function.
  *         param: {number} tickValue,
  *         param: {number} idx, the index in all ticks.
@@ -35625,7 +35625,7 @@ function getAxisRawValue(axis, value) {
 }
 
 /**
- * @param {module:echarts/coord/Axis} axis
+ * @param {module:echarts3/coord/Axis} axis
  * @return {module:zrender/core/BoundingRect} Be null/undefined if no labels.
  */
 function estimateLabelUnionRect(axis) {
@@ -35685,7 +35685,7 @@ function rotateTextRect(textRect, rotate) {
 }
 
 /**
- * @param {module:echarts/src/model/Model} model axisLabelModel or axisTickModel
+ * @param {module:echarts3/src/model/Model} model axisLabelModel or axisTickModel
  * @return {number|String} Can be null|'auto'|number|function
  */
 function getOptionCategoryInterval(model) {
@@ -35778,7 +35778,7 @@ var axisModelCommonMixin = {
 
     /**
      * Should be implemented by each axis model if necessary.
-     * @return {module:echarts/model/Component} coordinate system model
+     * @return {module:echarts3/model/Component} coordinate system model
      */
     getCoordSysModel: noop,
 
@@ -36192,8 +36192,8 @@ function createSymbol(symbolType, x, y, w, h, color, keepAspect) {
 // import createGraphFromNodeEdge from './chart/helper/createGraphFromNodeEdge';
 /**
  * Create a muti dimension List structure from seriesModel.
- * @param  {module:echarts/model/Model} seriesModel
- * @return {module:echarts/data/List} list
+ * @param  {module:echarts3/model/Model} seriesModel
+ * @return {module:echarts3/data/List} list
  */
 function createList(seriesModel) {
     return createListFromArray(seriesModel.getSource(), seriesModel);
@@ -36208,7 +36208,7 @@ var dataStack$1 = {
 /**
  * Create scale
  * @param {Array.<number>} dataExtent
- * @param {Object|module:echarts/Model} option
+ * @param {Object|module:echarts3/Model} option
  */
 function createScale(dataExtent, option) {
     var axisModel = option;
@@ -36300,7 +36300,7 @@ function contain$1(points, x, y) {
 */
 
 /**
- * @module echarts/coord/geo/Region
+ * @module echarts3/coord/geo/Region
  */
 
 /**
@@ -36477,7 +36477,7 @@ Region.prototype = {
 
 /**
  * Parse and decode geo json
- * @module echarts/coord/geo/parseGeoJson
+ * @module echarts3/coord/geo/parseGeoJson
  */
 
 function decode(json) {
@@ -36549,7 +36549,7 @@ function decodePolygon(coordinate, encodeOffsets, encodeScale) {
 }
 
 /**
- * @alias module:echarts/coord/geo/parseGeoJson
+ * @alias module:echarts3/coord/geo/parseGeoJson
  * @param {Object} geoJson
  * @param {string} nameProperty
  * @return {module:zrender/container/Group}
@@ -36642,7 +36642,7 @@ function createAxisLabels(axis) {
 
 /**
  * @param {module:echats/coord/Axis} axis
- * @param {module:echarts/model/Model} tickModel For example, can be axisTick, splitLine, splitArea.
+ * @param {module:echarts3/model/Model} tickModel For example, can be axisTick, splitLine, splitArea.
  * @return {Object} {
  *     ticks: Array.<number>
  *     tickCategoryInterval: number
@@ -37003,7 +37003,7 @@ var Axis = function (dim, scale, extent) {
 
     /**
      * Axis scale
-     * @type {module:echarts/coord/scale/*}
+     * @type {module:echarts3/coord/scale/*}
      */
     this.scale = scale;
 
@@ -37206,7 +37206,7 @@ Axis.prototype = {
     },
 
     /**
-     * @return {module:echarts/coord/model/Model}
+     * @return {module:echarts3/coord/model/Model}
      */
     getLabelModel: function () {
         return this.model.getModel('axisLabel');
@@ -37218,7 +37218,7 @@ Axis.prototype = {
      * manually when calling `getTicksCoords`.
      * In GL, this method may be overrided to:
      * `axisModel.getModel('axisTick', grid3DModel.getModel('axisTick'));`
-     * @return {module:echarts/coord/model/Model}
+     * @return {module:echarts3/coord/model/Model}
      */
     getTickModel: function () {
         return this.model.getModel('axisTick');
@@ -37356,7 +37356,7 @@ function fixOnBandTicksCoords(axis, ticksCoords, alignWithLabel, clamp) {
 */
 
 /**
- * Do not mount those modules on 'src/echarts' for better tree shaking.
+ * Do not mount those modules on 'src/echarts3' for better tree shaking.
  */
 
 var parseGeoJson = parseGeoJson$1;
@@ -37524,7 +37524,7 @@ SeriesModel.extend({
 */
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} dataIndex
  * @return {string} label string. Not null/undefined
  */
@@ -37566,13 +37566,13 @@ function getDefaultLabel(data, dataIndex) {
 */
 
 /**
- * @module echarts/chart/helper/Symbol
+ * @module echarts3/chart/helper/Symbol
  */
 
 /**
  * @constructor
- * @alias {module:echarts/chart/helper/Symbol}
- * @param {module:echarts/data/List} data
+ * @alias {module:echarts3/chart/helper/Symbol}
+ * @param {module:echarts3/data/List} data
  * @param {number} idx
  * @extends {module:zrender/graphic/Group}
  */
@@ -37586,7 +37586,7 @@ var symbolProto = SymbolClz$1.prototype;
 /**
  * @public
  * @static
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} dataIndex
  * @return {Array.<number>} [width, height]
  */
@@ -37701,18 +37701,18 @@ symbolProto.setDraggable = function (draggable) {
 
 /**
  * Update symbol properties
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} idx
  * @param {Object} [seriesScope]
  * @param {Object} [seriesScope.itemStyle]
  * @param {Object} [seriesScope.hoverItemStyle]
  * @param {Object} [seriesScope.symbolRotate]
  * @param {Object} [seriesScope.symbolOffset]
- * @param {module:echarts/model/Model} [seriesScope.labelModel]
- * @param {module:echarts/model/Model} [seriesScope.hoverLabelModel]
+ * @param {module:echarts3/model/Model} [seriesScope.labelModel]
+ * @param {module:echarts3/model/Model} [seriesScope.hoverLabelModel]
  * @param {boolean} [seriesScope.hoverAnimation]
  * @param {Object} [seriesScope.cursorStyle]
- * @param {module:echarts/model/Model} [seriesScope.itemModel]
+ * @param {module:echarts3/model/Model} [seriesScope.itemModel]
  * @param {string} [seriesScope.symbolInnerColor]
  * @param {Object} [seriesScope.fadeIn=false]
  */
@@ -37761,7 +37761,7 @@ var normalLabelAccessPath = ['label'];
 var emphasisLabelAccessPath = ['emphasis', 'label'];
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} idx
  * @param {Array.<number>} symbolSize
  * @param {Object} [seriesScope]
@@ -37955,12 +37955,12 @@ inherits(SymbolClz$1, Group);
 */
 
 /**
- * @module echarts/chart/helper/SymbolDraw
+ * @module echarts3/chart/helper/SymbolDraw
  */
 
 /**
  * @constructor
- * @alias module:echarts/chart/helper/SymbolDraw
+ * @alias module:echarts3/chart/helper/SymbolDraw
  * @param {module:zrender/graphic/Group} [symbolCtor]
  */
 function SymbolDraw(symbolCtor) {
@@ -37983,7 +37983,7 @@ function symbolNeedsDraw(data, point, idx, opt) {
 
 /**
  * Update symbols draw by new data
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Object} [opt] Or isIgnore
  * @param {Function} [opt.isIgnore]
  * @param {Object} [opt.clipShape]
@@ -38071,7 +38071,7 @@ symbolDrawProto.incrementalPrepareUpdate = function (data) {
 
 /**
  * Update symbols draw by new data
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Object} [opt] Or isIgnore
  * @param {Function} [opt.isIgnore]
  * @param {Object} [opt.clipShape]
@@ -38154,7 +38154,7 @@ function makeSeriesScope(data) {
 
 /**
  * @param {Object} coordSys
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {string} valueOrigin lineSeries.option.areaStyle.origin
  */
 function prepareDataCoordInfo(coordSys, data, valueOrigin) {
@@ -38874,7 +38874,7 @@ function createGridClipPath(cartesian, hasAnimation, seriesModel) {
     width += lineWidth;
     height += lineWidth;
 
-    // fix: https://github.com/apache/incubator-echarts/issues/11369
+    // fix: https://github.com/apache/incubator-echarts3/issues/11369
     x = Math.floor(x);
     width = Math.round(width);
 
@@ -39000,8 +39000,8 @@ function getSmooth(smooth) {
 }
 
 /**
- * @param {module:echarts/coord/cartesian/Cartesian2D|module:echarts/coord/polar/Polar} coordSys
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/coord/cartesian/Cartesian2D|module:echarts3/coord/polar/Polar} coordSys
+ * @param {module:echarts3/data/List} data
  * @param {Object} dataCoordInfo
  * @param {Array.<Array.<number>>} points
  */
@@ -39609,7 +39609,7 @@ Chart.extend({
         }
         // Don't apply animation if diff is large.
         // For better result and avoid memory explosion problems like
-        // https://github.com/apache/incubator-echarts/issues/12229
+        // https://github.com/apache/incubator-echarts3/issues/12229
         if (getBoundingDiff(current, next) > 3000
             || (polygon && getBoundingDiff(stackedOnCurrent, stackedOnNext) > 3000)
         ) {
@@ -40007,7 +40007,7 @@ var dataSample = function (seriesType) {
 
 /**
  * Cartesian coordinate system
- * @module  echarts/coord/Cartesian
+ * @module  echarts3/coord/Cartesian
  *
  */
 
@@ -40016,7 +40016,7 @@ function dimAxisMapper(dim) {
 }
 
 /**
- * @alias module:echarts/coord/Cartesian
+ * @alias module:echarts3/coord/Cartesian
  * @constructor
  */
 var Cartesian = function (name) {
@@ -40039,7 +40039,7 @@ Cartesian.prototype = {
     /**
      * Get axis
      * @param  {number|string} dim
-     * @return {module:echarts/coord/Cartesian~Axis}
+     * @return {module:echarts3/coord/Cartesian~Axis}
      */
     getAxis: function (dim) {
         return this._axes[dim];
@@ -40047,7 +40047,7 @@ Cartesian.prototype = {
 
     /**
      * Get axes list
-     * @return {Array.<module:echarts/coord/Cartesian~Axis>}
+     * @return {Array.<module:echarts3/coord/Cartesian~Axis>}
      */
     getAxes: function () {
         return map(this._dimList, dimAxisMapper, this);
@@ -40068,7 +40068,7 @@ Cartesian.prototype = {
 
     /**
      * Add axis
-     * @param {module:echarts/coord/Cartesian.Axis}
+     * @param {module:echarts3/coord/Cartesian.Axis}
      */
     addAxis: function (axis) {
         var dim = axis.dim;
@@ -40152,7 +40152,7 @@ Cartesian2D.prototype = {
     /**
      * Base axis will be used on stacking.
      *
-     * @return {module:echarts/coord/cartesian/Axis2D}
+     * @return {module:echarts3/coord/cartesian/Axis2D}
      */
     getBaseAxis: function () {
         return this.getAxesByScale('ordinal')[0]
@@ -40237,7 +40237,7 @@ Cartesian2D.prototype = {
 
     /**
      * Get other axis
-     * @param {module:echarts/coord/cartesian/Axis2D} axis
+     * @param {module:echarts3/coord/cartesian/Axis2D} axis
      */
     getOtherAxis: function (axis) {
         return this.getAxis(axis.dim === 'x' ? 'y' : 'x');
@@ -40285,8 +40285,8 @@ inherits(Cartesian2D, Cartesian);
 
 /**
  * Extend axis 2d
- * @constructor module:echarts/coord/cartesian/Axis2D
- * @extends {module:echarts/coord/cartesian/Axis}
+ * @constructor module:echarts3/coord/cartesian/Axis2D
+ * @extends {module:echarts3/coord/cartesian/Axis}
  * @param {string} dim
  * @param {*} scale
  * @param {Array.<number>} coordExtent
@@ -40325,8 +40325,8 @@ Axis2D.prototype = {
     index: 0,
 
     /**
-     * Implemented in <module:echarts/coord/cartesian/Grid>.
-     * @return {Array.<module:echarts/coord/cartesian/Axis2D>}
+     * Implemented in <module:echarts3/coord/cartesian/Grid>.
+     * @return {Array.<module:echarts3/coord/cartesian/Axis2D>}
      *         If not on zero of other axis, return null/undefined.
      *         If no axes, return an empty array.
      */
@@ -40334,7 +40334,7 @@ Axis2D.prototype = {
 
     /**
      * Axis model
-     * @param {module:echarts/coord/cartesian/AxisModel}
+     * @param {module:echarts3/coord/cartesian/AxisModel}
      */
     model: null,
 
@@ -40373,7 +40373,7 @@ Axis2D.prototype = {
     /**
      * Transform global coord to local coord,
      * i.e. var localCoord = axis.toLocalCoord(80);
-     * designate by module:echarts/coord/cartesian/Grid.
+     * designate by module:echarts3/coord/cartesian/Grid.
      * @type {Function}
      */
     toLocalCoord: null,
@@ -40381,7 +40381,7 @@ Axis2D.prototype = {
     /**
      * Transform global coord to local coord,
      * i.e. var globalCoord = axis.toLocalCoord(40);
-     * designate by module:echarts/coord/cartesian/Grid.
+     * designate by module:echarts3/coord/cartesian/Grid.
      * @type {Function}
      */
     toGlobalCoord: null
@@ -40629,7 +40629,7 @@ var AXIS_TYPES = ['value', 'category', 'time', 'log'];
 /**
  * Generate sub axis model class
  * @param {string} axisName 'x' 'y' 'radius' 'angle' 'parallel'
- * @param {module:echarts/model/Component} BaseAxisModelClass
+ * @param {module:echarts3/model/Component} BaseAxisModelClass
  * @param {Function} axisTypeDefaulter
  * @param {Object} [extraDefaultOption]
  */
@@ -40731,7 +40731,7 @@ var AxisModel = ComponentModel.extend({
     type: 'cartesian2dAxis',
 
     /**
-     * @type {module:echarts/coord/cartesian/Axis2D}
+     * @type {module:echarts3/coord/cartesian/Axis2D}
      */
     axis: null,
 
@@ -40761,7 +40761,7 @@ var AxisModel = ComponentModel.extend({
 
     /**
      * @override
-     * @return {module:echarts/model/Component}
+     * @return {module:echarts3/model/Component}
      */
     getCoordSysModel: function () {
         return this.ecModel.queryComponents({
@@ -40822,7 +40822,7 @@ ComponentModel.extend({
     layoutMode: 'box',
 
     /**
-     * @type {module:echarts/coord/cartesian/Grid}
+     * @type {module:echarts3/coord/cartesian/Grid}
      */
     coordinateSystem: null,
 
@@ -40880,25 +40880,25 @@ function isAxisUsedInTheGrid(axisModel, gridModel, ecModel) {
 
 function Grid(gridModel, ecModel, api) {
     /**
-     * @type {Object.<string, module:echarts/coord/cartesian/Cartesian2D>}
+     * @type {Object.<string, module:echarts3/coord/cartesian/Cartesian2D>}
      * @private
      */
     this._coordsMap = {};
 
     /**
-     * @type {Array.<module:echarts/coord/cartesian/Cartesian>}
+     * @type {Array.<module:echarts3/coord/cartesian/Cartesian>}
      * @private
      */
     this._coordsList = [];
 
     /**
-     * @type {Object.<string, Array.<module:echarts/coord/cartesian/Axis2D>>}
+     * @type {Object.<string, Array.<module:echarts3/coord/cartesian/Axis2D>>}
      * @private
      */
     this._axesMap = {};
 
     /**
-     * @type {Array.<module:echarts/coord/cartesian/Axis2D>}
+     * @type {Array.<module:echarts3/coord/cartesian/Axis2D>}
      * @private
      */
     this._axesList = [];
@@ -41003,8 +41003,8 @@ function canOnZeroToAxis(axis) {
 
 /**
  * Resize the grid
- * @param {module:echarts/coord/cartesian/GridModel} gridModel
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/coord/cartesian/GridModel} gridModel
+ * @param {module:echarts3/ExtensionAPI} api
  */
 gridProto.resize = function (gridModel, api, ignoreContainLabel) {
 
@@ -41073,7 +41073,7 @@ gridProto.getAxis = function (axisType, axisIndex) {
 };
 
 /**
- * @return {Array.<module:echarts/coord/Axis>}
+ * @return {Array.<module:echarts3/coord/Axis>}
  */
 gridProto.getAxes = function () {
     return this._axesList.slice();
@@ -41115,7 +41115,7 @@ gridProto.getCartesians = function () {
 
 /**
  * @implements
- * see {module:echarts/CoodinateSystem}
+ * see {module:echarts3/CoodinateSystem}
  */
 gridProto.convertToPixel = function (ecModel, finder, value) {
     var target = this._findConvertTarget(ecModel, finder);
@@ -41129,7 +41129,7 @@ gridProto.convertToPixel = function (ecModel, finder, value) {
 
 /**
  * @implements
- * see {module:echarts/CoodinateSystem}
+ * see {module:echarts3/CoodinateSystem}
  */
 gridProto.convertFromPixel = function (ecModel, finder, value) {
     var target = this._findConvertTarget(ecModel, finder);
@@ -41181,7 +41181,7 @@ gridProto._findConvertTarget = function (ecModel, finder) {
 
 /**
  * @implements
- * see {module:echarts/CoodinateSystem}
+ * see {module:echarts3/CoodinateSystem}
  */
 gridProto.containPoint = function (point) {
     var coord = this._coordsList[0];
@@ -41297,7 +41297,7 @@ gridProto._initCartesian = function (gridModel, ecModel, api) {
 
 /**
  * Update cartesian properties from series
- * @param  {module:echarts/model/Option} option
+ * @param  {module:echarts3/model/Option} option
  * @private
  */
 gridProto._updateScale = function (ecModel, gridModel) {
@@ -42568,7 +42568,7 @@ function isHandleTrigger(axisPointerModel) {
 }
 
 /**
- * @param {module:echarts/model/Model} model
+ * @param {module:echarts3/model/Model} model
  * @return {string} unique key
  */
 function makeKey(model) {
@@ -42631,9 +42631,9 @@ var AxisView = extendComponentView({
     /**
      * Action handler.
      * @public
-     * @param {module:echarts/coord/cartesian/AxisModel} axisModel
-     * @param {module:echarts/model/Global} ecModel
-     * @param {module:echarts/ExtensionAPI} api
+     * @param {module:echarts3/coord/cartesian/AxisModel} axisModel
+     * @param {module:echarts3/model/Global} ecModel
+     * @param {module:echarts3/ExtensionAPI} api
      * @param {Object} payload
      */
     updateAxisPointer: function (axisModel, ecModel, api, payload, force) {
@@ -42963,8 +42963,8 @@ var CartesianAxisView = AxisView.extend({
     },
 
     /**
-     * @param {module:echarts/coord/cartesian/AxisModel} axisModel
-     * @param {module:echarts/coord/cartesian/GridModel} gridModel
+     * @param {module:echarts3/coord/cartesian/AxisModel} axisModel
+     * @param {module:echarts3/coord/cartesian/GridModel} gridModel
      * @private
      */
     _splitLine: function (axisModel, gridModel) {
@@ -43029,8 +43029,8 @@ var CartesianAxisView = AxisView.extend({
     },
 
     /**
-     * @param {module:echarts/coord/cartesian/AxisModel} axisModel
-     * @param {module:echarts/coord/cartesian/GridModel} gridModel
+     * @param {module:echarts3/coord/cartesian/AxisModel} axisModel
+     * @param {module:echarts3/coord/cartesian/GridModel} gridModel
      * @private
      */
     _minorSplitLine: function (axisModel, gridModel) {
@@ -43086,8 +43086,8 @@ var CartesianAxisView = AxisView.extend({
     },
 
     /**
-     * @param {module:echarts/coord/cartesian/AxisModel} axisModel
-     * @param {module:echarts/coord/cartesian/GridModel} gridModel
+     * @param {module:echarts3/coord/cartesian/AxisModel} axisModel
+     * @param {module:echarts3/coord/cartesian/GridModel} gridModel
      * @private
      */
     _splitArea: function (axisModel, gridModel) {
@@ -44326,11 +44326,11 @@ registerVisual({
  *     dimensionsCount: 5
  * });
  *
- * @param {module:echarts/model/Series} seriesModel
+ * @param {module:echarts3/model/Series} seriesModel
  * @param {Object|Array.<string|Object>} opt opt or coordDimensions
- *        The options in opt, see `echarts/data/helper/createDimensions`
+ *        The options in opt, see `echarts3/data/helper/createDimensions`
  * @param {Array.<string>} [nameList]
- * @return {module:echarts/data/List}
+ * @return {module:echarts3/data/List}
  */
 var createListSimply = function (seriesModel, opt, nameList) {
     opt = isArray(opt) && {coordDimensions: opt} || extend({}, opt);
@@ -44723,7 +44723,7 @@ mixin(PieSeries, selectableMixin);
 */
 
 /**
- * @param {module:echarts/model/Series} seriesModel
+ * @param {module:echarts3/model/Series} seriesModel
  * @param {boolean} hasAnimation
  * @inner
  */
@@ -46139,7 +46139,7 @@ largeSymbolProto.isPersistent = function () {
 
 /**
  * Update symbols draw by new data
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Object} opt
  * @param {Object} [opt.clipShape]
  */
@@ -46418,7 +46418,7 @@ extendChartView({
 registerVisual(visualSymbol('scatter', 'circle'));
 registerLayout(pointsLayout('scatter'));
 
-// echarts.registerProcessor(function (ecModel, api) {
+// echarts3.registerProcessor(function (ecModel, api) {
 //     ecModel.eachSeriesByType('scatter', function (seriesModel) {
 //         var data = seriesModel.getData();
 //         var coordSys = seriesModel.coordinateSystem;
@@ -46479,7 +46479,7 @@ function IndicatorAxis(dim, scale, radiusExtent) {
      */
     this.name = '';
     /**
-     * @type {module:echarts/model/Model}
+     * @type {module:echarts3/model/Model}
      */
     this.model;
 }
@@ -48214,7 +48214,7 @@ var MapSeries = SeriesModel.extend({
     /**
      * Get model of region
      * @param  {string} name
-     * @return {module:echarts/model/Model}
+     * @return {module:echarts3/model/Model}
      */
     getRegionModel: function (regionName) {
         var data = this.getData();
@@ -48435,7 +48435,7 @@ registerAction(
 */
 
 /**
- * @alias module:echarts/component/helper/RoamController
+ * @alias module:echarts3/component/helper/RoamController
  * @constructor
  * @mixin {module:zrender/mixin/Eventful}
  *
@@ -48871,8 +48871,8 @@ function updateMapSelected(mapOrGeoModel, regionsGroup) {
 }
 
 /**
- * @alias module:echarts/component/helper/MapDraw
- * @param {module:echarts/ExtensionAPI} api
+ * @alias module:echarts3/component/helper/MapDraw
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {boolean} updateGroup
  */
 function MapDraw(api, updateGroup) {
@@ -48886,7 +48886,7 @@ function MapDraw(api, updateGroup) {
     this.uid = getUID('ec_map_draw');
 
     /**
-     * @type {module:echarts/component/helper/RoamController}
+     * @type {module:echarts3/component/helper/RoamController}
      * @private
      */
     this._controller = new RoamController(api.getZr());
@@ -49497,7 +49497,7 @@ function enterRegionHighDown(highDownRecord, toHighOrDown) {
 */
 
 /**
- * @param {module:echarts/coord/View} view
+ * @param {module:echarts3/coord/View} view
  * @param {Object} payload
  * @param {Object} [zoomLimit]
  */
@@ -49895,19 +49895,19 @@ View.prototype = {
 
     /**
      * @implements
-     * see {module:echarts/CoodinateSystem}
+     * see {module:echarts3/CoodinateSystem}
      */
     convertToPixel: curry(doConvert$1, 'dataToPoint'),
 
     /**
      * @implements
-     * see {module:echarts/CoodinateSystem}
+     * see {module:echarts3/CoodinateSystem}
      */
     convertFromPixel: curry(doConvert$1, 'pointToData'),
 
     /**
      * @implements
-     * see {module:echarts/CoodinateSystem}
+     * see {module:echarts3/CoodinateSystem}
      */
     containPoint: function (point) {
         return this.getViewRectAfterRoam().contain(point[0], point[1]);
@@ -50051,7 +50051,7 @@ Geo.prototype = {
 
     /**
      * @param {string} name
-     * @return {module:echarts/coord/geo/Region}
+     * @return {module:echarts3/coord/geo/Region}
      */
     getRegion: function (name) {
         return this._regionsMap.get(name);
@@ -50158,8 +50158,8 @@ function doConvert(methodName, ecModel, finder, value) {
 
 /**
  * Resize method bound to the geo
- * @param {module:echarts/coord/geo/GeoModel|module:echarts/chart/map/MapModel} geoModel
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/coord/geo/GeoModel|module:echarts3/chart/map/MapModel} geoModel
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function resizeGeo(geoModel, api) {
 
@@ -50243,8 +50243,8 @@ function resizeGeo(geoModel, api) {
 }
 
 /**
- * @param {module:echarts/coord/Geo} geo
- * @param {module:echarts/model/Model} model
+ * @param {module:echarts3/coord/Geo} geo
+ * @param {module:echarts3/model/Model} model
  * @inner
  */
 function setGeoCoords(geo, model) {
@@ -50497,7 +50497,7 @@ var mapVisual = function (ecModel) {
 
 // FIXME 公用？
 /**
- * @param {Array.<module:echarts/data/List>} datas
+ * @param {Array.<module:echarts3/data/List>} datas
  * @param {string} statisticType 'average' 'sum'
  * @inner
  */
@@ -50674,14 +50674,14 @@ var MAIN_DATA = '\0__link_mainData';
 
 // Caution:
 // In most case, either list or its shallow clones (see list.cloneShallow)
-// is active in echarts process. So considering heap memory consumption,
+// is active in echarts3 process. So considering heap memory consumption,
 // we do not clone tree or graph, but share them among list and its shallow clones.
 // But in some rare case, we have to keep old list (like do animation in chart). So
 // please take care that both the old list and the new list share the same tree/graph.
 
 /**
  * @param {Object} opt
- * @param {module:echarts/data/List} opt.mainData
+ * @param {module:echarts3/data/List} opt.mainData
  * @param {Object} [opt.struct] For example, instance of Graph or Tree.
  * @param {string} [opt.structAttr] designation: list[structAttr] = struct;
  * @param {Object} [opt.datas] {dataType: data},
@@ -50758,7 +50758,7 @@ function cloneShallowInjection(opt, res) {
  *
  * @public
  * @param {string} [dataType] If not specified, return mainData.
- * @return {module:echarts/data/List}
+ * @return {module:echarts3/data/List}
  */
 function getLinkedData(dataType) {
     var mainData = this[MAIN_DATA];
@@ -50814,13 +50814,13 @@ function linkSingle(data, dataType, mainData, opt) {
 /**
  * Tree data structure
  *
- * @module echarts/data/Tree
+ * @module echarts3/data/Tree
  */
 
 /**
- * @constructor module:echarts/data/Tree~TreeNode
+ * @constructor module:echarts3/data/Tree~TreeNode
  * @param {string} name
- * @param {module:echarts/data/Tree} hostTree
+ * @param {module:echarts3/data/Tree} hostTree
  */
 var TreeNode = function (name, hostTree) {
     /**
@@ -50844,7 +50844,7 @@ var TreeNode = function (name, hostTree) {
     this.height = 0;
 
     /**
-     * @type {module:echarts/data/Tree~TreeNode}
+     * @type {module:echarts3/data/Tree~TreeNode}
      * @readOnly
      */
     this.parentNode = null;
@@ -50862,19 +50862,19 @@ var TreeNode = function (name, hostTree) {
     this.dataIndex = -1;
 
     /**
-     * @type {Array.<module:echarts/data/Tree~TreeNode>}
+     * @type {Array.<module:echarts3/data/Tree~TreeNode>}
      * @readOnly
      */
     this.children = [];
 
     /**
-     * @type {Array.<module:echarts/data/Tree~TreeNode>}
+     * @type {Array.<module:echarts3/data/Tree~TreeNode>}
      * @pubilc
      */
     this.viewChildren = [];
 
     /**
-     * @type {moduel:echarts/data/Tree}
+     * @type {moduel:echarts3/data/Tree}
      * @readOnly
      */
     this.hostTree = hostTree;
@@ -50955,7 +50955,7 @@ TreeNode.prototype = {
 
     /**
      * @param  {string} id
-     * @return {module:echarts/data/Tree~TreeNode}
+     * @return {module:echarts3/data/Tree~TreeNode}
      */
     getNodeById: function (id) {
         if (this.getId() === id) {
@@ -50970,7 +50970,7 @@ TreeNode.prototype = {
     },
 
     /**
-     * @param {module:echarts/data/Tree~TreeNode} node
+     * @param {module:echarts3/data/Tree~TreeNode} node
      * @return {boolean}
      */
     contains: function (node) {
@@ -50987,7 +50987,7 @@ TreeNode.prototype = {
 
     /**
      * @param {boolean} includeSelf Default false.
-     * @return {Array.<module:echarts/data/Tree~TreeNode>} order: [root, child, grandchild, ...]
+     * @return {Array.<module:echarts3/data/Tree~TreeNode>} order: [root, child, grandchild, ...]
      */
     getAncestors: function (includeSelf) {
         var ancestors = [];
@@ -51027,7 +51027,7 @@ TreeNode.prototype = {
 
     /**
      * @param {string} [path]
-     * @return {module:echarts/model/Model}
+     * @return {module:echarts3/model/Model}
      */
     getModel: function (path) {
         if (this.dataIndex < 0) {
@@ -51105,18 +51105,18 @@ TreeNode.prototype = {
 
 /**
  * @constructor
- * @alias module:echarts/data/Tree
- * @param {module:echarts/model/Model} hostModel
+ * @alias module:echarts3/data/Tree
+ * @param {module:echarts3/model/Model} hostModel
  */
 function Tree(hostModel) {
     /**
-     * @type {module:echarts/data/Tree~TreeNode}
+     * @type {module:echarts3/data/Tree~TreeNode}
      * @readOnly
      */
     this.root;
 
     /**
-     * @type {module:echarts/data/List}
+     * @type {module:echarts3/data/List}
      * @readOnly
      */
     this.data;
@@ -51124,14 +51124,14 @@ function Tree(hostModel) {
     /**
      * Index of each item is the same as the raw index of coresponding list item.
      * @private
-     * @type {Array.<module:echarts/data/Tree~TreeNode}
+     * @type {Array.<module:echarts3/data/Tree~TreeNode}
      */
     this._nodes = [];
 
     /**
      * @private
      * @readOnly
-     * @type {module:echarts/model/Model}
+     * @type {module:echarts3/model/Model}
      */
     this.hostModel = hostModel;
 
@@ -51166,7 +51166,7 @@ Tree.prototype = {
 
     /**
      * @param {number} dataIndex
-     * @return {module:echarts/data/Tree~TreeNode}
+     * @return {module:echarts3/data/Tree~TreeNode}
      */
     getNodeByDataIndex: function (dataIndex) {
         var rawIndex = this.data.getRawIndex(dataIndex);
@@ -51175,7 +51175,7 @@ Tree.prototype = {
 
     /**
      * @param {string} name
-     * @return {module:echarts/data/Tree~TreeNode}
+     * @return {module:echarts3/data/Tree~TreeNode}
      */
     getNodeByName: function (name) {
         return this.root.getNodeByName(name);
@@ -51223,8 +51223,8 @@ Tree.prototype = {
  *
  * @static
  * @param {Object} dataRoot Root node.
- * @param {module:echarts/model/Model} hostModel
- * @return module:echarts/data/Tree
+ * @param {module:echarts3/model/Model} hostModel
+ * @return module:echarts3/data/Tree
  */
 Tree.createTree = function (dataRoot, hostModel, beforeLink) {
 
@@ -51282,7 +51282,7 @@ Tree.createTree = function (dataRoot, hostModel, beforeLink) {
  * It is needed to consider the mess of 'list', 'hostModel' when creating a TreeNote,
  * so this function is not ready and not necessary to be public.
  *
- * @param {(module:echarts/data/Tree~TreeNode|Object)} child
+ * @param {(module:echarts3/data/Tree~TreeNode|Object)} child
  */
 function addChild(child, node) {
     var children = node.children;
@@ -51325,8 +51325,8 @@ SeriesModel.extend({
 
     /**
      * Init a tree data structure from data in option series
-     * @param  {Object} option  the object used to config echarts view
-     * @return {module:echarts/data/List} storage initial data
+     * @param  {Object} option  the object used to config echarts3 view
+     * @return {module:echarts3/data/List} storage initial data
      */
     getInitialData: function (option) {
 
@@ -51524,7 +51524,7 @@ SeriesModel.extend({
 /**
  * Initialize all computational message for following algorithm.
  *
- * @param  {module:echarts/data/Tree~TreeNode} root   The virtual root of the tree.
+ * @param  {module:echarts3/data/Tree~TreeNode} root   The virtual root of the tree.
  */
 function init$2(root) {
     root.hierNode = {
@@ -51575,7 +51575,7 @@ function init$2(root) {
  * apportion(). After spacing out the children by calling executeShifts(), the
  * node is placed to the midpoint of its outermost children.
  *
- * @param  {module:echarts/data/Tree~TreeNode} node
+ * @param  {module:echarts3/data/Tree~TreeNode} node
  * @param {Function} separation
  */
 function firstWalk(node, separation) {
@@ -51613,7 +51613,7 @@ function firstWalk(node, separation) {
  *
  * Computes all real x-coordinates by summing up the modifiers recursively.
  *
- * @param  {module:echarts/data/Tree~TreeNode} node
+ * @param  {module:echarts3/data/Tree~TreeNode} node
  */
 function secondWalk(node) {
     var nodeX = node.hierNode.prelim + node.parentNode.hierNode.modifier;
@@ -51644,8 +51644,8 @@ function radialCoordinate(x, y) {
 /**
  * Get the layout position of the whole view.
  *
- * @param {module:echarts/model/Series} seriesModel  the model object of sankey series
- * @param {module:echarts/ExtensionAPI} api  provide the API list that the developer can call
+ * @param {module:echarts3/model/Series} seriesModel  the model object of sankey series
+ * @param {module:echarts3/ExtensionAPI} api  provide the API list that the developer can call
  * @return {module:zrender/core/BoundingRect}  size of rect to draw the sankey view
  */
 function getViewRect$1(seriesModel, api) {
@@ -51666,7 +51666,7 @@ function getViewRect$1(seriesModel, api) {
  * with some modifications made for this program.
  * See the license statement at the head of this file.
  *
- * @param  {module:echarts/data/Tree~TreeNode} node
+ * @param  {module:echarts3/data/Tree~TreeNode} node
  */
 function executeShifts(node) {
     var children = node.children;
@@ -51696,11 +51696,11 @@ function executeShifts(node) {
  * and call moveSubtree() to shift the subtree and prepare the shifts of
  * smaller subtrees. Finally, we add a new thread (if necessary).
  *
- * @param  {module:echarts/data/Tree~TreeNode} subtreeV
- * @param  {module:echarts/data/Tree~TreeNode} subtreeW
- * @param  {module:echarts/data/Tree~TreeNode} ancestor
+ * @param  {module:echarts3/data/Tree~TreeNode} subtreeV
+ * @param  {module:echarts3/data/Tree~TreeNode} subtreeW
+ * @param  {module:echarts3/data/Tree~TreeNode} ancestor
  * @param  {Function} separation
- * @return {module:echarts/data/Tree~TreeNode}
+ * @return {module:echarts3/data/Tree~TreeNode}
  */
 function apportion(subtreeV, subtreeW, ancestor, separation) {
 
@@ -51750,8 +51750,8 @@ function apportion(subtreeV, subtreeW, ancestor, separation) {
  * It returns the rightmost child of node or the thread of node. The function
  * returns null if and only if node is on the highest depth of its subtree.
  *
- * @param  {module:echarts/data/Tree~TreeNode} node
- * @return {module:echarts/data/Tree~TreeNode}
+ * @param  {module:echarts3/data/Tree~TreeNode} node
+ * @return {module:echarts3/data/Tree~TreeNode}
  */
 function nextRight(node) {
     var children = node.children;
@@ -51763,8 +51763,8 @@ function nextRight(node) {
  * It returns the leftmost child of node or the thread of node. The function
  * returns null if and only if node is on the highest depth of its subtree.
  *
- * @param  {module:echarts/data/Tree~TreeNode} node
- * @return {module:echarts/data/Tree~TreeNode}
+ * @param  {module:echarts3/data/Tree~TreeNode} node
+ * @return {module:echarts3/data/Tree~TreeNode}
  */
 function nextLeft(node) {
     var children = node.children;
@@ -51775,10 +51775,10 @@ function nextLeft(node) {
  * If nodeInLeft’s ancestor is a sibling of node, returns nodeInLeft’s ancestor.
  * Otherwise, returns the specified ancestor.
  *
- * @param  {module:echarts/data/Tree~TreeNode} nodeInLeft
- * @param  {module:echarts/data/Tree~TreeNode} node
- * @param  {module:echarts/data/Tree~TreeNode} ancestor
- * @return {module:echarts/data/Tree~TreeNode}
+ * @param  {module:echarts3/data/Tree~TreeNode} nodeInLeft
+ * @param  {module:echarts3/data/Tree~TreeNode} node
+ * @param  {module:echarts3/data/Tree~TreeNode} ancestor
+ * @return {module:echarts3/data/Tree~TreeNode}
  */
 function nextAncestor(nodeInLeft, node, ancestor) {
     return nodeInLeft.hierNode.ancestor.parentNode === node.parentNode
@@ -51794,8 +51794,8 @@ function nextAncestor(nodeInLeft, node, ancestor) {
  * Shifts the current subtree rooted at wr.
  * This is done by increasing prelim(w+) and modifier(w+) by shift.
  *
- * @param  {module:echarts/data/Tree~TreeNode} wl
- * @param  {module:echarts/data/Tree~TreeNode} wr
+ * @param  {module:echarts3/data/Tree~TreeNode} wl
+ * @param  {module:echarts3/data/Tree~TreeNode} wr
  * @param  {number} shift [description]
  */
 function moveSubtree(wl, wr, shift) {
@@ -51895,14 +51895,14 @@ extendChartView({
     /**
      * Init the chart
      * @override
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     init: function (ecModel, api) {
 
         /**
          * @private
-         * @type {module:echarts/data/Tree}
+         * @type {module:echarts3/data/Tree}
          */
         this._oldTree;
 
@@ -51914,7 +51914,7 @@ extendChartView({
 
         /**
          * @private
-         * @type {module:echarts/componet/helper/RoamController}
+         * @type {module:echarts3/componet/helper/RoamController}
          */
         this._controller = new RoamController(api.getZr());
 
@@ -52520,7 +52520,7 @@ registerAction({
 
 /**
  * Traverse the tree from bottom to top and do something
- * @param  {module:echarts/data/Tree~TreeNode} root  The real root of the tree
+ * @param  {module:echarts3/data/Tree~TreeNode} root  The real root of the tree
  * @param  {Function} callback
  */
 function eachAfter(root, callback, separation) {
@@ -52547,7 +52547,7 @@ function eachAfter(root, callback, separation) {
 
 /**
  * Traverse the tree from top to bottom and do something
- * @param  {module:echarts/data/Tree~TreeNode} root  The real root of the tree
+ * @param  {module:echarts3/data/Tree~TreeNode} root  The real root of the tree
  * @param  {Function} callback
  */
 function eachBefore(root, callback) {
@@ -52807,7 +52807,7 @@ SeriesModel.extend({
     preventUsingHoverLayer: true,
 
     /**
-     * @type {module:echarts/data/Tree~Node}
+     * @type {module:echarts3/data/Tree~Node}
      */
     _viewRoot: null,
 
@@ -53078,7 +53078,7 @@ SeriesModel.extend({
     },
 
     /**
-     * @param {module:echarts/data/Tree~Node} [viewRoot]
+     * @param {module:echarts3/data/Tree~Node} [viewRoot]
      */
     resetViewRoot: function (viewRoot) {
         viewRoot
@@ -53534,19 +53534,19 @@ extendChartView({
 
         /**
          * @private
-         * @type {module:echarts/data/Tree}
+         * @type {module:echarts3/data/Tree}
          */
         this._oldTree;
 
         /**
          * @private
-         * @type {module:echarts/chart/treemap/Breadcrumb}
+         * @type {module:echarts3/chart/treemap/Breadcrumb}
          */
         this._breadcrumb;
 
         /**
          * @private
-         * @type {module:echarts/component/helper/RoamController}
+         * @type {module:echarts3/component/helper/RoamController}
          */
         this._controller;
 
@@ -55492,7 +55492,7 @@ var treemapLayout = {
  * See the license statement at the head of this file.
  *
  * @protected
- * @param {module:echarts/data/Tree~TreeNode} node
+ * @param {module:echarts3/data/Tree~TreeNode} node
  * @param {Object} options
  * @param {string} options.sort 'asc' or 'desc'
  * @param {number} options.squareRatio
@@ -55974,7 +55974,7 @@ function generateNodeKey(id) {
     return '_EC_' + id;
 }
 /**
- * @alias module:echarts/data/Graph
+ * @alias module:echarts3/data/Graph
  * @constructor
  * @param {boolean} directed
  */
@@ -55987,36 +55987,36 @@ var Graph = function (directed) {
     this._directed = directed || false;
 
     /**
-     * @type {Array.<module:echarts/data/Graph.Node>}
+     * @type {Array.<module:echarts3/data/Graph.Node>}
      * @readOnly
      */
     this.nodes = [];
 
     /**
-     * @type {Array.<module:echarts/data/Graph.Edge>}
+     * @type {Array.<module:echarts3/data/Graph.Edge>}
      * @readOnly
      */
     this.edges = [];
 
     /**
-     * @type {Object.<string, module:echarts/data/Graph.Node>}
+     * @type {Object.<string, module:echarts3/data/Graph.Node>}
      * @private
      */
     this._nodesMap = {};
     /**
-     * @type {Object.<string, module:echarts/data/Graph.Edge>}
+     * @type {Object.<string, module:echarts3/data/Graph.Edge>}
      * @private
      */
     this._edgesMap = {};
 
     /**
-     * @type {module:echarts/data/List}
+     * @type {module:echarts3/data/List}
      * @readOnly
      */
     this.data;
 
     /**
-     * @type {module:echarts/data/List}
+     * @type {module:echarts3/data/List}
      * @readOnly
      */
     this.edgeData;
@@ -56065,7 +56065,7 @@ graphProto.addNode = function (id, dataIndex) {
 /**
  * Get node by data index
  * @param  {number} dataIndex
- * @return {module:echarts/data/Graph~Node}
+ * @return {module:echarts3/data/Graph~Node}
  */
 graphProto.getNodeByIndex = function (dataIndex) {
     var rawIdx = this.data.getRawIndex(dataIndex);
@@ -56074,7 +56074,7 @@ graphProto.getNodeByIndex = function (dataIndex) {
 /**
  * Get node by id
  * @param  {string} id
- * @return {module:echarts/data/Graph.Node}
+ * @return {module:echarts3/data/Graph.Node}
  */
 graphProto.getNodeById = function (id) {
     return this._nodesMap[generateNodeKey(id)];
@@ -56082,10 +56082,10 @@ graphProto.getNodeById = function (id) {
 
 /**
  * Add a new edge
- * @param {number|string|module:echarts/data/Graph.Node} n1
- * @param {number|string|module:echarts/data/Graph.Node} n2
+ * @param {number|string|module:echarts3/data/Graph.Node} n1
+ * @param {number|string|module:echarts3/data/Graph.Node} n2
  * @param {number} [dataIndex=-1]
- * @return {module:echarts/data/Graph.Edge}
+ * @return {module:echarts3/data/Graph.Edge}
  */
 graphProto.addEdge = function (n1, n2, dataIndex) {
     var nodesMap = this._nodesMap;
@@ -56131,7 +56131,7 @@ graphProto.addEdge = function (n1, n2, dataIndex) {
 /**
  * Get edge by data index
  * @param  {number} dataIndex
- * @return {module:echarts/data/Graph~Node}
+ * @return {module:echarts3/data/Graph~Node}
  */
 graphProto.getEdgeByIndex = function (dataIndex) {
     var rawIdx = this.edgeData.getRawIndex(dataIndex);
@@ -56139,9 +56139,9 @@ graphProto.getEdgeByIndex = function (dataIndex) {
 };
 /**
  * Get edge by two linked nodes
- * @param  {module:echarts/data/Graph.Node|string} n1
- * @param  {module:echarts/data/Graph.Node|string} n2
- * @return {module:echarts/data/Graph.Edge}
+ * @param  {module:echarts3/data/Graph.Node|string} n1
+ * @param  {module:echarts3/data/Graph.Node|string} n2
+ * @return {module:echarts3/data/Graph.Edge}
  */
 graphProto.getEdge = function (n1, n2) {
     if (Node.isInstance(n1)) {
@@ -56198,7 +56198,7 @@ graphProto.eachEdge = function (cb, context) {
 /**
  * Breadth first traverse
  * @param {Function} cb
- * @param {module:echarts/data/Graph.Node} startNode
+ * @param {module:echarts3/data/Graph.Node} startNode
  * @param {string} [direction='none'] 'none'|'in'|'out'
  * @param {*} [context]
  */
@@ -56280,7 +56280,7 @@ graphProto.update = function () {
 };
 
 /**
- * @return {module:echarts/data/Graph}
+ * @return {module:echarts3/data/Graph}
  */
 graphProto.clone = function () {
     var graph = new Graph(this._directed);
@@ -56298,7 +56298,7 @@ graphProto.clone = function () {
 
 
 /**
- * @alias module:echarts/data/Graph.Node
+ * @alias module:echarts3/data/Graph.Node
  */
 function Node(id, dataIndex) {
     /**
@@ -56307,19 +56307,19 @@ function Node(id, dataIndex) {
     this.id = id == null ? '' : id;
 
     /**
-    * @type {Array.<module:echarts/data/Graph.Edge>}
+    * @type {Array.<module:echarts3/data/Graph.Edge>}
     */
     this.inEdges = [];
     /**
-    * @type {Array.<module:echarts/data/Graph.Edge>}
+    * @type {Array.<module:echarts3/data/Graph.Edge>}
     */
     this.outEdges = [];
     /**
-    * @type {Array.<module:echarts/data/Graph.Edge>}
+    * @type {Array.<module:echarts3/data/Graph.Edge>}
     */
     this.edges = [];
     /**
-     * @type {module:echarts/data/Graph}
+     * @type {module:echarts3/data/Graph}
      */
     this.hostGraph;
 
@@ -56356,7 +56356,7 @@ Node.prototype = {
 
     /**
      * @param {string} [path]
-     * @return {module:echarts/model/Model}
+     * @return {module:echarts3/model/Model}
      */
     getModel: function (path) {
         if (this.dataIndex < 0) {
@@ -56371,22 +56371,22 @@ Node.prototype = {
 
 /**
  * 图边
- * @alias module:echarts/data/Graph.Edge
- * @param {module:echarts/data/Graph.Node} n1
- * @param {module:echarts/data/Graph.Node} n2
+ * @alias module:echarts3/data/Graph.Edge
+ * @param {module:echarts3/data/Graph.Node} n1
+ * @param {module:echarts3/data/Graph.Node} n2
  * @param {number} [dataIndex=-1]
  */
 function Edge(n1, n2, dataIndex) {
 
     /**
      * 节点1，如果是有向图则为源节点
-     * @type {module:echarts/data/Graph.Node}
+     * @type {module:echarts3/data/Graph.Node}
      */
     this.node1 = n1;
 
     /**
      * 节点2，如果是有向图则为目标节点
-     * @type {module:echarts/data/Graph.Node}
+     * @type {module:echarts3/data/Graph.Node}
      */
     this.node2 = n2;
 
@@ -56395,7 +56395,7 @@ function Edge(n1, n2, dataIndex) {
 
 /**
  * @param {string} [path]
- * @return {module:echarts/model/Model}
+ * @return {module:echarts3/model/Model}
  */
 Edge.prototype.getModel = function (path) {
     if (this.dataIndex < 0) {
@@ -56586,7 +56586,7 @@ var createGraphFromNodeEdge = function (nodes, edges, seriesModel, directed, bef
 var KEY_DELIMITER = '-->';
 /**
  * params handler
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  * @returns {*}
  */
 var getAutoCurvenessParams = function (seriesModel) {
@@ -56595,7 +56595,7 @@ var getAutoCurvenessParams = function (seriesModel) {
 
 /**
  * Generate a list of edge curvatures, 20 is the default
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  * @param {number} appendLength
  * @return  20 => [0, -0.2, 0.2, -0.4, 0.4, -0.6, 0.6, -0.8, 0.8, -1, 1, -1.2, 1.2, -1.4, 1.4, -1.6, 1.6, -1.8, 1.8, -2]
  */
@@ -56630,9 +56630,9 @@ var createCurveness = function (seriesModel, appendLength) {
 
 /**
  * Create different cache key data in the positive and negative directions, in order to set the curvature later
- * @param {number|string|module:echarts/data/Graph.Node} n1
- * @param {number|string|module:echarts/data/Graph.Node} n2
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {number|string|module:echarts3/data/Graph.Node} n1
+ * @param {number|string|module:echarts3/data/Graph.Node} n2
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  * @returns {string} key
  */
 var getKeyOfEdges = function (n1, n2, seriesModel) {
@@ -56654,7 +56654,7 @@ var getOppositeKey = function (key) {
 /**
  * get edgeMap with key
  * @param edge
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  */
 var getEdgeFromMap = function (edge, seriesModel) {
     var key = getKeyOfEdges(edge.node1, edge.node2, seriesModel);
@@ -56686,7 +56686,7 @@ var getEdgeMapLengthWithKey = function (key, seriesModel) {
 /**
  * Count the number of edges between the same two points, used to obtain the curvature table and the parity of the edge
  * @see /graph/GraphSeries.js@getInitialData
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  */
 function initCurvenessList(seriesModel) {
     if (!getAutoCurvenessParams(seriesModel)) {
@@ -56701,9 +56701,9 @@ function initCurvenessList(seriesModel) {
 
 /**
  * set edgeMap with key
- * @param {number|string|module:echarts/data/Graph.Node} n1
- * @param {number|string|module:echarts/data/Graph.Node} n2
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {number|string|module:echarts3/data/Graph.Node} n1
+ * @param {number|string|module:echarts3/data/Graph.Node} n2
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  * @param {number} index
  */
 function createEdgeMapForCurveness(n1, n2, seriesModel, index) {
@@ -56730,7 +56730,7 @@ function createEdgeMapForCurveness(n1, n2, seriesModel, index) {
 /**
  * get curvature for edge
  * @param edge
- * @param {module:echarts/model/SeriesModel} seriesModel
+ * @param {module:echarts3/model/SeriesModel} seriesModel
  * @param index
  */
 function getCurvenessForEdge(edge, seriesModel, index, needReverse) {
@@ -56904,21 +56904,21 @@ var GraphSeries = extendSeriesModel({
     },
 
     /**
-     * @return {module:echarts/data/Graph}
+     * @return {module:echarts3/data/Graph}
      */
     getGraph: function () {
         return this.getData().graph;
     },
 
     /**
-     * @return {module:echarts/data/List}
+     * @return {module:echarts3/data/List}
      */
     getEdgeData: function () {
         return this.getGraph().edgeData;
     },
 
     /**
-     * @return {module:echarts/data/List}
+     * @return {module:echarts3/data/List}
      */
     getCategoriesData: function () {
         return this._categoriesData;
@@ -57171,7 +57171,7 @@ var LinePath = extendShape({
 */
 
 /**
- * @module echarts/chart/helper/Line
+ * @module echarts3/chart/helper/Line
  */
 
 var SYMBOL_CATEGORIES = ['fromSymbol', 'toSymbol'];
@@ -57414,7 +57414,7 @@ function updateSymbolAndLabelBeforeLineUpdate() {
 /**
  * @constructor
  * @extends {module:zrender/graphic/Group}
- * @alias {module:echarts/chart/helper/Line}
+ * @alias {module:echarts3/chart/helper/Line}
  */
 function Line$1(lineData, idx, seriesScope) {
     Group.call(this);
@@ -57654,13 +57654,13 @@ inherits(Line$1, Group);
 */
 
 /**
- * @module echarts/chart/helper/LineDraw
+ * @module echarts3/chart/helper/LineDraw
  */
 
 // import IncrementalDisplayable from 'zrender/src/graphic/IncrementalDisplayable';
 
 /**
- * @alias module:echarts/component/marker/LineDraw
+ * @alias module:echarts3/component/marker/LineDraw
  * @constructor
  */
 function LineDraw(ctor) {
@@ -57676,7 +57676,7 @@ lineDrawProto.isPersistent = function () {
 };
 
 /**
- * @param {module:echarts/data/List} lineData
+ * @param {module:echarts3/data/List} lineData
  */
 lineDrawProto.updateData = function (lineData) {
     var lineDraw = this;
@@ -58865,7 +58865,7 @@ var _symbolRadiansHalf = [];
  *     If progressive rendering is applied to graph some day,
  *     probably we have to use `basedOn: 'value'`.
  *
- * @param {module:echarts/src/model/Series} seriesModel
+ * @param {module:echarts3/src/model/Series} seriesModel
  * @param {string} basedOn 'value' or 'symbolSize'
  */
 function circularLayout$1(seriesModel, basedOn) {
@@ -59583,7 +59583,7 @@ var GaugeSeries = SeriesModel.extend({
 
 var PointerPath = Path.extend({
 
-    type: 'echartsGaugePointer',
+    type: 'echarts3GaugePointer',
 
     shape: {
         angle: 0,
@@ -60892,8 +60892,8 @@ function mergeAxisOptionFromParallel(option) {
 */
 
 /**
- * @constructor module:echarts/coord/parallel/ParallelAxis
- * @extends {module:echarts/coord/Axis}
+ * @constructor module:echarts3/coord/parallel/ParallelAxis
+ * @extends {module:echarts3/coord/Axis}
  * @param {string} dim
  * @param {*} scale
  * @param {Array.<number>} coordExtent
@@ -60926,7 +60926,7 @@ ParallelAxis.prototype = {
 
     /**
      * Axis model
-     * @param {module:echarts/coord/parallel/AxisModel}
+     * @param {module:echarts3/coord/parallel/AxisModel}
      */
     model: null,
 
@@ -61082,7 +61082,7 @@ function Parallel(parallelModel, ecModel, api) {
 
     /**
      * key: dimension
-     * @type {Object.<string, module:echarts/coord/parallel/Axis>}
+     * @type {Object.<string, module:echarts3/coord/parallel/Axis>}
      * @private
      */
     this._axesMap = createHashMap();
@@ -61108,7 +61108,7 @@ function Parallel(parallelModel, ecModel, api) {
     this._rect;
 
     /**
-     * @type {module:echarts/coord/parallel/ParallelModel}
+     * @type {module:echarts3/coord/parallel/ParallelModel}
      */
     this._model = parallelModel;
 
@@ -61157,8 +61157,8 @@ Parallel.prototype = {
 
     /**
      * Update axis scale after data processed
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     update: function (ecModel, api) {
         this._updateAxesFromSeries(this._model, ecModel);
@@ -61208,8 +61208,8 @@ Parallel.prototype = {
 
     /**
      * Resize the parallel coordinate system.
-     * @param {module:echarts/coord/parallel/ParallelModel} parallelModel
-     * @param {module:echarts/ExtensionAPI} api
+     * @param {module:echarts3/coord/parallel/ParallelModel} parallelModel
+     * @param {module:echarts3/ExtensionAPI} api
      */
     resize: function (parallelModel, api) {
         this._rect = getLayoutRect(
@@ -61367,7 +61367,7 @@ Parallel.prototype = {
     /**
      * Get axis by dim.
      * @param {string} dim
-     * @return {module:echarts/coord/parallel/ParallelAxis} [description]
+     * @return {module:echarts3/coord/parallel/ParallelAxis} [description]
      */
     getAxis: function (dim) {
         return this._axesMap.get(dim);
@@ -61388,7 +61388,7 @@ Parallel.prototype = {
 
     /**
      * Travel data for one time, get activeState of each data item.
-     * @param {module:echarts/data/List} data
+     * @param {module:echarts3/data/List} data
      * @param {Functio} cb param: {string} activeState 'active' or 'inactive' or 'normal'
      *                            {number} dataIndex
      * @param {number} [start=0] the start dataIndex that travel from.
@@ -61661,7 +61661,7 @@ var AxisModel$2 = ComponentModel.extend({
     type: 'baseParallelAxis',
 
     /**
-     * @type {module:echarts/coord/parallel/Axis}
+     * @type {module:echarts3/coord/parallel/Axis}
      */
     axis: null,
 
@@ -61688,7 +61688,7 @@ var AxisModel$2 = ComponentModel.extend({
 
     /**
      * The code of this feature is put on AxisModel but not ParallelAxis,
-     * because axisModel can be alive after echarts updating but instance of
+     * because axisModel can be alive after echarts3 updating but instance of
      * ParallelAxis having been disposed. this._activeInterval should be kept
      * when action dispatched (i.e. legend click).
      *
@@ -61804,7 +61804,7 @@ ComponentModel.extend({
     dependencies: ['parallelAxis'],
 
     /**
-     * @type {module:echarts/coord/parallel/Parallel}
+     * @type {module:echarts3/coord/parallel/Parallel}
      */
     coordinateSystem: null,
 
@@ -61874,8 +61874,8 @@ ComponentModel.extend({
 
     /**
      * Whether series or axis is in this coordinate system.
-     * @param {module:echarts/model/Series|module:echarts/coord/parallel/AxisModel} model
-     * @param {module:echarts/model/Global} ecModel
+     * @param {module:echarts3/model/Series|module:echarts3/coord/parallel/AxisModel} model
+     * @param {module:echarts3/model/Global} ecModel
      */
     contains: function (model, ecModel) {
         var parallelIndex = model.get('parallelIndex');
@@ -62029,10 +62029,10 @@ var DEFAULT_BRUSH_OPT = {
 var baseUID = 0;
 
 /**
- * @alias module:echarts/component/helper/BrushController
+ * @alias module:echarts3/component/helper/BrushController
  * @constructor
  * @mixin {module:zrender/mixin/Eventful}
- * @event module:echarts/component/helper/BrushController#brush
+ * @event module:echarts3/component/helper/BrushController#brush
  *        params:
  *            areas: Array.<Array>, coord relates to container group,
  *                                    If no container specified, to global.
@@ -63068,7 +63068,7 @@ var AxisView$2 = extendComponentView({
         AxisView$2.superApply(this, 'init', arguments);
 
         /**
-         * @type {module:echarts/component/helper/BrushController}
+         * @type {module:echarts3/component/helper/BrushController}
          */
         (this._brushController = new BrushController(api.getZr()))
             .on('brush', bind(this._onBrush, this));
@@ -63531,7 +63531,7 @@ var ParallelView = Chart.extend({
         this.group.add(this._dataGroup);
 
         /**
-         * @type {module:echarts/data/List}
+         * @type {module:echarts3/data/List}
          */
         this._data;
 
@@ -63722,7 +63722,7 @@ function updateElCommon(el, data, dataIndex, seriesScope) {
 
     var elStyle = el.style;
     elStyle.fill = null;
-    // lineStyle.color have been set to itemVisual in module:echarts/visual/seriesColor.
+    // lineStyle.color have been set to itemVisual in module:echarts3/visual/seriesColor.
     elStyle.stroke = data.getItemVisual(dataIndex, 'color');
     // lineStyle.opacity have been set to itemVisual in parallelVisual.
     elStyle.opacity = data.getItemVisual(dataIndex, 'opacity');
@@ -63875,8 +63875,8 @@ var SankeySeries = SeriesModel.extend({
     /**
      * Init a graph data structure from data in option series
      *
-     * @param  {Object} option  the object used to config echarts view
-     * @return {module:echarts/data/List} storage initial data
+     * @param  {Object} option  the object used to config echarts3 view
+     * @return {module:echarts3/data/List} storage initial data
      */
     getInitialData: function (option, ecModel) {
         var links = option.edges || option.links;
@@ -63931,7 +63931,7 @@ var SankeySeries = SeriesModel.extend({
     /**
      * Return the graphic data structure
      *
-     * @return {module:echarts/data/Graph} graphic data structure
+     * @return {module:echarts3/data/Graph} graphic data structure
      */
     getGraph: function () {
         return this.getData().graph;
@@ -63940,7 +63940,7 @@ var SankeySeries = SeriesModel.extend({
     /**
      * Get edge data of graphic data structure
      *
-     * @return {module:echarts/data/List} data structure of list
+     * @return {module:echarts3/data/List} data structure of list
      */
     getEdgeData: function () {
         return this.getGraph().edgeData;
@@ -64172,7 +64172,7 @@ extendChartView({
 
     /**
      * @private
-     * @type {module:echarts/chart/sankey/SankeySeries}
+     * @type {module:echarts3/chart/sankey/SankeySeries}
      */
     _model: null,
 
@@ -64546,7 +64546,7 @@ function createGridClipShape$1(rect, seriesModel, cb) {
 registerAction({
     type: 'dragNode',
     event: 'dragnode',
-    // here can only use 'update' now, other value is not support in echarts.
+    // here can only use 'update' now, other value is not support in echarts3.
     update: 'update'
 }, function (payload, ecModel) {
     ecModel.eachComponent({mainType: 'series', subType: 'sankey', query: payload}, function (seriesModel) {
@@ -64611,8 +64611,8 @@ var sankeyLayout = function (ecModel, api, payload) {
 /**
  * Get the layout position of the whole view
  *
- * @param {module:echarts/model/Series} seriesModel  the model object of sankey series
- * @param {module:echarts/ExtensionAPI} api  provide the API list that the developer can call
+ * @param {module:echarts3/model/Series} seriesModel  the model object of sankey series
+ * @param {module:echarts3/ExtensionAPI} api  provide the API list that the developer can call
  * @return {module:zrender/core/BoundingRect}  size of rect to draw the sankey view
  */
 function getViewRect$4(seriesModel, api) {
@@ -64633,7 +64633,7 @@ function layoutSankey(nodes, edges, nodeWidth, nodeGap, width, height, iteration
 /**
  * Compute the value of each node by summing the associated edge's value
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
  */
 function computeNodeValues(nodes) {
     each$1(nodes, function (node) {
@@ -64651,7 +64651,7 @@ function computeNodeValues(nodes) {
  * Here we use Kahn algorithm to detect cycle when we traverse
  * the node to computer the initial x position.
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
  * @param  {number} nodeWidth  the dx of the node
  * @param  {number} width  the whole width of the area to draw the view
  */
@@ -64767,7 +64767,7 @@ function adjustNodeWithNodeAlign(nodes, nodeAlign, orient, maxDepth) {
  * All the node without outEgdes are assigned maximum x-position and
  *     be aligned in the last column.
  *
- * @param {module:echarts/data/Graph~Node} nodes.  node of sankey view.
+ * @param {module:echarts3/data/Graph~Node} nodes.  node of sankey view.
  * @param {number} maxDepth.  use to assign to node without outEdges as x-position.
  */
 function moveSinksRight(nodes, maxDepth) {
@@ -64781,7 +64781,7 @@ function moveSinksRight(nodes, maxDepth) {
 /**
  * Scale node x-position to the width
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
  * @param {number} kx   multiple used to scale nodes
  */
 function scaleNodeBreadths(nodes, kx, orient) {
@@ -64796,8 +64796,8 @@ function scaleNodeBreadths(nodes, kx, orient) {
 /**
  * Using Gauss-Seidel iterations method to compute the node depth(y-position)
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
- * @param {module:echarts/data/Graph~Edge} edges  edge of sankey view
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
+ * @param {module:echarts3/data/Graph~Edge} edges  edge of sankey view
  * @param {number} height  the whole height of the area to draw the view
  * @param {number} nodeGap  the vertical distance between two nodes
  *     in the same column.
@@ -64840,10 +64840,10 @@ function prepareNodesByBreadth(nodes, orient) {
 /**
  * Compute the original y-position for each node
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
- * @param {Array.<Array.<module:echarts/data/Graph~Node>>} nodesByBreadth
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
+ * @param {Array.<Array.<module:echarts3/data/Graph~Node>>} nodesByBreadth
  *     group by the array of all sankey nodes based on the nodes x-position.
- * @param {module:echarts/data/Graph~Edge} edges  edge of sankey view
+ * @param {module:echarts3/data/Graph~Edge} edges  edge of sankey view
  * @param {number} height  the whole height of the area to draw the view
  * @param {number} nodeGap  the vertical distance between two nodes
  */
@@ -64887,7 +64887,7 @@ function initializeNodeDepth(nodesByBreadth, edges, height, width, nodeGap, orie
 /**
  * Resolve the collision of initialized depth (y-position)
  *
- * @param {Array.<Array.<module:echarts/data/Graph~Node>>} nodesByBreadth
+ * @param {Array.<Array.<module:echarts3/data/Graph~Node>>} nodesByBreadth
  *     group by the array of all sankey nodes based on the nodes x-position.
  * @param {number} nodeGap  the vertical distance between two nodes
  * @param {number} height  the whole height of the area to draw the view
@@ -64943,7 +64943,7 @@ function resolveCollisions(nodesByBreadth, nodeGap, height, width, orient) {
 /**
  * Change the y-position of the nodes, except most the right side nodes
  *
- * @param {Array.<Array.<module:echarts/data/Graph~Node>>} nodesByBreadth
+ * @param {Array.<Array.<module:echarts3/data/Graph~Node>>} nodesByBreadth
  *     group by the array of all sankey nodes based on the node x-position.
  * @param {number} alpha  parameter used to adjust the nodes y-position
  */
@@ -65012,7 +65012,7 @@ function sum(array, cb, orient) {
 /**
  * Change the y-position of the nodes, except most the left side nodes
  *
- * @param {Array.<Array.<module:echarts/data/Graph~Node>>} nodesByBreadth
+ * @param {Array.<Array.<module:echarts3/data/Graph~Node>>} nodesByBreadth
  *     group by the array of all sankey nodes based on the node x-position.
  * @param {number} alpha  parameter used to adjust the nodes y-position
  */
@@ -65045,7 +65045,7 @@ function relaxLeftToRight(nodesByBreadth, alpha, orient) {
 /**
  * Compute the depth(y-position) of each edge
  *
- * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
+ * @param {module:echarts3/data/Graph~Node} nodes  node of sankey view
  */
 function computeEdgeDepths(nodes, orient) {
     var keyAttr = orient === 'vertical' ? 'x' : 'y';
@@ -65309,7 +65309,7 @@ var BoxplotSeries = SeriesModel.extend({
     /**
      * @see <https://en.wikipedia.org/wiki/Box_plot>
      * The meanings of 'min' and 'max' depend on user,
-     * and echarts do not need to know it.
+     * and echarts3 do not need to know it.
      * @readOnly
      */
     defaultValueDimensions: [
@@ -66710,7 +66710,7 @@ SeriesModel.extend({
 
 /**
  * Symbol with ripple effect
- * @module echarts/chart/helper/EffectSymbol
+ * @module echarts3/chart/helper/EffectSymbol
  */
 
 var EFFECT_RIPPLE_NUMBER = 3;
@@ -66737,7 +66737,7 @@ function updateRipplePath(rippleGroup, effectCfg) {
 }
 /**
  * @constructor
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {number} idx
  * @extends {module:zrender/graphic/Group}
  */
@@ -66840,7 +66840,7 @@ effectSymbolProto.downplay = function () {
 
 /**
  * Update symbol properties
- * @param  {module:echarts/data/List} data
+ * @param  {module:echarts3/data/List} data
  * @param  {number} idx
  */
 effectSymbolProto.updateData = function (data, idx) {
@@ -67358,13 +67358,13 @@ var LinesSeries = SeriesModel.extend({
 
 /**
  * Provide effect for line
- * @module echarts/chart/helper/EffectLine
+ * @module echarts3/chart/helper/EffectLine
  */
 
 /**
  * @constructor
  * @extends {module:zrender/graphic/Group}
- * @alias {module:echarts/chart/helper/Line}
+ * @alias {module:echarts3/chart/helper/Line}
  */
 function EffectLine(lineData, idx, seriesScope) {
     Group.call(this);
@@ -67575,13 +67575,13 @@ inherits(EffectLine, Group);
 */
 
 /**
- * @module echarts/chart/helper/Line
+ * @module echarts3/chart/helper/Line
  */
 
 /**
  * @constructor
  * @extends {module:zrender/graphic/Group}
- * @alias {module:echarts/chart/helper/Polyline}
+ * @alias {module:echarts3/chart/helper/Polyline}
  */
 function Polyline$2(lineData, idx, seriesScope) {
     Group.call(this);
@@ -67674,13 +67674,13 @@ inherits(Polyline$2, Group);
 
 /**
  * Provide effect for line
- * @module echarts/chart/helper/EffectLine
+ * @module echarts3/chart/helper/EffectLine
  */
 
 /**
  * @constructor
- * @extends {module:echarts/chart/helper/EffectLine}
- * @alias {module:echarts/chart/helper/Polyline}
+ * @extends {module:echarts3/chart/helper/EffectLine}
+ * @alias {module:echarts3/chart/helper/Polyline}
  */
 function EffectPolyline(lineData, idx, seriesScope) {
     EffectLine.call(this, lineData, idx, seriesScope);
@@ -67904,7 +67904,7 @@ largeLineProto.isPersistent = function () {
 
 /**
  * Update symbols draw by new data
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  */
 largeLineProto.updateData = function (data) {
     this.group.removeAll();
@@ -69831,8 +69831,8 @@ registerVisual(visualSymbol('pictorialBar', 'roundRect'));
 */
 
 /**
- * @constructor  module:echarts/coord/single/SingleAxis
- * @extends {module:echarts/coord/Axis}
+ * @constructor  module:echarts3/coord/single/SingleAxis
+ * @extends {module:echarts3/coord/Axis}
  * @param {string} dim
  * @param {*} scale
  * @param {Array.<number>} coordExtent
@@ -69879,7 +69879,7 @@ SingleAxis.prototype = {
 
     /**
      * Axis model
-     * @type {module:echarts/coord/single/AxisModel}
+     * @type {module:echarts3/coord/single/AxisModel}
      */
     model: null,
 
@@ -69903,14 +69903,14 @@ SingleAxis.prototype = {
     /**
      * Convert the local coord(processed by dataToCoord())
      * to global coord(concrete pixel coord).
-     * designated by module:echarts/coord/single/Single.
+     * designated by module:echarts3/coord/single/Single.
      * @type {Function}
      */
     toGlobalCoord: null,
 
     /**
      * Convert the global coord to local coord.
-     * designated by module:echarts/coord/single/Single.
+     * designated by module:echarts3/coord/single/Single.
      * @type {Function}
      */
     toLocalCoord: null
@@ -69945,9 +69945,9 @@ inherits(SingleAxis, Axis);
 /**
  * Create a single coordinates system.
  *
- * @param {module:echarts/coord/single/AxisModel} axisModel
- * @param {module:echarts/model/Global} ecModel
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/coord/single/AxisModel} axisModel
+ * @param {module:echarts3/model/Global} ecModel
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function Single(axisModel, ecModel, api) {
 
@@ -69967,7 +69967,7 @@ function Single(axisModel, ecModel, api) {
 
     /**
      * @private
-     * @type {module:echarts/coord/single/SingleAxis}.
+     * @type {module:echarts3/coord/single/SingleAxis}.
      */
     this._axis = null;
 
@@ -69980,7 +69980,7 @@ function Single(axisModel, ecModel, api) {
     this._init(axisModel, ecModel, api);
 
     /**
-     * @type {module:echarts/coord/single/AxisModel}
+     * @type {module:echarts3/coord/single/AxisModel}
      */
     this.model = axisModel;
 }
@@ -69996,9 +69996,9 @@ Single.prototype = {
     /**
      * Initialize single coordinate system.
      *
-     * @param  {module:echarts/coord/single/AxisModel} axisModel
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/coord/single/AxisModel} axisModel
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      * @private
      */
     _init: function (axisModel, ecModel, api) {
@@ -70026,8 +70026,8 @@ Single.prototype = {
 
     /**
      * Update axis scale after data processed
-     * @param  {module:echarts/model/Global} ecModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/model/Global} ecModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     update: function (ecModel, api) {
         ecModel.eachSeries(function (seriesModel) {
@@ -70044,8 +70044,8 @@ Single.prototype = {
     /**
      * Resize the single coordinate system.
      *
-     * @param  {module:echarts/coord/single/AxisModel} axisModel
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/coord/single/AxisModel} axisModel
+     * @param  {module:echarts3/ExtensionAPI} api
      */
     resize: function (axisModel, api) {
         this._rect = getLayoutRect(
@@ -70092,7 +70092,7 @@ Single.prototype = {
     },
 
     /**
-     * @param  {module:echarts/coord/single/SingleAxis} axis
+     * @param  {module:echarts3/coord/single/SingleAxis} axis
      * @param  {number} coordBase
      */
     _updateAxisTransform: function (axis, coordBase) {
@@ -70121,7 +70121,7 @@ Single.prototype = {
     /**
      * Get axis.
      *
-     * @return {module:echarts/coord/single/SingleAxis}
+     * @return {module:echarts3/coord/single/SingleAxis}
      */
     getAxis: function () {
         return this._axis;
@@ -70137,7 +70137,7 @@ Single.prototype = {
     },
 
     /**
-     * @return {Array.<module:echarts/coord/Axis>}
+     * @return {Array.<module:echarts3/coord/Axis>}
      */
     getAxes: function () {
         return [this._axis];
@@ -70230,9 +70230,9 @@ Single.prototype = {
 /**
  * Create single coordinate system and inject it into seriesModel.
  *
- * @param {module:echarts/model/Global} ecModel
- * @param {module:echarts/ExtensionAPI} api
- * @return {Array.<module:echarts/coord/single/Single>}
+ * @param {module:echarts3/model/Global} ecModel
+ * @param {module:echarts3/ExtensionAPI} api
+ * @return {Array.<module:echarts3/coord/single/Single>}
  */
 function create$3(ecModel, api) {
     var singles = [];
@@ -70509,12 +70509,12 @@ var AxisModel$4 = ComponentModel.extend({
     layoutMode: 'box',
 
     /**
-     * @type {module:echarts/coord/single/SingleAxis}
+     * @type {module:echarts3/coord/single/SingleAxis}
      */
     axis: null,
 
     /**
-     * @type {module:echarts/coord/single/Single}
+     * @type {module:echarts3/coord/single/Single}
      */
     coordinateSystem: null,
 
@@ -70606,7 +70606,7 @@ axisModelCreator('single', AxisModel$4, getAxisType$2, defaultOption$2);
 
 /**
  * @param {Object} finder contains {seriesIndex, dataIndex, dataIndexInside}
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @return {Object} {point: [x, y], el: ...} point Will not be null.
  */
 var findPointFromSeries = function (finder, ecModel) {
@@ -70699,9 +70699,9 @@ var inner$9 = makeInner();
  * @param {Object} [payload.tooltipOption]
  * @param {Object|Array.<number>|Function} [payload.position] Tooltip position,
  *        which can be specified in dispatchAction
- * @param {module:echarts/model/Global} ecModel
- * @param {module:echarts/ExtensionAPI} api
- * @return {Object} content of event obj for echarts.connect.
+ * @param {module:echarts3/model/Global} ecModel
+ * @param {module:echarts3/ExtensionAPI} api
+ * @return {Object} content of event obj for echarts3.connect.
  */
 var axisTrigger = function (payload, ecModel, api) {
     var currTrigger = payload.currTrigger;
@@ -70812,7 +70812,7 @@ function processOnAxis(axisInfo, newValue, updaters, dontSnap, outputFinder) {
     var payloadBatch = payloadInfo.payloadBatch;
     var snapToValue = payloadInfo.snapToValue;
 
-    // Fill content of event obj for echarts.connect.
+    // Fill content of event obj for echarts3.connect.
     // By default use the first involved series data as a sample to connect.
     if (payloadBatch[0] && outputFinder.seriesIndex == null) {
         extend(outputFinder, payloadBatch[0]);
@@ -71199,7 +71199,7 @@ var each$15 = each$1;
 
 /**
  * @param {string} key
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {Function} handler
  *      param: {string} currTrigger
  *      param: {Array.<number>} point
@@ -71297,7 +71297,7 @@ function makeDispatchAction(api) {
 
 /**
  * @param {string} key
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function unregister(key, api) {
     if (env$1.node) {
@@ -71402,7 +71402,7 @@ var bind$2 = bind;
 
 /**
  * Base axis pointer class in 2D.
- * Implemenents {module:echarts/component/axis/IAxisPointer}.
+ * Implemenents {module:echarts3/component/axis/IAxisPointer}.
  */
 function BaseAxisPointer() {
 }
@@ -71791,8 +71791,8 @@ BaseAxisPointer.prototype = {
      * Should be implemenented by sub-class if support `handle`.
      * @protected
      * @param {number} value
-     * @param {module:echarts/model/Model} axisModel
-     * @param {module:echarts/model/Model} axisPointerModel
+     * @param {module:echarts3/model/Model} axisModel
+     * @param {module:echarts3/model/Model} axisPointerModel
      * @return {Object} {position: [x, y], rotation: 0}
      */
     getHandleTransform: null,
@@ -71802,8 +71802,8 @@ BaseAxisPointer.prototype = {
      * @protected
      * @param {Object} transform {position, rotation}
      * @param {Array.<number>} delta [dx, dy]
-     * @param {module:echarts/model/Model} axisModel
-     * @param {module:echarts/model/Model} axisPointerModel
+     * @param {module:echarts3/model/Model} axisModel
+     * @param {module:echarts3/model/Model} axisPointerModel
      * @return {Object} {position: [x, y], rotation: 0, cursorPoint: [x, y]}
      */
     updateHandleTransform: null,
@@ -71924,7 +71924,7 @@ enableClassExtend(BaseAxisPointer);
 */
 
 /**
- * @param {module:echarts/model/Model} axisPointerModel
+ * @param {module:echarts3/model/Model} axisPointerModel
  */
 function buildElStyle(axisPointerModel) {
     var axisPointerType = axisPointerModel.get('type');
@@ -72017,8 +72017,8 @@ function confineInContainer(position, width, height, api) {
 
 /**
  * @param {number} value
- * @param {module:echarts/coord/Axis} axis
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/coord/Axis} axis
+ * @param {module:echarts3/model/Global} ecModel
  * @param {Object} opt
  * @param {Array.<Object>} seriesDataIndices
  * @param {number|string} opt.precision 'auto' or a number
@@ -72059,7 +72059,7 @@ function getValueLabel(value, axis, ecModel, seriesDataIndices, opt) {
 }
 
 /**
- * @param {module:echarts/coord/Axis} axis
+ * @param {module:echarts3/coord/Axis} axis
  * @param {number} value
  * @param {Object} layoutInfo {
  *  rotation, position, labelOffset, labelDirection, labelMargin
@@ -72287,7 +72287,7 @@ AxisView.registerAxisPointerClass('CartesianAxisPointer', CartesianAxisPointer);
 */
 
 // CartesianAxisPointer is not supposed to be required here. But consider
-// echarts.simple.js and online build tooltip, which only require gridSimple,
+// echarts3.simple.js and online build tooltip, which only require gridSimple,
 // CartesianAxisPointer should be able to required somewhere.
 registerPreprocessor(function (option) {
     // Always has a global axisPointerModel for default setting.
@@ -72578,8 +72578,8 @@ var ThemeRiverSeries = SeriesModel.extend({
     /**
      * @override
      * @param  {Object} option  the initial option that user gived
-     * @param  {module:echarts/model/Model} ecModel  the model object for themeRiver option
-     * @return {module:echarts/data/List}
+     * @param  {module:echarts3/model/Model} ecModel  the model object for themeRiver option
+     * @return {module:echarts3/data/List}
      */
     getInitialData: function (option, ecModel) {
 
@@ -72676,7 +72676,7 @@ var ThemeRiverSeries = SeriesModel.extend({
 
      * @param {Array.<string>|string} dim  single coordinate dimension
      * @param {number} value axis value
-     * @param {module:echarts/coord/single/SingleAxis} baseAxis  single Axis used
+     * @param {module:echarts3/coord/single/SingleAxis} baseAxis  single Axis used
      *     the themeRiver.
      * @return {Object} {dataIndices, nestestValue}
      */
@@ -72993,8 +72993,8 @@ var themeRiverLayout = function (ecModel, api) {
 /**
  * The layout information about themeriver
  *
- * @param {module:echarts/data/List} data  data in the series
- * @param {module:echarts/model/Series} seriesModel  the model object of themeRiver series
+ * @param {module:echarts3/data/List} data  data in the series
+ * @param {module:echarts3/model/Series} seriesModel  the model object of themeRiver series
  * @param {number} height  value used to compute every series height
  */
 function themeRiverLayout$1(data, seriesModel, height) {
@@ -73179,7 +73179,7 @@ SeriesModel.extend({
     type: 'series.sunburst',
 
     /**
-     * @type {module:echarts/data/Tree~Node}
+     * @type {module:echarts3/data/Tree~Node}
      */
     _viewRoot: null,
 
@@ -73319,7 +73319,7 @@ SeriesModel.extend({
     },
 
     /**
-     * @param {module:echarts/data/Tree~Node} [viewRoot]
+     * @param {module:echarts3/data/Tree~Node} [viewRoot]
      */
     resetViewRoot: function (viewRoot) {
         viewRoot
@@ -73728,8 +73728,8 @@ inherits(SunburstPiece, Group);
  * Get node color
  *
  * @param {TreeNode} node the node to get color
- * @param {module:echarts/model/Series} seriesModel series
- * @param {module:echarts/model/Global} ecModel echarts defaults
+ * @param {module:echarts3/model/Series} seriesModel series
+ * @param {module:echarts3/model/Global} ecModel echarts3 defaults
  */
 function getNodeColor(node, seriesModel, ecModel) {
     // Color from visualMap
@@ -74465,7 +74465,7 @@ var prepareGeo = function (coordSys) {
             coord: function (data) {
                 // do not provide "out" and noRoam param,
                 // Compatible with this usage:
-                // echarts.util.map(item.points, api.coord)
+                // echarts3.util.map(item.points, api.coord)
                 return coordSys.dataToPoint(data);
             },
             size: bind(dataToCoordSize$1, coordSys)
@@ -74706,7 +74706,7 @@ SeriesModel.extend({
 
         // Custom series will not clip by default.
         // Some case will use custom series to draw label
-        // For example https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight
+        // For example https://echarts3.apache.org/examples/en/editor.html?c=custom-gantt-flight
         // Only works on polar and cartesian2d coordinate system.
         clip: false
 
@@ -74751,7 +74751,7 @@ Chart.extend({
 
     /**
      * @private
-     * @type {module:echarts/data/List}
+     * @type {module:echarts3/data/List}
      */
     _data: null,
 
@@ -75462,8 +75462,8 @@ function getAxisKey$1(polar, axis) {
 
 /**
  * @param {string} seriesType
- * @param {module:echarts/model/Global} ecModel
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/model/Global} ecModel
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function barLayoutPolar(seriesType, ecModel, api) {
 
@@ -75921,11 +75921,11 @@ inherits(AngleAxis, Axis);
 */
 
 /**
- * @module echarts/coord/polar/Polar
+ * @module echarts3/coord/polar/Polar
  */
 
 /**
- * @alias {module:echarts/coord/polar/Polar}
+ * @alias {module:echarts3/coord/polar/Polar}
  * @constructor
  * @param {string} name
  */
@@ -75949,13 +75949,13 @@ var Polar = function (name) {
     this.cy = 0;
 
     /**
-     * @type {module:echarts/coord/polar/RadiusAxis}
+     * @type {module:echarts3/coord/polar/RadiusAxis}
      * @private
      */
     this._radiusAxis = new RadiusAxis();
 
     /**
-     * @type {module:echarts/coord/polar/AngleAxis}
+     * @type {module:echarts3/coord/polar/AngleAxis}
      * @private
      */
     this._angleAxis = new AngleAxis();
@@ -75978,7 +75978,7 @@ Polar.prototype = {
     dimensions: ['radius', 'angle'],
 
     /**
-     * @type {module:echarts/coord/PolarModel}
+     * @type {module:echarts3/coord/PolarModel}
      */
     model: null,
 
@@ -76005,14 +76005,14 @@ Polar.prototype = {
 
     /**
      * @param {string} dim
-     * @return {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
+     * @return {module:echarts3/coord/polar/AngleAxis|module:echarts3/coord/polar/RadiusAxis}
      */
     getAxis: function (dim) {
         return this['_' + dim + 'Axis'];
     },
 
     /**
-     * @return {Array.<module:echarts/coord/Axis>}
+     * @return {Array.<module:echarts3/coord/Axis>}
      */
     getAxes: function () {
         return [this._radiusAxis, this._angleAxis];
@@ -76021,7 +76021,7 @@ Polar.prototype = {
     /**
      * Get axes by type of scale
      * @param {string} scaleType
-     * @return {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
+     * @return {module:echarts3/coord/polar/AngleAxis|module:echarts3/coord/polar/RadiusAxis}
      */
     getAxesByScale: function (scaleType) {
         var axes = [];
@@ -76034,22 +76034,22 @@ Polar.prototype = {
     },
 
     /**
-     * @return {module:echarts/coord/polar/AngleAxis}
+     * @return {module:echarts3/coord/polar/AngleAxis}
      */
     getAngleAxis: function () {
         return this._angleAxis;
     },
 
     /**
-     * @return {module:echarts/coord/polar/RadiusAxis}
+     * @return {module:echarts3/coord/polar/RadiusAxis}
      */
     getRadiusAxis: function () {
         return this._radiusAxis;
     },
 
     /**
-     * @param {module:echarts/coord/polar/Axis}
-     * @return {module:echarts/coord/polar/Axis}
+     * @param {module:echarts3/coord/polar/Axis}
+     * @return {module:echarts3/coord/polar/Axis}
      */
     getOtherAxis: function (axis) {
         var angleAxis = this._angleAxis;
@@ -76059,7 +76059,7 @@ Polar.prototype = {
     /**
      * Base axis will be used on stacking.
      *
-     * @return {module:echarts/coord/polar/Axis}
+     * @return {module:echarts3/coord/polar/Axis}
      */
     getBaseAxis: function () {
         return this.getAxesByScale('ordinal')[0]
@@ -76220,7 +76220,7 @@ var PolarAxisModel = ComponentModel.extend({
     type: 'polarAxis',
 
     /**
-     * @type {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
+     * @type {module:echarts3/coord/polar/AngleAxis|module:echarts3/coord/polar/RadiusAxis}
      */
     axis: null,
 
@@ -76296,13 +76296,13 @@ extendComponentModel({
     dependencies: ['polarAxis', 'angleAxis'],
 
     /**
-     * @type {module:echarts/coord/polar/Polar}
+     * @type {module:echarts3/coord/polar/Polar}
      */
     coordinateSystem: null,
 
     /**
      * @param {string} axisType
-     * @return {module:echarts/coord/polar/AxisModel}
+     * @return {module:echarts3/coord/polar/AxisModel}
      */
     findAxisModel: function (axisType) {
         var foundAxisModel;
@@ -76351,8 +76351,8 @@ extendComponentModel({
 
 /**
  * Resize method bound to the polar
- * @param {module:echarts/coord/polar/PolarModel} polarModel
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/coord/polar/PolarModel} polarModel
+ * @param {module:echarts3/ExtensionAPI} api
  */
 function resizePolar(polar, polarModel, api) {
     var center = polarModel.get('center');
@@ -76424,8 +76424,8 @@ function updatePolarScale(ecModel, api) {
 
 /**
  * Set common axis properties
- * @param {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
- * @param {module:echarts/coord/polar/AxisModel}
+ * @param {module:echarts3/coord/polar/AngleAxis|module:echarts3/coord/polar/RadiusAxis}
+ * @param {module:echarts3/coord/polar/AxisModel}
  * @inner
  */
 function setAxis(axis, axisModel) {
@@ -77228,7 +77228,7 @@ var pointerShapeBuilder$2 = {
                 shape: makeSectorShape(
                     polar.cx, polar.cy,
                     otherExtent[0], otherExtent[1],
-                    // In ECharts y is negative if angle is positive
+                    // In echarts3 y is negative if angle is positive
                     (-coordValue - bandWidth / 2) * radian,
                     (-coordValue + bandWidth / 2) * radian
                 )
@@ -77266,7 +77266,7 @@ AxisView.registerAxisPointerClass('PolarAxisPointer', PolarAxisPointer);
 * under the License.
 */
 
-// For reducing size of echarts.min, barLayoutPolar is required by polar.
+// For reducing size of echarts3.min, barLayoutPolar is required by polar.
 registerLayout(curry(barLayoutPolar, 'bar'));
 
 // Polar view
@@ -77298,7 +77298,7 @@ var GeoModel = ComponentModel.extend({
     type: 'geo',
 
     /**
-     * @type {module:echarts/coord/geo/Geo}
+     * @type {module:echarts3/coord/geo/Geo}
      */
     coordinateSystem: null,
 
@@ -77403,7 +77403,7 @@ var GeoModel = ComponentModel.extend({
     /**
      * Get model of region
      * @param  {string} name
-     * @return {module:echarts/model/Model}
+     * @return {module:echarts3/model/Model}
      */
     getRegionModel: function (name) {
         return this._optionModelMap.get(name) || new Model(null, this, this.ecModel);
@@ -78058,7 +78058,7 @@ var CalendarModel = ComponentModel.extend({
     type: 'calendar',
 
     /**
-     * @type {module:echarts/coord/calendar/Calendar}
+     * @type {module:echarts3/coord/calendar/Calendar}
      */
     coordinateSystem: null,
 
@@ -78743,7 +78743,7 @@ registerPreprocessor(function (option) {
         }
         else {
             // Only one graphic instance can be instantiated. (We dont
-            // want that too many views are created in echarts._viewMap)
+            // want that too many views are created in echarts3._viewMap)
             option.graphic = [option.graphic[0]];
         }
     }
@@ -78940,7 +78940,7 @@ extendComponentView({
 
         /**
          * @private
-         * @type {module:echarts/graphic/GraphicModel}
+         * @type {module:echarts3/graphic/GraphicModel}
          */
         this._lastGraphicModel;
     },
@@ -79049,7 +79049,7 @@ extendComponentView({
      *
      * @private
      * @param {Object} graphicModel graphic model
-     * @param {module:echarts/ExtensionAPI} api extension API
+     * @param {module:echarts3/ExtensionAPI} api extension API
      */
     _relocate: function (graphicModel, api) {
         var elOptions = graphicModel.option.elements;
@@ -79422,8 +79422,8 @@ var ToolboxModel = extendComponentModel({
  * Layout list like component.
  * It will box layout each items in group of component and then position the whole group in the viewport
  * @param {module:zrender/group/Group} group
- * @param {module:echarts/model/Component} componentModel
- * @param {module:echarts/ExtensionAPI}
+ * @param {module:echarts3/model/Component} componentModel
+ * @param {module:echarts3/ExtensionAPI}
  */
 function layout$3(group, componentModel, api) {
     var boxLayoutParams = componentModel.getBoxLayoutParams();
@@ -79807,7 +79807,7 @@ var proto$2 = SaveAsImage.prototype;
 
 proto$2.onclick = function (ecModel, api) {
     var model = this.model;
-    var title = model.get('name') || ecModel.get('title.0.text') || 'echarts';
+    var title = model.get('name') || ecModel.get('title.0.text') || 'echarts3';
     var isSvg = api.getZr().painter.getType() === 'svg';
     var type = isSvg ? 'svg' : model.get('type', true) || 'png';
     var url = api.getConnectedDataURL({
@@ -80079,7 +80079,7 @@ var ITEM_SPLITER = '\t';
  * Group series into two types
  *  1. on category axis, like line, bar
  *  2. others, like scatter, pie
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @return {Object}
  * @inner
  */
@@ -80125,7 +80125,7 @@ function groupSeries(ecModel) {
 
 /**
  * Assemble content of series on cateogory axis
- * @param {Array.<module:echarts/model/Series>} series
+ * @param {Array.<module:echarts3/model/Series>} series
  * @return {string}
  * @inner
  */
@@ -80162,7 +80162,7 @@ function assembleSeriesWithCategoryAxis(series) {
 
 /**
  * Assemble content of other series
- * @param {Array.<module:echarts/model/Series>} series
+ * @param {Array.<module:echarts3/model/Series>} series
  * @return {string}
  * @inner
  */
@@ -80185,7 +80185,7 @@ function assembleOtherSeries(series) {
 }
 
 /**
- * @param {module:echarts/model/Global}
+ * @param {module:echarts3/model/Global}
  * @return {Object}
  * @inner
  */
@@ -80331,9 +80331,9 @@ function parseContents(str, blockMetaList) {
 }
 
 /**
- * @alias {module:echarts/component/toolbox/feature/DataView}
+ * @alias {module:echarts3/component/toolbox/feature/DataView}
  * @constructor
- * @param {module:echarts/model/Model} model
+ * @param {module:echarts3/model/Model} model
  */
 function DataView(model) {
 
@@ -80618,7 +80618,7 @@ var INCLUDE_FINDER_MAIN_TYPES = [
 /**
  * @param {Object} option contains Index/Id/Name of xAxis/yAxis/geo/grid
  *        Each can be {number|Array.<number>}. like: {xAxisIndex: [3, 4]}
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @param {Object} [opt]
  * @param {Array.<string>} [opt.include] include coordinate system types.
  */
@@ -81009,7 +81009,7 @@ var each$18 = each$1;
 var ATTR$1 = '\0_ec_hist_store';
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @param {Object} newSnapshot {dataZoomId, batch: [payloadInfo, ...]}
  */
 function push(ecModel, newSnapshot) {
@@ -81045,7 +81045,7 @@ function push(ecModel, newSnapshot) {
 }
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @return {Object} snapshot
  */
 function pop(ecModel) {
@@ -81069,14 +81069,14 @@ function pop(ecModel) {
 }
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  */
 function clear$1(ecModel) {
     ecModel[ATTR$1] = null;
 }
 
 /**
- * @param {module:echarts/model/Global} ecModel
+ * @param {module:echarts3/model/Global} ecModel
  * @return {number} records. always >= 1.
  */
 function count(ecModel) {
@@ -81336,13 +81336,13 @@ var AxisProxy = function (dimName, axisIndex, dataZoomModel, ecModel) {
 
     /**
      * @readOnly
-     * @type {module: echarts/model/Global}
+     * @type {module: echarts3/model/Global}
      */
     this.ecModel = ecModel;
 
     /**
      * @private
-     * @type {module: echarts/component/dataZoom/DataZoomModel}
+     * @type {module: echarts3/component/dataZoom/DataZoomModel}
      */
     this._dataZoomModel = dataZoomModel;
 
@@ -81361,7 +81361,7 @@ AxisProxy.prototype = {
      * Whether the axisProxy is hosted by dataZoomModel.
      *
      * @public
-     * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
+     * @param {module: echarts3/component/dataZoom/DataZoomModel} dataZoomModel
      * @return {boolean}
      */
     hostedBy: function (dataZoomModel) {
@@ -81536,7 +81536,7 @@ AxisProxy.prototype = {
      * so it is recommanded to be called in "process stage" but not "model init
      * stage".
      *
-     * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
+     * @param {module: echarts3/component/dataZoom/DataZoomModel} dataZoomModel
      */
     reset: function (dataZoomModel) {
         if (dataZoomModel !== this._dataZoomModel) {
@@ -81570,7 +81570,7 @@ AxisProxy.prototype = {
     },
 
     /**
-     * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
+     * @param {module: echarts3/component/dataZoom/DataZoomModel} dataZoomModel
      */
     restore: function (dataZoomModel) {
         if (dataZoomModel !== this._dataZoomModel) {
@@ -81582,7 +81582,7 @@ AxisProxy.prototype = {
     },
 
     /**
-     * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
+     * @param {module: echarts3/component/dataZoom/DataZoomModel} dataZoomModel
      */
     filterData: function (dataZoomModel, api) {
         if (dataZoomModel !== this._dataZoomModel) {
@@ -82257,7 +82257,7 @@ var DataZoomModel = extendComponentModel({
     /**
      * @param {string} dimName
      * @param {number} axisIndex
-     * @return {module:echarts/component/dataZoom/AxisProxy} If not found, return null/undefined.
+     * @return {module:echarts3/component/dataZoom/AxisProxy} If not found, return null/undefined.
      */
     getAxisProxy: function (dimName, axisIndex) {
         return this._axisProxies[dimName + '_' + axisIndex];
@@ -82266,7 +82266,7 @@ var DataZoomModel = extendComponentModel({
     /**
      * @param {string} dimName
      * @param {number} axisIndex
-     * @return {module:echarts/model/Model} If not found, return null/undefined.
+     * @return {module:echarts3/model/Model} If not found, return null/undefined.
      */
     getAxisModel: function (dimName, axisIndex) {
         var axisProxy = this.getAxisProxy(dimName, axisIndex);
@@ -82353,9 +82353,9 @@ var DataZoomModel = extendComponentModel({
 
     /**
      * @public
-     * @param {module:echarts/model/Model} [axisModel] If axisModel given, find axisProxy
+     * @param {module:echarts3/model/Model} [axisModel] If axisModel given, find axisProxy
      *      corresponding to the axisModel
-     * @return {module:echarts/component/dataZoom/AxisProxy}
+     * @return {module:echarts3/component/dataZoom/AxisProxy}
      */
     findRepresentativeAxisProxy: function (axisModel) {
         if (axisModel) {
@@ -82750,14 +82750,14 @@ registerAction('dataZoom', function (payload, ecModel) {
 var dataZoomLang = lang.toolbox.dataZoom;
 var each$16 = each$1;
 
-// Spectial component id start with \0ec\0, see echarts/model/Global.js~hasInnerId
+// Spectial component id start with \0ec\0, see echarts3/model/Global.js~hasInnerId
 var DATA_ZOOM_ID_BASE = '\0_ec_\0toolbox-dataZoom_';
 
 function DataZoom(model, ecModel, api) {
 
     /**
      * @private
-     * @type {module:echarts/component/helper/BrushController}
+     * @type {module:echarts3/component/helper/BrushController}
      */
     (this._brushController = new BrushController(api.getZr()))
         .on('brush', bind(this._onBrush, this))
@@ -83399,7 +83399,7 @@ function makeStyleCoord(out, zr, appendToBody, zrX, zrY) {
 }
 
 /**
- * @alias module:echarts/component/tooltip/TooltipContent
+ * @alias module:echarts3/component/tooltip/TooltipContent
  * @param {HTMLElement} container
  * @param {ExtensionAPI} api
  * @param {Object} [opt]
@@ -83640,7 +83640,7 @@ function makeStyleCoord$1(out, zr, zrX, zrY) {
 }
 
 /**
- * @alias module:echarts/component/tooltip/TooltipRichContent
+ * @alias module:echarts3/component/tooltip/TooltipRichContent
  * @constructor
  */
 function TooltipRichContent(api) {
@@ -83905,19 +83905,19 @@ extendComponentView({
 
         /**
          * @private
-         * @type {module:echarts/component/tooltip/TooltipModel}
+         * @type {module:echarts3/component/tooltip/TooltipModel}
          */
         this._tooltipModel = tooltipModel;
 
         /**
          * @private
-         * @type {module:echarts/model/Global}
+         * @type {module:echarts3/model/Global}
          */
         this._ecModel = ecModel;
 
         /**
          * @private
-         * @type {module:echarts/ExtensionAPI}
+         * @type {module:echarts3/ExtensionAPI}
          */
         this._api = api;
 
@@ -84430,7 +84430,7 @@ extendComponentView({
      * @param  {boolean} confine Whether confine tooltip content in view rect.
      * @param  {Object|<Array.<Object>} params
      * @param  {module:zrender/Element} el target element
-     * @param  {module:echarts/ExtensionAPI} api
+     * @param  {module:echarts3/ExtensionAPI} api
      * @return {Array.<number>}
      */
     _updatePosition: function (tooltipModel, positionExpr, x, y, content, params, el) {
@@ -84562,7 +84562,7 @@ extendComponentView({
 
 
 /**
- * @param {Array.<Object|module:echarts/model/Model>} modelCascade
+ * @param {Array.<Object|module:echarts3/model/Model>} modelCascade
  * From top to bottom. (the last one should be globalTooltipModel);
  */
 function buildTooltipModel(modelCascade) {
@@ -84828,7 +84828,7 @@ function hasKeys(obj) {
  * @param {Object} option
  * @param {Array.<string>} stateList
  * @param {Function} [supplementVisualOption]
- * @return {Object} visualMappings <state, <visualType, module:echarts/visual/VisualMapping>>
+ * @return {Object} visualMappings <state, <visualType, module:echarts3/visual/VisualMapping>>
  */
 function createVisualMappings(option, stateList, supplementVisualOption) {
     var visualMappings = {};
@@ -84897,8 +84897,8 @@ function replaceVisualOption(thisOption, newOption, keys) {
 
 /**
  * @param {Array.<string>} stateList
- * @param {Object} visualMappings <state, Object.<visualType, module:echarts/visual/VisualMapping>>
- * @param {module:echarts/data/List} list
+ * @param {Object} visualMappings <state, Object.<visualType, module:echarts3/visual/VisualMapping>>
+ * @param {module:echarts3/data/List} list
  * @param {Function} getValueState param: valueOrIndex, return: state.
  * @param {object} [scope] Scope for getValueState
  * @param {string} [dimension] Concrete dimension, if used.
@@ -84951,9 +84951,9 @@ function applyVisual(stateList, visualMappings, data, getValueState, scope, dime
 }
 
 /**
- * @param {module:echarts/data/List} data
+ * @param {module:echarts3/data/List} data
  * @param {Array.<string>} stateList
- * @param {Object} visualMappings <state, Object.<visualType, module:echarts/visual/VisualMapping>>
+ * @param {Object} visualMappings <state, Object.<visualType, module:echarts3/visual/VisualMapping>>
  * @param {Function} getValueState param: valueOrIndex, return: state.
  * @param {number} [dim] dimension or dimension index.
  */
@@ -85025,7 +85025,7 @@ function incrementalApplyVisual(stateList, visualMappings, getValueState, dim) {
 
 // Key of the first level is brushType: `line`, `rect`, `polygon`.
 // Key of the second level is chart element type: `point`, `rect`.
-// See moudule:echarts/component/helper/BrushController
+// See moudule:echarts3/component/helper/BrushController
 // function param:
 //      {Object} itemLayout fetch from data.getItemLayout(dataIndex)
 //      {Object} selectors {point: selector, rect: selector, ...}
@@ -85515,7 +85515,7 @@ var BrushModel = extendComponentModel({
     /**
      * Current activated brush type.
      * If null, brush is inactived.
-     * see module:echarts/component/helper/BrushController
+     * see module:echarts3/component/helper/BrushController
      * @readOnly
      * @type {string}
      */
@@ -85523,7 +85523,7 @@ var BrushModel = extendComponentModel({
 
     /**
      * Current brush opt.
-     * see module:echarts/component/helper/BrushController
+     * see module:echarts3/component/helper/BrushController
      * @readOnly
      * @type {Object}
      */
@@ -85579,7 +85579,7 @@ var BrushModel = extendComponentModel({
     },
 
     /**
-     * see module:echarts/component/helper/BrushController
+     * see module:echarts3/component/helper/BrushController
      * @param {Object} brushOption
      */
     setBrushOption: function (brushOption) {
@@ -85631,25 +85631,25 @@ extendComponentView({
 
         /**
          * @readOnly
-         * @type {module:echarts/model/Global}
+         * @type {module:echarts3/model/Global}
          */
         this.ecModel = ecModel;
 
         /**
          * @readOnly
-         * @type {module:echarts/ExtensionAPI}
+         * @type {module:echarts3/ExtensionAPI}
          */
         this.api = api;
 
         /**
          * @readOnly
-         * @type {module:echarts/component/brush/BrushModel}
+         * @type {module:echarts3/component/brush/BrushModel}
          */
         this.model;
 
         /**
          * @private
-         * @type {module:echarts/component/helper/BrushController}
+         * @type {module:echarts3/component/helper/BrushController}
          */
         (this._brushController = new BrushController(api.getZr()))
             .on('brush', bind(this._onBrush, this))
@@ -86438,7 +86438,7 @@ var TimelineModel = ComponentModel.extend({
 
         /**
          * @private
-         * @type {module:echarts/data/List}
+         * @type {module:echarts3/data/List}
          */
         this._data;
 
@@ -86726,8 +86726,8 @@ var TimelineView = Component$1.extend({
 
 /**
  * Extend axis 2d
- * @constructor module:echarts/coord/cartesian/Axis2D
- * @extends {module:echarts/coord/cartesian/Axis}
+ * @constructor module:echarts3/coord/cartesian/Axis2D
+ * @extends {module:echarts3/coord/cartesian/Axis}
  * @param {string} dim
  * @param {*} scale
  * @param {Array.<number>} coordExtent
@@ -86750,7 +86750,7 @@ var TimelineAxis = function (dim, scale, coordExtent, axisType) {
 
     /**
      * Axis model
-     * @param {module:echarts/component/TimelineModel}
+     * @param {module:echarts3/component/TimelineModel}
      */
     this.model = null;
 };
@@ -86811,7 +86811,7 @@ TimelineView.extend({
 
         /**
          * @private
-         * @type {module:echarts/component/timeline/TimelineAxis}
+         * @type {module:echarts3/component/timeline/TimelineAxis}
          */
         this._axis;
 
@@ -86860,7 +86860,7 @@ TimelineView.extend({
 
             /**
              * @private
-             * @type {module:echarts/component/timeline/TimelineAxis}
+             * @type {module:echarts3/component/timeline/TimelineAxis}
              */
             var axis = this._axis = this._createAxis(layoutInfo, timelineModel);
 
@@ -87786,14 +87786,14 @@ var curry$5 = curry;
 var markerTypeCalculator = {
     /**
      * @method
-     * @param {module:echarts/data/List} data
+     * @param {module:echarts3/data/List} data
      * @param {string} baseAxisDim
      * @param {string} valueAxisDim
      */
     min: curry$5(markerTypeCalculatorWithExtent, 'min'),
     /**
      * @method
-     * @param {module:echarts/data/List} data
+     * @param {module:echarts3/data/List} data
      * @param {string} baseAxisDim
      * @param {string} valueAxisDim
      */
@@ -87801,7 +87801,7 @@ var markerTypeCalculator = {
 
     /**
      * @method
-     * @param {module:echarts/data/List} data
+     * @param {module:echarts3/data/List} data
      * @param {string} baseAxisDim
      * @param {string} valueAxisDim
      */
@@ -87812,8 +87812,8 @@ var markerTypeCalculator = {
  * Transform markPoint data item to format used in List by do the following
  * 1. Calculate statistic like `max`, `min`, `average`
  * 2. Convert `item.xAxis`, `item.yAxis` to `item.coord` array
- * @param  {module:echarts/model/Series} seriesModel
- * @param  {module:echarts/coord/*} [coordSys]
+ * @param  {module:echarts3/model/Series} seriesModel
+ * @param  {module:echarts3/coord/*} [coordSys]
  * @param  {Object} item
  * @return {Object}
  */
@@ -87904,7 +87904,7 @@ function dataDimToCoordDim(seriesModel, dataDim) {
 /**
  * Filter data which is out of coordinateSystem range
  * [dataFilter description]
- * @param  {module:echarts/coord/*} [coordSys]
+ * @param  {module:echarts3/coord/*} [coordSys]
  * @param  {Object} item
  * @return {boolean}
  */
@@ -88106,7 +88106,7 @@ MarkerView.extend({
                     symbol = symbol(rawIdx, dataParams);
                 }
                 if (isFnSymbolSize) {
-                    // FIXME 这里不兼容 ECharts 2.x，2.x 貌似参数是整个数据？
+                    // FIXME 这里不兼容 echarts3 2.x，2.x 貌似参数是整个数据？
                     symbolSize = symbolSize(rawIdx, dataParams);
                 }
                 if (isFnSymbolRotate) {
@@ -88143,9 +88143,9 @@ MarkerView.extend({
 
 /**
  * @inner
- * @param {module:echarts/coord/*} [coordSys]
- * @param {module:echarts/model/Series} seriesModel
- * @param {module:echarts/model/Model} mpModel
+ * @param {module:echarts3/coord/*} [coordSys]
+ * @param {module:echarts3/model/Series} seriesModel
+ * @param {module:echarts3/model/Model} mpModel
  */
 function createList$1(coordSys, seriesModel, mpModel) {
     var coordDimsInfos;
@@ -88594,9 +88594,9 @@ MarkerView.extend({
 
 /**
  * @inner
- * @param {module:echarts/coord/*} coordSys
- * @param {module:echarts/model/Series} seriesModel
- * @param {module:echarts/model/Model} mpModel
+ * @param {module:echarts3/coord/*} coordSys
+ * @param {module:echarts3/model/Series} seriesModel
+ * @param {module:echarts3/model/Model} mpModel
  */
 function createList$2(coordSys, seriesModel, mlModel) {
 
@@ -89054,9 +89054,9 @@ MarkerView.extend({
 
 /**
  * @inner
- * @param {module:echarts/coord/*} coordSys
- * @param {module:echarts/model/Series} seriesModel
- * @param {module:echarts/model/Model} mpModel
+ * @param {module:echarts3/coord/*} coordSys
+ * @param {module:echarts3/model/Series} seriesModel
+ * @param {module:echarts3/model/Model} mpModel
  */
 function createList$3(coordSys, seriesModel, maModel) {
 
@@ -89282,14 +89282,14 @@ var LegendModel = extendComponentModel({
         }, this);
 
         /**
-         * @type {Array.<module:echarts/model/Model>}
+         * @type {Array.<module:echarts3/model/Model>}
          * @private
          */
         this._data = legendData;
     },
 
     /**
-     * @return {Array.<module:echarts/model/Model>}
+     * @return {Array.<module:echarts3/model/Model>}
      */
     getData: function () {
         return this._data;
@@ -90612,7 +90612,7 @@ var ScrollableLegendView = LegendView.extend({
     },
 
     /**
-     * @param {module:echarts/model/Model} legendModel
+     * @param {module:echarts3/model/Model} legendModel
      * @return {Object} {
      *  contentPosition: Array.<number>, null when data item not found.
      *  pageIndex: number, null when data item not found.
@@ -91801,7 +91801,7 @@ var ATTR$2 = '\0_ec_dataZoom_roams';
 
 /**
  * @public
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {Object} dataZoomInfo
  * @param {string} dataZoomInfo.coordId
  * @param {Function} dataZoomInfo.containsPoint
@@ -91865,7 +91865,7 @@ function register$2(api, dataZoomInfo) {
 
 /**
  * @public
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {string} dataZoomId
  */
 function unregister$1(api, dataZoomId) {
@@ -92093,7 +92093,7 @@ var InsideZoomView = DataZoomView.extend({
 var roamHandlers = {
 
     /**
-     * @this {module:echarts/component/dataZoom/InsideZoomView}
+     * @this {module:echarts3/component/dataZoom/InsideZoomView}
      */
     zoom: function (coordInfo, coordSysName, controller, e) {
         var lastRange = this._range;
@@ -92131,7 +92131,7 @@ var roamHandlers = {
     },
 
     /**
-     * @this {module:echarts/component/dataZoom/InsideZoomView}
+     * @this {module:echarts3/component/dataZoom/InsideZoomView}
      */
     pan: makeMover(function (range, axisModel, coordInfo, coordSysName, controller, e) {
         var directionInfo = getDirectionInfo[coordSysName](
@@ -92144,7 +92144,7 @@ var roamHandlers = {
     }),
 
     /**
-     * @this {module:echarts/component/dataZoom/InsideZoomView}
+     * @this {module:echarts3/component/dataZoom/InsideZoomView}
      */
     scrollMove: makeMover(function (range, axisModel, coordInfo, coordSysName, controller, e) {
         var directionInfo = getDirectionInfo[coordSysName](
@@ -92894,7 +92894,7 @@ var VisualMapModel = extendComponentModel({
 
     /**
      * @public
-     * @param {module:echarts/data/List} list
+     * @param {module:echarts3/data/List} list
      * @return {string} Concrete dimention. If return null/undefined,
      *                  no dimension used.
      */
@@ -93099,7 +93099,7 @@ var VisualMapModel = extendComponentModel({
     /**
      * @public
      * @abstract
-     * @param {*|module:echarts/data/List} valueOrData
+     * @param {*|module:echarts3/data/List} valueOrData
      * @param {number} dataIndex
      * @return {string} state See this.stateList
      */
@@ -93156,7 +93156,7 @@ var ContinuousModel = VisualMapModel.extend({
     defaultOption: {
         align: 'auto',           // 'auto', 'left', 'right', 'top', 'bottom'
         calculable: false,       // This prop effect default component type determine,
-                                 // See echarts/component/visualMap/typeDefaulter.
+                                 // See echarts3/component/visualMap/typeDefaulter.
         range: null,             // selected range. In default case `range` is [min, max]
                                  // and can auto change along with modification of min max,
                                  // util use specifid a range.
@@ -93412,19 +93412,19 @@ var VisualMapView = extendComponentView({
     init: function (ecModel, api) {
         /**
          * @readOnly
-         * @type {module:echarts/model/Global}
+         * @type {module:echarts3/model/Global}
          */
         this.ecModel = ecModel;
 
         /**
          * @readOnly
-         * @type {module:echarts/ExtensionAPI}
+         * @type {module:echarts3/ExtensionAPI}
          */
         this.api = api;
 
         /**
          * @readOnly
-         * @type {module:echarts/component/visualMap/visualMapModel}
+         * @type {module:echarts3/component/visualMap/visualMapModel}
          */
         this.visualMapModel;
     },
@@ -93564,8 +93564,8 @@ var VisualMapView = extendComponentView({
 */
 
 /**
- * @param {module:echarts/component/visualMap/VisualMapModel} visualMapModel\
- * @param {module:echarts/ExtensionAPI} api
+ * @param {module:echarts3/component/visualMap/VisualMapModel} visualMapModel\
+ * @param {module:echarts3/ExtensionAPI} api
  * @param {Array.<number>} itemSize always [short, long]
  * @return {string} 'left' or 'right' or 'top' or 'bottom'
  */
@@ -94600,7 +94600,7 @@ var PiecewiseModel = VisualMapModel.extend({
         splitNumber: 5,             // If set to 5, auto split five pieces equally.
                                     // If set to 0 and component type not set, component type will be
                                     // determined as "continuous". (It is less reasonable but for ec2
-                                    // compatibility, see echarts/component/visualMap/typeDefaulter)
+                                    // compatibility, see echarts3/component/visualMap/typeDefaulter)
         selectedMode: 'multiple',   // Can be 'multiple' or 'single'.
         itemGap: 10,                // The gap between two items, in px.
         hoverLink: true,            // Enable hover highlight.
@@ -94901,7 +94901,7 @@ var PiecewiseModel = VisualMapModel.extend({
 /**
  * Key is this._mode
  * @type {Object}
- * @this {module:echarts/component/viusalMap/PiecewiseMode}
+ * @this {module:echarts3/component/viusalMap/PiecewiseMode}
  */
 var resetMethods = {
 

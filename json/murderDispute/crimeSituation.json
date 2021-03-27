@@ -1,0 +1,90 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": [
+        {
+            "areaCode": "620100",
+            "areaName": "兰州",
+            "crimeCaseNum": 156,
+            "solveCrimeNum": 147
+        },
+        {
+            "areaCode": "620200",
+            "areaName": "嘉峪关",
+            "crimeCaseNum": 154,
+            "solveCrimeNum": 145
+        },
+        {
+            "areaCode": "620300",
+            "areaName": "金昌",
+            "crimeCaseNum": 152,
+            "solveCrimeNum": 143
+        },
+        {
+            "areaCode": "620400",
+            "areaName": "白银",
+            "crimeCaseNum": 150,
+            "solveCrimeNum": 141
+        },
+        {
+            "areaCode": "620500",
+            "areaName": "天水",
+            "crimeCaseNum": 148,
+            "solveCrimeNum": 139
+        },
+        {
+            "areaCode": "620900",
+            "areaName": "酒泉",
+            "crimeCaseNum": 146,
+            "solveCrimeNum": 137
+        },
+        {
+            "areaCode": "620700",
+            "areaName": "张掖",
+            "crimeCaseNum": 144,
+            "solveCrimeNum": 135
+        },
+        {
+            "areaCode": "620600",
+            "areaName": "武威",
+            "crimeCaseNum": 142,
+            "solveCrimeNum": 133
+        },
+        {
+            "areaCode": "621100",
+            "areaName": "定西",
+            "crimeCaseNum": 140,
+            "solveCrimeNum": 131
+        },
+        {
+            "areaCode": "621200",
+            "areaName": "陇南",
+            "crimeCaseNum": 138,
+            "solveCrimeNum": 129
+        },
+        {
+            "areaCode": "620800",
+            "areaName": "平凉",
+            "crimeCaseNum": 136,
+            "solveCrimeNum": 127
+        },
+        {
+            "areaCode": "621000",
+            "areaName": "庆阳",
+            "crimeCaseNum": 134,
+            "solveCrimeNum": 125
+        },
+        {
+            "areaCode": "622900",
+            "areaName": "临夏",
+            "crimeCaseNum": 132,
+            "solveCrimeNum": 123
+        },
+        {
+            "areaCode": "623000",
+            "areaName": "甘南",
+            "crimeCaseNum": 130,
+            "solveCrimeNum": 121
+        }
+    ]
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重点人员动态管控系统</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/key_personnel_trends.css">
+    <link rel="stylesheet" href="./css/loading.css">
+    <!-- 引入MineMap API插件 -->
+    <link rel="stylesheet" href="./css/minemap.css">
+    <script src="./js/minemap.js"></script>
+    <script src="./js/minemap-echarts.js"></script>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/minemap-template.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <canvas id="canvasID" width="950" height="722">Canvas not supported</canvas>
+        <div id="map"></div>
+        <!-- 头部 -->
+        <div class="head">
+            <p><img src="./img/public/badge.png" alt="">甘肃公安重点人员动态管控系统</p>
+        </div>
+        <!-- 左侧 -->
+        <div class="left">
+            <!-- 风控状态 -->
+            <div class="fkzt">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">风控状态</span>
+                </p>
+                <div class="ctx" id="fkzt">
+                    <ul>
+                        <li>高风险</li>
+                        <li>中风险</li>
+                        <li>低风险</li>
+                        <li>微风险</li>
+                    </ul>
+                    <canvas width="206" height="220" id="Canvas"></canvas>
+                    <ul class="zt-data">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 重点人员/关注人员 -->
+            <div class="zdorgz">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">重点人员</span>
+                    <span>关注人员</span>
+                </p>
+                <div class="ctx">
+                    <ul class="num-plate">
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                        <li>0</li>
+                    </ul>
+                    <ul class="info-card">
+                        <li>
+                            <img src="./img/key_personnel_trends/zt.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">在逃人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/qk.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">前科人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/jsb.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">精神病人</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/gb.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">国保人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/sd.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">涉毒人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/sw.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">涉稳人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/sk.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">涉恐人员</p>
+                        </li>
+                        <li>
+                            <img src="./img/key_personnel_trends/qt.png" alt="">
+                            <p class="num">0</p>
+                            <p class="text">其他人员</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 活跃曲线 -->
+            <div class="hyqx">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">活跃曲线</span>
+                </p>
+                <div class="ctx" id="hyqx">
+
+                </div>
+            </div>
+        </div>
+        <!-- 中部  -->
+        <div class="center">
+            <!-- 筛选菜单 -->
+            <div class="menu">
+                <img src="./img/key_personnel_trends/menu.png" alt="">
+                <div class="menu-ctx">
+                    <ul class="chart">
+                        <li>
+                            <a href="javascript:;" data-type="hj" class="active">户籍分布图</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="fj">赴京流向图</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="ll">来兰流向图</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="lg">离甘流向图</a>
+                        </li>   
+                    </ul>
+                    <ul class="personType">
+                        <li>
+                            <a href="javascript:;"  data-type="zt">在逃人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="qk">前科人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="jsb">精神病人</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="gb">国保人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="sd">涉毒人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="sw">涉稳人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="sk">涉恐人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="qt">其他人员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="qb" class="active">全部</a>
+                        </li>
+                    </ul>
+                    <ul class="dateType">
+                        <li>
+                            <a href="javascript:;" data-type="0" class="active">今年以来</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="90">近3个月</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="30">近1个月</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-type="7">近7天</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 预警分布 -->
+            <div class="yjfb">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">预警分布</span>
+                </p>
+                <div class="ctx" id="yjfb"></div>
+            </div>
+            <!-- 其他链接 -->
+            <ul class="link-list">
+                <li>
+                    <a href="./conflict_resolution_platform.html" target="_blank">
+                        <img src="./img/key_personnel_trends/link1.png" alt="">
+                        <span>命案化解</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/key_personnel_trends/link2.png" alt="">
+                        <span>模型中心</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/key_personnel_trends/link3.png" alt="">
+                        <span>导航中心</span>
+                    </a>
+                </li>   
+                <li>
+                    <a href="#">
+                        <img src="./img/key_personnel_trends/link4.png" alt="">
+                        <span>风险防控</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/key_personnel_trends/link5.png" alt="">
+                        <span>合成作战</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/manager/#/" target="_blank">
+                        <img src="./img/key_personnel_trends/link6.png" alt="">
+                        <span>后台管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧 -->
+        <div class="right">
+            <!-- 高风险预警人员 -->
+            <div class="gfxyjry">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">高风险预警人员</span>
+                </p>
+                <div class="ctx">
+                    <div class="pic-swiper swiper-container swiper-no-swiping">
+                        <div class="swiper-wrapper">
+                        </div>
+                    </div>
+                    <p class="info">
+                        <span class="name"></span>
+                        <img src="./img/key_personnel_trends/link.png" alt="">
+                        <span class="type"></span>
+                    </p>
+                    <p class="id"></p>
+                    <p class="address"></p>
+                </div>
+            </div>
+            <!-- 高风险预警 -->
+            <div class="gfxyj">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">高风险预警</span>
+                    <a href="/manager/#/" target="_blank">More >></a>
+                </p>
+                <div class="ctx">
+                    <ul class="yj-list">
+                    </ul>
+                </div>
+            </div>
+            <!-- 风控雷达 -->
+            <div class="fkld">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">风控雷达</span>
+                </p>
+                <div class="ctx" id="fkld">
+
+                </div>
+            </div>
+        </div>
+        <!-- 弹窗/人员详情  -->
+        <div class="personnel-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        人员详情
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="personnel-pop">
+                    <ul class="category">
+                        <li class="active" data-type="1">重点人员</li>
+                        <li data-type="2">关注人员</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <th>姓名</th>
+                            <th>户籍地详址</th>
+                            <th>列管单位</th>
+                            <th>人员类型</th>
+                            <th>管控等级</th>
+                            <th>模型积分</th>
+                            <th>风险等级</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <p class="sum">共&nbsp;<span class="pageSum">10</span>&nbsp;页/&nbsp;<span class="dataSum">100</span>&nbsp; 条数据</p>
+                        <ul class="pagination-list" id="personnel-pageInfo">
+                           
+                        </ul>
+                        <p class="stairs">跳至<input type="number">页</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 弹窗/轨迹详情 -->
+        <div class="trajectory-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        轨迹详情
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="trajectory-pop">
+                    <table>
+                        <thead>
+                            <th>姓名</th>
+                            <th>人员类型</th>
+                            <th>管控等级</th>
+                            <th>模型积分</th>
+                            <th>风险等级</th>
+                            <th>动态时间</th>
+                            <th>动态情形</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <p class="sum">共&nbsp;<span class="pageSum">10</span>&nbsp;页/&nbsp;<span class="dataSum">100</span>&nbsp; 条数据</p>
+                        <ul class="pagination-list" id="trajectory-pageInfo">
+                        </ul>
+                        <p class="stairs">跳至<input type="number">页</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loader-container" style="display: none">
+        <div class="loader one"></div>
+        <div class="loader two"></div>
+    </div>
+</body>
+<script src="./js/fc.js"></script>
+<script src="./js/jquery-3.3-min.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/trends_map.js"></script>
+<script src="./js/key_personnel_trends.js"></script>
+</html>

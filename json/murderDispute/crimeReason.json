@@ -1,0 +1,22 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": [
+        {
+            "reason": "家庭矛盾",
+            "reasonPercentage": 13
+        },
+        {
+            "reason": "琐事口角",
+            "reasonPercentage": 23
+        },
+        {
+            "reason": "婚恋纠纷",
+            "reasonPercentage": 21
+        },
+        {
+            "reason": "其他原因",
+            "reasonPercentage": 43
+        }
+    ]
+}

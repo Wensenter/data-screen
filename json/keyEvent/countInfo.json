@@ -1,0 +1,14 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": {
+        "clue": {
+            "percent": 78,
+            "count": 3451
+        },
+        "warning": {
+            "percent": 65,
+            "count": 8769
+        }
+    }
+}

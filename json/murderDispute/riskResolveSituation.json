@@ -1,0 +1,104 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": [
+        {
+            "areaCode": "620100",
+            "areaName": "兰州",
+            "findNum": 300,
+            "warningNum": 250,
+            "resolveNum": 200
+        },
+        {
+            "areaCode": "620200",
+            "areaName": "嘉峪关",
+            "findNum": 291,
+            "warningNum": 241,
+            "resolveNum": 191
+        },
+        {
+            "areaCode": "620300",
+            "areaName": "金昌",
+            "findNum": 282,
+            "warningNum": 232,
+            "resolveNum": 182
+        },
+        {
+            "areaCode": "620400",
+            "areaName": "白银",
+            "findNum": 273,
+            "warningNum": 223,
+            "resolveNum": 173
+        },
+        {
+            "areaCode": "620500",
+            "areaName": "天水",
+            "findNum": 264,
+            "warningNum": 214,
+            "resolveNum": 164
+        },
+        {
+            "areaCode": "620900",
+            "areaName": "酒泉",
+            "findNum": 255,
+            "warningNum": 205,
+            "resolveNum": 155
+        },
+        {
+            "areaCode": "620700",
+            "areaName": "张掖",
+            "findNum": 246,
+            "warningNum": 196,
+            "resolveNum": 146
+        },
+        {
+            "areaCode": "620600",
+            "areaName": "武威",
+            "findNum": 237,
+            "warningNum": 187,
+            "resolveNum": 137
+        },
+        {
+            "areaCode": "621100",
+            "areaName": "定西",
+            "findNum": 228,
+            "warningNum": 178,
+            "resolveNum": 128
+        },
+        {
+            "areaCode": "621200",
+            "areaName": "陇南",
+            "findNum": 219,
+            "warningNum": 169,
+            "resolveNum": 119
+        },
+        {
+            "areaCode": "620800",
+            "areaName": "平凉",
+            "findNum": 210,
+            "warningNum": 160,
+            "resolveNum": 110
+        },
+        {
+            "areaCode": "621000",
+            "areaName": "庆阳",
+            "findNum": 201,
+            "warningNum": 151,
+            "resolveNum": 101
+        },
+        {
+            "areaCode": "622900",
+            "areaName": "临夏",
+            "findNum": 192,
+            "warningNum": 142,
+            "resolveNum": 92
+        },
+        {
+            "areaCode": "623000",
+            "areaName": "甘南",
+            "findNum": 183,
+            "warningNum": 133,
+            "resolveNum": 83
+        }
+    ]
+}

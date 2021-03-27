@@ -1,0 +1,3851 @@
+{
+    "solution": {
+        "bearing": 0.0,
+        "center": "[116.40717,39.90469]",
+        "icon": "nightblue",
+        "maxZoom": 17.0,
+        "minZoom": 3.0,
+        "name": "示例中心深色地图",
+        "pitch": 0.0,
+        "template": "0",
+        "zoom": 10.300000190734863
+    },
+    "sources": {
+        "Landuse": {
+            "tiles": ["minemapdata://Landuse/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Buildingmore": {
+            "tiles": ["minemapdata://Buildingmore/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Waterface": {
+            "tiles": ["minemapdata://Waterface/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Greenface": {
+            "tiles": ["minemapdata://Greenface/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Worldislands": {
+            "tiles": ["minemapdata://Worldislands/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Adminbound": {
+            "tiles": ["minemapdata://Adminbound/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Waterline": {
+            "tiles": ["minemapdata://Waterline/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Worldcountries": {
+            "tiles": ["minemapdata://Worldcountries/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "ResidentialPolygon": {
+            "tiles": ["minemapdata://ResidentialPolygon/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Worldwaterface": {
+            "tiles": ["minemapdata://Worldwaterface/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Waterfacecentriod": {
+            "tiles": ["minemapdata://Waterfacecentriod/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Merge_1": {
+            "tiles": ["minemapdatam://Railway,Road,Worldannotation,Annotation,Adminflag,Villtown/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "PoiAnnotation": {
+            "tiles": ["minemapdata://PoiAnnotation/{z}/{x}/{y}"],
+            "type": "vector"
+        },
+        "Zlevel": {
+            "tiles": ["minemapdata://Zlevel/{z}/{x}/{y}"],
+            "type": "vector"
+        }
+    },
+    "sprite": "minemap://sprite/sprite",
+    "layers": [{
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "background-color": "#051620"
+        },
+        "layerInfo": {
+            "zindex": 0,
+            "datatype": "background",
+            "prefix": "",
+            "sourcemaxzoom": 22.0,
+            "groupid": "",
+            "name": "背景",
+            "describe": "背景",
+            "source": "",
+            "groupname": "",
+            "sourceminzoom": 0.0
+        },
+        "source": "",
+        "source-layer": "",
+        "id": "4472194d3add4410b763cc3a5f3e725d",
+        "type": "background",
+        "minzoom": 3.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 8.5,
+        "paint": {
+            "fill-outline-color": "#051620",
+            "fill-color": "#051620",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 1,
+            "datatype": "fill",
+            "prefix": "104",
+            "sourcemaxzoom": 8.5,
+            "groupid": "0f94af90",
+            "name": "世界地图",
+            "describe": "世界地图",
+            "source": "Worldcountries",
+            "groupname": "轮廓面",
+            "sourceminzoom": 3.0
+        },
+        "source": "Worldcountries",
+        "source-layer": "Worldcountries",
+        "id": "e821ad96435d46438369b51ba63028ec",
+        "type": "fill",
+        "minzoom": 3.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 2,
+            "datatype": "fill",
+            "prefix": "102",
+            "sourcemaxzoom": 8.5,
+            "groupid": "0f94af90",
+            "name": "世界地图水系面",
+            "describe": "世界地图水系面",
+            "source": "Worldwaterface",
+            "groupname": "轮廓面",
+            "sourceminzoom": 3.0
+        },
+        "source": "Worldwaterface",
+        "source-layer": "Worldwaterface",
+        "id": "1c7ee7e2c2534cbd86b7d458953461ee",
+        "type": "fill",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", 1]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 3,
+            "datatype": "fill",
+            "prefix": "102",
+            "sourcemaxzoom": 19.5,
+            "groupid": "0f94af90",
+            "name": "水域面-海岸线",
+            "describe": "水域面",
+            "source": "Waterface",
+            "groupname": "轮廓面",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterface",
+        "source-layer": "Waterface",
+        "id": "f345282932eb4aa99e8cea97d5a1914a",
+        "type": "fill",
+        "minzoom": 5.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#0f2645",
+            "fill-color": "#0f2645",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 4,
+            "datatype": "fill",
+            "prefix": "106004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "小区面",
+            "describe": "小区面",
+            "source": "ResidentialPolygon",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "ResidentialPolygon",
+        "source-layer": "ResidentialPolygon",
+        "id": "5b37e975ac4140eb90990f3f67167a6f",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["in", "kind", 31, 38]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#071637",
+            "fill-color": "#071637",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 5,
+            "datatype": "fill",
+            "prefix": "106006",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "文化区域",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "f6b7b9e672fa4c3fac09854793244b95",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 11]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#0e2351",
+            "fill-color": "#0e2351",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 6,
+            "datatype": "fill",
+            "prefix": "106005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "机场",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "6c822bbee1c743998b5ee0a27696cb16",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 12]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#112b64",
+            "fill-color": "#112b64",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 7,
+            "datatype": "fill",
+            "prefix": "106005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "机场跑道",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "20ada6189aab4df6bad170ac2818ec6b",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 7]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#0b1a3b",
+            "fill-color": "#0b1a3b",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 8,
+            "datatype": "fill",
+            "prefix": "106004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "工业区",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "0b715988ed77415aac8cccf7adb8228f",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["in", "kind", 30, 36, 35, 2]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#061940",
+            "fill-color": "#061940",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 9,
+            "datatype": "fill",
+            "prefix": "106007",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "商业",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "eea4a9635fc74d959cd21622966faca0",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["in", "kind", 32, 34, 33, 39]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#091b43",
+            "fill-color": "#091b43",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 10,
+            "datatype": "fill",
+            "prefix": "106009",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "公共区域",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "a031d44167154a17b5c17c5aa356c0f9",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 3]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#223459",
+            "fill-color": "#223459",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 11,
+            "datatype": "fill",
+            "prefix": "106003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "医院",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "3701de333fd14b4ab791afe0191e738f",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 1]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#07183a",
+            "fill-color": "#07183a",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 12,
+            "datatype": "fill",
+            "prefix": "106003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "大学",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "29f66432dadf4042b6e51569608ea89b",
+        "type": "fill",
+        "minzoom": 12.0
+    }, {
+        "filter": ["all", ["in", "kind", 6, 40]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#103462",
+            "fill-color": "#103462",
+            "fill-opacity": 0.25,
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 13,
+            "datatype": "fill",
+            "prefix": "106008",
+            "sourcemaxzoom": 19.5,
+            "groupid": "061236f8",
+            "name": "停车场",
+            "describe": "土地利用",
+            "source": "Landuse",
+            "groupname": "土地利用",
+            "sourceminzoom": 12.0
+        },
+        "source": "Landuse",
+        "source-layer": "Landuse",
+        "id": "eefb64ab1afb43ed8a387f5824c79156",
+        "type": "fill",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["!in", "kind", "1"]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#122448",
+            "fill-color": "#122448",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 14,
+            "datatype": "fill",
+            "prefix": "106001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "",
+            "name": "绿地",
+            "describe": "绿地",
+            "source": "Greenface",
+            "groupname": "",
+            "sourceminzoom": 3.0
+        },
+        "source": "Greenface",
+        "source-layer": "Greenface",
+        "id": "a13c4e26f2a3448087eb0493642c381a",
+        "type": "fill",
+        "minzoom": 8.0
+    }, {
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [5, 0.7],
+                    [6, 0.8],
+                    [7, 1.6],
+                    [9, 1.6],
+                    [20, 10]
+                ],
+                "base": 1
+            },
+            "line-color": "#06375a"
+        },
+        "layerInfo": {
+            "zindex": 15,
+            "datatype": "line",
+            "prefix": "102",
+            "sourcemaxzoom": 19.5,
+            "groupid": "ce6f216e",
+            "name": "单线河",
+            "describe": "单线河",
+            "source": "Waterline",
+            "groupname": "水系",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterline",
+        "source-layer": "Waterline",
+        "id": "edcd358e1f1b43d0a236eb7cb10e966e",
+        "type": "line",
+        "minzoom": 3.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 16,
+            "datatype": "fill",
+            "prefix": "102",
+            "sourcemaxzoom": 19.5,
+            "groupid": "ce6f216e",
+            "name": "水域面",
+            "describe": "水域面",
+            "source": "Waterface",
+            "groupname": "水系",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterface",
+        "source-layer": "Waterface",
+        "id": "25651eb955e348eb83dd9f9feae2ebe4",
+        "type": "fill",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "display_class", -1]],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 17,
+            "datatype": "fill",
+            "prefix": "102",
+            "sourcemaxzoom": 19.5,
+            "groupid": "ce6f216e",
+            "name": "水域面-鸭绿江",
+            "describe": "水域面",
+            "source": "Waterface",
+            "groupname": "水系",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterface",
+        "source-layer": "Waterface",
+        "id": "f263e1c3c32f4c849635a5a96d74434e",
+        "type": "fill",
+        "minzoom": 7.0
+    }, {
+        "filter": ["all", ["==", "kind", 3],
+            ["==", "display_class", -2]
+        ],
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 12.0,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true,
+            "fill-translate-anchor": "viewport"
+        },
+        "layerInfo": {
+            "zindex": 18,
+            "datatype": "fill",
+            "prefix": "102",
+            "sourcemaxzoom": 19.5,
+            "groupid": "ce6f216e",
+            "name": "水域面-黄金坪",
+            "describe": "水域面",
+            "source": "Waterface",
+            "groupname": "水系",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterface",
+        "source-layer": "Waterface",
+        "id": "cb88549f38634df6b037e362075a48f2",
+        "type": "fill",
+        "minzoom": 7.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "fill-outline-color": "#051c26",
+            "fill-color": "#051c26",
+            "fill-antialias": true
+        },
+        "layerInfo": {
+            "zindex": 19,
+            "datatype": "fill",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "ce6f216e",
+            "name": "st世界地图岛屿面",
+            "describe": "世界地图岛屿",
+            "source": "Worldislands",
+            "groupname": "水系",
+            "sourceminzoom": 3.0
+        },
+        "source": "Worldislands",
+        "source-layer": "Worldislands",
+        "id": "e9b85f4ca94a4b3993988b03f41fb576",
+        "type": "fill",
+        "minzoom": 3.0
+    }, {
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [7, 1.5],
+                    [18, 6]
+                ],
+                "base": 1.2
+            },
+            "line-color": "#16305a"
+        },
+        "layerInfo": {
+            "zindex": 20,
+            "datatype": "line",
+            "prefix": "101009",
+            "sourcemaxzoom": 19.5,
+            "groupid": "50829a6f",
+            "name": "铁路_实线",
+            "describe": "铁路",
+            "source": "Railway",
+            "groupname": "铁路",
+            "sourceminzoom": 6.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Railway",
+        "id": "d36480bf1c244494a055fd35fdb5dc10",
+        "type": "line",
+        "minzoom": 6.0
+    }, {
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [7, 1.5],
+                    [18, 3.6]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [9, 9],
+            "line-color": "#2568ab"
+        },
+        "layerInfo": {
+            "zindex": 21,
+            "datatype": "line",
+            "prefix": "101009",
+            "sourcemaxzoom": 19.5,
+            "groupid": "50829a6f",
+            "name": "铁路_虚线",
+            "describe": "铁路",
+            "source": "Railway",
+            "groupname": "铁路",
+            "sourceminzoom": 6.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Railway",
+        "id": "eb93448a7f5146c2a8dc7936a7b11943",
+        "type": "line",
+        "minzoom": 6.0
+    }, {
+        "layout": {
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-size": {
+                "stops": [
+                    [7, 10],
+                    [12, 10],
+                    [13, 10],
+                    [14, 11],
+                    [15, 11],
+                    [16, 11],
+                    [17, 12],
+                    [18, 12],
+                    [19, 12]
+                ],
+                "base": 1
+            },
+            "text-padding": 2,
+            "symbol-placement": "line"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "text-halo-color": "#05132e",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#38a5f7",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 22,
+            "datatype": "symbol",
+            "prefix": "101009",
+            "sourcemaxzoom": 19.5,
+            "groupid": "50829a6f",
+            "name": "铁路名",
+            "describe": "铁路名",
+            "source": "Railway",
+            "groupname": "铁路",
+            "sourceminzoom": 6.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Railway",
+        "id": "e87e1237a6bf4c51b1266d5713538419",
+        "type": "symbol",
+        "minzoom": 12.0
+    }, {
+        "filter": ["all", ["==", "kind", 6]],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": 1,
+            "line-dasharray": [6, 3, 3, 4],
+            "line-color": "#052732"
+        },
+        "layerInfo": {
+            "zindex": 23,
+            "datatype": "line",
+            "prefix": "103003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "f7212a4c",
+            "name": "特别行政区边界",
+            "describe": "行政区划边界",
+            "source": "Adminbound",
+            "groupname": "st行政区划边界",
+            "sourceminzoom": 3.0
+        },
+        "source": "Adminbound",
+        "source-layer": "Adminbound",
+        "id": "01c9083dbdd146b2b068f20a1adb88c1",
+        "type": "line",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", 5]],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": 1,
+            "line-color": "#052732"
+        },
+        "layerInfo": {
+            "zindex": 24,
+            "datatype": "line",
+            "prefix": "103003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "f7212a4c",
+            "name": "省界",
+            "describe": "行政区划边界",
+            "source": "Adminbound",
+            "groupname": "st行政区划边界",
+            "sourceminzoom": 3.0
+        },
+        "source": "Adminbound",
+        "source-layer": "Adminbound",
+        "id": "6da0434dcb5e4bb99f2dee75438636fa",
+        "type": "line",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", 2]],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [3, 1],
+                    [8, 2]
+                ],
+                "base": 1.2
+            },
+            "line-color": "#2f92ce"
+        },
+        "layerInfo": {
+            "zindex": 25,
+            "datatype": "line",
+            "prefix": "103002",
+            "sourcemaxzoom": 19.5,
+            "groupid": "f7212a4c",
+            "name": "国界争议区域",
+            "describe": "行政区划边界",
+            "source": "Adminbound",
+            "groupname": "st行政区划边界",
+            "sourceminzoom": 3.0
+        },
+        "source": "Adminbound",
+        "source-layer": "Adminbound",
+        "id": "91aeccd84b914c93b330c950725b285c",
+        "type": "line",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["in", "kind", 3, 1]],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [3, 1],
+                    [8, 2]
+                ],
+                "base": 1.2
+            },
+            "line-color": "#208bcb"
+        },
+        "layerInfo": {
+            "zindex": 26,
+            "datatype": "line",
+            "prefix": "103002",
+            "sourcemaxzoom": 19.5,
+            "groupid": "f7212a4c",
+            "name": "国界",
+            "describe": "行政区划边界",
+            "source": "Adminbound",
+            "groupname": "st行政区划边界",
+            "sourceminzoom": 3.0
+        },
+        "source": "Adminbound",
+        "source-layer": "Adminbound",
+        "id": "846752b442a8423c827d70eae6bc9260",
+        "type": "line",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", 13],
+            ["==", "const_st", 1]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-cap": "butt",
+            "line-join": "miter"
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "line-width": {
+                "stops": [
+                    [10, 1],
+                    [18, 3]
+                ],
+                "base": 1
+            },
+            "line-dasharray": [3, 3],
+            "line-border-color": "#226cc0",
+            "line-color": "#226cc0"
+        },
+        "layerInfo": {
+            "zindex": 28,
+            "datatype": "line",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "b9102b15",
+            "name": "轮渡",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "56799829559e45f4b01962e6778db389",
+        "type": "line",
+        "minzoom": 9.0
+    }, {
+        "filter": ["all", ["==", "kind", 10]],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [14, 1],
+                    [15, 2],
+                    [16, 3],
+                    [17, 5],
+                    [18, 5],
+                    [19, 5]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 0.4],
+                    [15, 1],
+                    [16, 1.2],
+                    [17, 1.2],
+                    [18, 1.2],
+                    [19, 1.2]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 29,
+            "datatype": "line",
+            "prefix": "101006",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "5c64072c3a9043d3926be5174f5ccecd",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["==", "kind", 8]],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [14, 1.4],
+                    [15, 2.8],
+                    [16, 6],
+                    [17, 10],
+                    [18, 10],
+                    [19, 10]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 0.4],
+                    [15, 1],
+                    [16, 1.2],
+                    [17, 1.2],
+                    [18, 1.2],
+                    [19, 1.2]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 30,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "其它道路14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "ef0f6afac8494db4ba3a89a36c1ddb2e",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["==", "kind", 9]],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [14, 2],
+                    [15, 4],
+                    [16, 6],
+                    [17, 10],
+                    [18, 10],
+                    [19, 10]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 0.4],
+                    [15, 1],
+                    [16, 1.2],
+                    [17, 1.2],
+                    [18, 1.2],
+                    [19, 1.2]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 31,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "九级路14-17.5",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "5484b578204540f3ad351d3efde7bf6e",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["==", "kind", 7]],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [6, 1],
+                    [7, 1.2],
+                    [8, 1.4],
+                    [9, 1.6],
+                    [10, 1.8],
+                    [11, 2],
+                    [12, 2.2],
+                    [13, 2.4],
+                    [14, 2.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 20],
+                    [18, 20],
+                    [19, 20]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [12, 0.6],
+                    [13, 0.8],
+                    [14, 1],
+                    [15, 1.2],
+                    [16, 1.2],
+                    [17, 1.4],
+                    [18, 1.4],
+                    [19, 1.4]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 32,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "乡镇村道路12-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "23b78e762e5b4e9c819daf252df8481f",
+        "type": "line",
+        "minzoom": 12.0
+    }, {
+        "filter": ["all", ["==", "kind", 6]],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-cap": "butt",
+            "line-join": "round"
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [6, 1],
+                    [7, 1.2],
+                    [8, 1.4],
+                    [9, 1.6],
+                    [10, 1.8],
+                    [11, 2],
+                    [12, 2.2],
+                    [13, 2.4],
+                    [14, 4.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 24],
+                    [18, 24],
+                    [19, 24]
+                ],
+                "base": 1
+            },
+            "line-border-width": {
+                "stops": [
+                    [8, 0],
+                    [9, 0],
+                    [10, 0],
+                    [11, 0.4],
+                    [12, 0.6],
+                    [13, 0.8],
+                    [14, 1],
+                    [15, 1.2],
+                    [16, 1.2],
+                    [17, 1.4],
+                    [18, 1.4],
+                    [19, 1.4]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 33,
+            "datatype": "line",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "b9102b15",
+            "name": "县道8-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "ffb9230da0064879b843d32fceb3d442",
+        "type": "line",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["in", "kind", 3, 4]],
+        "layout": {
+            "visibility": "none",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 14.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [6, 1],
+                    [7, 1.2],
+                    [8, 1.4],
+                    [9, 1.6],
+                    [10, 1.8],
+                    [11, 2],
+                    [12, 2.2],
+                    [13, 2.4]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": 0,
+            "line-border-width": {
+                "stops": [
+                    [6, 0],
+                    [7, 0],
+                    [8, 0.5],
+                    [9, 0.7],
+                    [10, 0.7],
+                    [11, 0.8],
+                    [12, 1],
+                    [13, 1.2]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0a305f",
+            "line-color": "#0a305f"
+        },
+        "layerInfo": {
+            "zindex": 34,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "国道6-14/省道8-14",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "27737fb08ac4418486129dc9e6d7a9ef",
+        "type": "line",
+        "minzoom": 6.0
+    }, {
+        "filter": ["all", ["in", "kind", 2, 1]],
+        "layout": {
+            "visibility": "none",
+            "border-visibility": "none",
+            "line-cap": "butt",
+            "line-join": "round"
+        },
+        "maxzoom": 14.0,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [5, 1],
+                    [6, 1.2],
+                    [7, 1.4],
+                    [8, 1.6],
+                    [9, 1.8],
+                    [10, 2],
+                    [11, 2.2],
+                    [12, 2.4],
+                    [13, 2.6],
+                    [14, 5],
+                    [15, 7.5],
+                    [16, 15],
+                    [17, 30],
+                    [18, 30],
+                    [19, 30]
+                ],
+                "base": 1
+            },
+            "line-border-width": {
+                "stops": [
+                    [8, 0.6],
+                    [9, 0.8],
+                    [10, 0.8],
+                    [11, 1],
+                    [12, 1],
+                    [13, 1.2]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 35,
+            "datatype": "line",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "b9102b15",
+            "name": "高速5-14/城市高速6-14",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "2afacca35a80464bb7f5ce010395473c",
+        "type": "line",
+        "minzoom": 5.0
+    }, {
+        "filter": ["all", ["arrin", "form", "10", "39", "15", "37", "38"],
+            ["in", "kind", 3, 4]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [6, 1],
+                    [7, 1.2],
+                    [8, 1.4],
+                    [9, 1.6],
+                    [10, 1.8],
+                    [11, 2],
+                    [12, 2.2],
+                    [13, 2.4],
+                    [14, 2.4],
+                    [15, 2.8],
+                    [16, 9],
+                    [17, 15],
+                    [18, 15],
+                    [19, 15]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 1],
+                    [15, 1],
+                    [16, 1.2],
+                    [17, 1.4]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 36,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "省道附属14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "62c5e61999e242b9aed321d94042ad9a",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["!arrin", "form", "37", "39", "10", "38", "15"],
+            ["in", "kind", 3, 4]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [5, 0.8],
+                    [6, 1],
+                    [7, 1.2],
+                    [8, 1.4],
+                    [9, 1.8],
+                    [10, 2],
+                    [11, 2],
+                    [12, 2],
+                    [13, 2.4],
+                    [14, 2.8],
+                    [15, 5.5],
+                    [16, 11],
+                    [17, 22],
+                    [18, 22],
+                    [19, 22]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 1],
+                    [15, 1.2],
+                    [16, 1.4],
+                    [17, 1.8]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 37,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "省道14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "46eb76f80cb74b11be36aee8f4e1fee1",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["arrin", "form", "12", "13", "39", "36", "11", "10", "15"],
+            ["in", "kind", 2, 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [5, 1],
+                    [6, 1.2],
+                    [7, 1.4],
+                    [8, 1.6],
+                    [9, 1.8],
+                    [10, 2],
+                    [11, 2.2],
+                    [12, 2.4],
+                    [13, 2.6],
+                    [14, 3],
+                    [15, 5],
+                    [16, 11],
+                    [17, 15],
+                    [18, 18]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [13, 1],
+                    [14, 1],
+                    [16, 1.2],
+                    [17, 1.4]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 38,
+            "datatype": "line",
+            "prefix": "101001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "城市高速道路附属14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "692bbf6ef8f247989300603ffe646a39",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["!arrin", "form", "12", "13", "39", "36", "11", "10", "15"],
+            ["in", "kind", 2, 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "border-visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [5, 1],
+                    [6, 1.2],
+                    [7, 1.4],
+                    [8, 1.6],
+                    [9, 1.8],
+                    [10, 2],
+                    [11, 2.2],
+                    [12, 2.4],
+                    [13, 2.6],
+                    [14, 5],
+                    [15, 7.5],
+                    [16, 13],
+                    [17, 22],
+                    [18, 22],
+                    [19, 22]
+                ],
+                "base": 1.2
+            },
+            "line-border-width": {
+                "stops": [
+                    [14, 1.2],
+                    [15, 1.4],
+                    [16, 1.4],
+                    [17, 1.6]
+                ],
+                "base": 1
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 39,
+            "datatype": "line",
+            "prefix": "101001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "b9102b15",
+            "name": "城市高速道路14-17",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "5aa48c259dcb44ca967383b3512afd31",
+        "type": "line",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["==", "kind", 8],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 1],
+                    [14, 1.4],
+                    [15, 2.8],
+                    [16, 6.4],
+                    [17, 10],
+                    [18, 10],
+                    [19, 10]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 40,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "立交-其它道路13",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "46c43ae37bbd444d8076bdf6c01da08b",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 7],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2],
+                    [14, 2.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 20],
+                    [18, 20],
+                    [19, 20]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 41,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "立交-乡镇村道路13",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "99e8e7074faf4dde8e837d4c90132247",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 6],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 4.2],
+                    [14, 4.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 24],
+                    [18, 24],
+                    [19, 24]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#071733",
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 42,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "立交-县道",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "d7b61c572e354c36a77ffbcc53b40239",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 4],
+            [">=", "zvalue", 1],
+            ["arrin", "form", "37", "39", "10", "38", "15"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2],
+                    [14, 2.4],
+                    [15, 2.8],
+                    [16, 5.5],
+                    [17, 11],
+                    [18, 11],
+                    [19, 11]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 43,
+            "datatype": "line",
+            "prefix": "101004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-省道附属",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "b366e6e08dc344a181949fbce2445255",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 4],
+            [">=", "zvalue", 1],
+            ["!arrin", "form", "37", "39", "10", "38", "15"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2.4],
+                    [14, 2.8],
+                    [15, 5.5],
+                    [16, 11],
+                    [17, 22],
+                    [18, 22],
+                    [19, 22]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 44,
+            "datatype": "line",
+            "prefix": "101004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-省道",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "50f7d5df1b984defadeba3dd5f22bce0",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 3],
+            [">=", "zvalue", 1],
+            ["arrin", "form", "37", "14", "36", "10", "38", "15"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2],
+                    [14, 2.4],
+                    [15, 2.8],
+                    [16, 5.5],
+                    [17, 11],
+                    [18, 11],
+                    [19, 11]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 45,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-国道附属",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "73ab09ab0fa942db8ae1017272d4654d",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 3],
+            [">=", "zvalue", 1],
+            ["!arrin", "form", "37", "14", "36", "10", "38", "15"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2.4],
+                    [14, 2.8],
+                    [15, 5.5],
+                    [16, 11],
+                    [17, 22],
+                    [18, 22],
+                    [19, 22]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 46,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-国道",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "342f63bd6f1d40d5bd398cd54230bc90",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 2],
+            ["arrin", "form", "12", "13", "39", "11", "10", "15"],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2.4],
+                    [14, 3],
+                    [15, 6],
+                    [16, 9],
+                    [17, 18],
+                    [18, 18],
+                    [19, 18]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 47,
+            "datatype": "line",
+            "prefix": "101002",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-城市高速附属",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "52c5d610384348ed9488a215cc9e135e",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 2],
+            ["!arrin", "form", "12", "13", "39", "11", "10", "15"],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 3],
+                    [14, 6],
+                    [15, 9],
+                    [16, 18],
+                    [17, 32],
+                    [18, 32],
+                    [19, 32]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": 0,
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 48,
+            "datatype": "line",
+            "prefix": "101002",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-城市高速",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "909fd75a51d04f71a3eee878dba62cea",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 1],
+            ["arrin", "form", "12", "13", "39", "11", "10", "15"],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 2.4],
+                    [14, 3],
+                    [15, 5],
+                    [16, 7.5],
+                    [17, 15],
+                    [18, 15],
+                    [19, 15]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 49,
+            "datatype": "line",
+            "prefix": "101001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-高速道路附属",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "a9eca48aef9f48a1b93aeedfb5b31441",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 1],
+            ["!arrin", "form", "12", "13", "39", "11", "10", "15"],
+            [">=", "zvalue", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 3],
+                    [14, 5],
+                    [15, 7.5],
+                    [16, 15],
+                    [17, 30],
+                    [18, 30],
+                    [19, 30]
+                ],
+                "base": 1.2
+            },
+            "line-border-color": "#0d488a",
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 50,
+            "datatype": "line",
+            "prefix": "101001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "02ccaecc",
+            "name": "道路立交-高速道路",
+            "describe": "道路立交",
+            "source": "Zlevel",
+            "groupname": "立交",
+            "sourceminzoom": 5.0
+        },
+        "source": "Zlevel",
+        "source-layer": "Zlevel",
+        "id": "0e7552f1c81f4322acba96f39ea84cbf",
+        "type": "line",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "kind", 8],
+            ["==", "const_st", 1],
+            ["arrin", "form", "31"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 0],
+                    [14, 0.6],
+                    [15, 0.8],
+                    [16, 1.2],
+                    [17, 1.6],
+                    [18, 1.6],
+                    [19, 1.6]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": {
+                "stops": [
+                    [13, 1],
+                    [14, 1.4],
+                    [15, 2.8],
+                    [16, 6.4],
+                    [17, 10],
+                    [18, 10],
+                    [19, 10]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [3, 3],
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 51,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "7bf55016",
+            "name": "其它道路隧道",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路隧道",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "6e6adf1392254b61807793c9757db434",
+        "type": "line",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 7],
+            ["!=", "const_st", 3],
+            ["arrin", "form", "31"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 0.8],
+                    [14, 0.9],
+                    [15, 1],
+                    [16, 1.2],
+                    [17, 1.6],
+                    [18, 1.6],
+                    [19, 1.6]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": {
+                "stops": [
+                    [13, 2],
+                    [14, 2.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 16],
+                    [18, 16],
+                    [19, 16]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [3, 3],
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 52,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "7bf55016",
+            "name": "乡镇村道路隧道",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路隧道",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "7ea4845da0cb4117ae593706a8bd5bc9",
+        "type": "line",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "kind", 6],
+            ["!=", "const_st", 3],
+            ["arrin", "form", "31"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 0.8],
+                    [14, 0.8],
+                    [15, 0.8],
+                    [16, 1],
+                    [17, 1.2],
+                    [18, 1.2],
+                    [19, 1.2]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": {
+                "stops": [
+                    [13, 4.2],
+                    [14, 4.8],
+                    [15, 7.2],
+                    [16, 10],
+                    [17, 24],
+                    [18, 24],
+                    [19, 24]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [3, 3],
+            "line-color": "#0f3865"
+        },
+        "layerInfo": {
+            "zindex": 53,
+            "datatype": "line",
+            "prefix": "101005",
+            "sourcemaxzoom": 19.5,
+            "groupid": "7bf55016",
+            "name": "县道隧道",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路隧道",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "bb8366b4dd8a46ac85b54f8290fc4a7d",
+        "type": "line",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["==", "const_st", 1],
+            ["arrin", "form", "31"],
+            ["in", "kind", 3, 4]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 1],
+                    [14, 1],
+                    [15, 1.2],
+                    [16, 1.2],
+                    [17, 1.4],
+                    [18, 1.4],
+                    [19, 1.4]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": {
+                "stops": [
+                    [13, 2.4],
+                    [14, 2.8],
+                    [15, 5.5],
+                    [16, 11],
+                    [17, 22],
+                    [18, 22],
+                    [19, 22]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [3, 3],
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 54,
+            "datatype": "line",
+            "prefix": "101003",
+            "sourcemaxzoom": 19.5,
+            "groupid": "7bf55016",
+            "name": "省道隧道",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路隧道",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "97c4534ae5ec4eba8af556feb1e94b4f",
+        "type": "line",
+        "minzoom": 13.0
+    }, {
+        "filter": ["all", ["!=", "const_st", 3],
+            ["arrin", "form", "31"],
+            ["in", "kind", 2, 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "line-join": "round",
+            "line-cap": "butt"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "line-translate-anchor": "viewport",
+            "line-width": {
+                "stops": [
+                    [13, 1.2],
+                    [14, 1.2],
+                    [15, 1.4],
+                    [16, 1.4],
+                    [17, 1.6],
+                    [18, 1.6],
+                    [19, 1.6]
+                ],
+                "base": 1.2
+            },
+            "line-gap-width": {
+                "stops": [
+                    [13, 3],
+                    [14, 5],
+                    [15, 7.5],
+                    [16, 15],
+                    [17, 30],
+                    [18, 30],
+                    [19, 30]
+                ],
+                "base": 1.2
+            },
+            "line-dasharray": [3, 3],
+            "line-color": "#1e5aa5"
+        },
+        "layerInfo": {
+            "zindex": 55,
+            "datatype": "line",
+            "prefix": "101001",
+            "sourcemaxzoom": 19.5,
+            "groupid": "7bf55016",
+            "name": "城市高速隧道",
+            "describe": "道路",
+            "source": "Road",
+            "groupname": "道路隧道",
+            "sourceminzoom": 5.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Road",
+        "id": "a306f444ac2a432cb5a0427aac5ecfd2",
+        "type": "line",
+        "minzoom": 13.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 16.0,
+        "paint": {
+            "fill-outline-color": "#0c3b70",
+            "fill-color": "#0c3b70",
+            "fill-antialias": true
+        },
+        "layerInfo": {
+            "zindex": 56,
+            "datatype": "extrusion",
+            "prefix": "",
+            "sourcemaxzoom": 19.5,
+            "groupid": "",
+            "name": "建筑物-平面",
+            "describe": "建筑物",
+            "source": "Buildingmore",
+            "groupname": "",
+            "sourceminzoom": 14.0
+        },
+        "source": "Buildingmore",
+        "source-layer": "Buildingmore",
+        "id": "97f4472793dd4d6181243a97af794c5c",
+        "type": "fill",
+        "minzoom": 14.0
+    }, {
+        "layout": {
+            "visibility": "visible"
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "extrusion-height": {
+                "property": "levels",
+                "type": "identity"
+            },
+            "extrusion-color": "#0b3462",
+            "extrusion-base": 0,
+            "extrusion-translate-anchor": "viewport",
+            "extrusion-opacity": 0.75,
+            "extrusion-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 60,
+            "datatype": "extrusion",
+            "prefix": "",
+            "sourcemaxzoom": 19.5,
+            "groupid": "",
+            "name": "建筑物-立体",
+            "describe": "建筑物",
+            "source": "Buildingmore",
+            "groupname": "",
+            "sourceminzoom": 14.0
+        },
+        "source": "Buildingmore",
+        "source-layer": "Buildingmore",
+        "id": "22ef919d6e3d4bbf848cb4b2149af7c8",
+        "type": "extrusion",
+        "minzoom": 16.0
+    }, {
+        "filter": ["all", ["in", "kind", 2],
+            ["==", "with_name", 1],
+            ["==", "display_class", 7]
+        ],
+        "layout": {
+            "visibility": "none",
+            "text-field": "{name_zh}",
+            "text-size": 12
+        },
+        "maxzoom": 12.0,
+        "paint": {
+            "text-halo-color": "#09162f",
+            "icon-color": "#ff0000",
+            "text-color": "#507ad1",
+            "text-halo-width": 0.5
+        },
+        "layerInfo": {
+            "zindex": 61,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "98154a9a",
+            "name": "湖沼7级10-12",
+            "describe": "面状水系中心点",
+            "source": "Waterfacecentriod",
+            "groupname": "水系名称",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterfacecentriod",
+        "source-layer": "Waterfacecentriod",
+        "id": "0e1f3ff023e1465797cc5865941b677d",
+        "type": "symbol",
+        "minzoom": 10.0
+    }, {
+        "filter": ["all", ["in", "kind", 2],
+            ["==", "with_name", 1],
+            ["==", "display_class", 8]
+        ],
+        "layout": {
+            "visibility": "none",
+            "text-field": "{name_zh}",
+            "text-size": 12
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#09162f",
+            "icon-color": "#ff0000",
+            "text-color": "#507ad1",
+            "text-halo-width": 0.5
+        },
+        "layerInfo": {
+            "zindex": 62,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "98154a9a",
+            "name": "湖沼8级8-17",
+            "describe": "面状水系中心点",
+            "source": "Waterfacecentriod",
+            "groupname": "水系名称",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterfacecentriod",
+        "source-layer": "Waterfacecentriod",
+        "id": "e966edd7d35042629cfbcf48812ea7f1",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["in", "kind", 2],
+            ["in", "display_class", 1, 2, 3, 4, 5, 6, 7],
+            ["==", "with_name", 1],
+            [">=", "area_level", 5]
+        ],
+        "layout": {
+            "visibility": "none",
+            "text-field": "{name_zh}",
+            "text-size": 12
+        },
+        "maxzoom": 14.0,
+        "paint": {
+            "text-halo-color": "#09162f",
+            "icon-color": "#ff0000",
+            "text-color": "#507ad1",
+            "text-halo-width": 0.5
+        },
+        "layerInfo": {
+            "zindex": 63,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "98154a9a",
+            "name": "湖沼all_12-14",
+            "describe": "面状水系中心点",
+            "source": "Waterfacecentriod",
+            "groupname": "水系名称",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterfacecentriod",
+        "source-layer": "Waterfacecentriod",
+        "id": "cfe23c641bba4fdfae56706c7b7c401f",
+        "type": "symbol",
+        "minzoom": 12.0
+    }, {
+        "filter": ["all", ["in", "kind", 2],
+            ["in", "display_class", 1, 2, 3, 4, 5, 6, 7],
+            ["==", "with_name", 1]
+        ],
+        "layout": {
+            "visibility": "none",
+            "text-field": "{name_zh}",
+            "text-size": 12
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#09162f",
+            "icon-color": "#ff0000",
+            "text-color": "#507ad1",
+            "text-halo-width": 0.5
+        },
+        "layerInfo": {
+            "zindex": 64,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "98154a9a",
+            "name": "湖沼all_14-17",
+            "describe": "面状水系中心点",
+            "source": "Waterfacecentriod",
+            "groupname": "水系名称",
+            "sourceminzoom": 3.0
+        },
+        "source": "Waterfacecentriod",
+        "source-layer": "Waterfacecentriod",
+        "id": "deba728341534b4bb34f99976eac1666",
+        "type": "symbol",
+        "minzoom": 14.0
+    }, {
+        "filter": ["all", ["in", "kindcode", "190107", "190108"],
+            ["==", "accessflag", 0]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0.8, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": 11,
+            "text-anchor": "left",
+            "icon-size": 0.89,
+            "icon-image": "poi_code_{kindcode}_16"
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#05132b",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#5294ff",
+            "icon-opacity": 0.9,
+            "text-halo-width": 1,
+            "text-translate": [0, -2]
+        },
+        "layerInfo": {
+            "zindex": 92,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "e34e0fdb",
+            "name": "st政府总部",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "合并兴趣点",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "290bb08d9bf14967ab7324c92edc2f25",
+        "type": "symbol",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["in", "kindcode", "275007", "275006"],
+            ["!in", "name_zh", "（台湾省详细资料暂缺）", "黄尾屿", "曾母暗沙", "赤尾屿", "钓鱼岛"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-anchor": "center",
+            "text-size": 11
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4298f2",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 96,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "敏感岛屿8+",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "327f9205bdc3458da637ebebec92da99",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["in", "kindcode", "275007", "275006"],
+            ["in", "name_zh", "曾母暗沙", "黄尾屿", "钓鱼岛", "赤尾屿"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, -1],
+            "text-rotation-alignment": "viewport",
+            "text-anchor": "bottom-left",
+            "text-size": 11
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4298f2",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 97,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "钓赤黄曾8+",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "bb99f9150057472fbc9963f14d394e38",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["==", "kindcode", "275007"],
+            ["==", "name_zh", "赤尾屿"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-anchor": "bottom-left",
+            "text-size": 10
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4298f2",
+            "text-halo-width": 1,
+            "text-translate": [6, 4]
+        },
+        "layerInfo": {
+            "zindex": 98,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "赤尾屿4-8",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "fbdaa06e353f48ae978b3d8570dddaa9",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "kind", "275008"],
+            ["==", "name_zh", "台湾海峡"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 14
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4588d6",
+            "text-halo-width": 1,
+            "text-translate": [-24, 8]
+        },
+        "layerInfo": {
+            "zindex": 99,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 8.5,
+            "groupid": "1ba8b96f",
+            "name": "台湾海峡5-8",
+            "describe": "世界地图代表点",
+            "source": "Worldannotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Worldannotation",
+        "id": "d380203b38be4e16be59ab5d5bad1cc1",
+        "type": "symbol",
+        "minzoom": 5.0
+    }, {
+        "filter": ["all", ["in", "kindcode", "275007"],
+            ["!in", "name_zh", "黄尾屿", "赤尾屿", "（台湾省详细资料暂缺）"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-anchor": "top",
+            "text-size": 10
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4298f2",
+            "text-halo-width": 1,
+            "text-translate": [-12, -19]
+        },
+        "layerInfo": {
+            "zindex": 100,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "敏感岛屿4-8",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "af9b22c88c07479c945d608d25de01f7",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "kindcode", "275007"],
+            ["==", "name_zh", "（台湾省详细资料暂缺）"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-max-width": 11,
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [6, 11],
+                    [7, 14],
+                    [8, 14],
+                    [9, 14],
+                    [10, 15],
+                    [11, 15],
+                    [12, 16],
+                    [13, 16],
+                    [14, 17],
+                    [15, 17],
+                    [16, 18],
+                    [17, 18],
+                    [18, 19],
+                    [19, 20]
+                ],
+                "base": 1
+            },
+            "text-font": ["REGULAR"]
+        },
+        "maxzoom": 19.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#3c9cec",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 101,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "1ba8b96f",
+            "name": "台湾资料6+",
+            "describe": "文字",
+            "source": "Annotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Annotation",
+        "id": "8155366c8c694013b010bf1361a5df0d",
+        "type": "symbol",
+        "minzoom": 6.0
+    }, {
+        "filter": ["all", ["==", "name_zh", "（台湾省详细资料暂缺）"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-max-width": 6,
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": 10,
+            "text-font": ["REGULAR"]
+        },
+        "maxzoom": 6.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#3c9cec",
+            "text-halo-width": 1,
+            "text-translate": [-3, 0]
+        },
+        "layerInfo": {
+            "zindex": 102,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 19.5,
+            "groupid": "1ba8b96f",
+            "name": "台湾资料5",
+            "describe": "文字",
+            "source": "Annotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Annotation",
+        "id": "28113edbf0254ef6a75a0ea9ebb33d76",
+        "type": "symbol",
+        "minzoom": 5.0
+    }, {
+        "filter": ["all", ["==", "type", 4],
+            ["!in", "name_zh", "香洲区（由澳门特别行政区实施管辖）", "台湾"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-max-width": 7,
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [9, 11],
+                    [10, 11],
+                    [11, 12]
+                ],
+                "base": 1
+            },
+            "text-padding": 2,
+            "symbol-placement": "point",
+            "text-font": ["REGULAR"]
+        },
+        "maxzoom": 11.0,
+        "paint": {
+            "text-halo-color": "#145fb7",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#4d98dd",
+            "text-color": "#ffffff",
+            "text-halo-width": 4,
+            "icon-opacity": 1,
+            "text-opacity": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 103,
+            "datatype": "symbol",
+            "prefix": "103005",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "区/自治县9-11",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "0777b98ba26a4bc99ad4b22693868d9b",
+        "type": "symbol",
+        "minzoom": 9.0
+    }, {
+        "filter": ["all", ["==", "kind", "260000"],
+            ["==", "name_tag", 3]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 11,
+            "text-padding": 16
+        },
+        "maxzoom": 12.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#5fa3dd",
+            "text-halo-width": 1.2
+        },
+        "layerInfo": {
+            "zindex": 104,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "乡镇点-街道",
+            "describe": "乡镇点",
+            "source": "Villtown",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 10.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Villtown",
+        "id": "69ed044c5ef8438188a0c82b20335f96",
+        "type": "symbol",
+        "minzoom": 10.0
+    }, {
+        "filter": ["all", ["==", "kind", "260100"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 11
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#348ddc",
+            "text-halo-width": 1.2
+        },
+        "layerInfo": {
+            "zindex": 105,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "乡镇点-村",
+            "describe": "乡镇点",
+            "source": "Villtown",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 10.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Villtown",
+        "id": "562ecf15d6d6417f80a349c4a3588f77",
+        "type": "symbol",
+        "minzoom": 10.0
+    }, {
+        "filter": ["all", ["==", "kind", "260000"],
+            ["in", "name_tag", 1, 2],
+            ["!=", "special", 1]
+        ],
+        "layout": {
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 11
+        },
+        "maxzoom": 13.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#5fa3dd",
+            "text-halo-width": 1.2
+        },
+        "layerInfo": {
+            "zindex": 106,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "乡镇点-乡镇",
+            "describe": "乡镇点",
+            "source": "Villtown",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 10.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Villtown",
+        "id": "fbc82ccdce1042a99aacad02e920ce2c",
+        "type": "symbol",
+        "minzoom": 10.0
+    }, {
+        "filter": ["all", ["==", "type", 4],
+            ["!in", "name_zh", "台湾", "元宝区", "东港市", "集安市", "临江市", "长白朝鲜族自治县", "图们市", "饶河县", "振兴区", "振安区", "呼玛县", "爱辉区", "霍尔果斯市", "陇川县", "瑞丽市", "镇康县", "河口瑶族自治县", "东兴市"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [7, 11],
+                    [8, 12],
+                    [9, 12]
+                ],
+                "base": 1
+            },
+            "text-anchor": "center",
+            "icon-size": 1,
+            "text-font": ["REGULAR"]
+        },
+        "maxzoom": 9.0,
+        "paint": {
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "rgba(0,0,0,0)",
+            "text-color": "#3c9cec",
+            "text-halo-width": 1,
+            "text-translate": [3, 0]
+        },
+        "layerInfo": {
+            "zindex": 107,
+            "datatype": "symbol",
+            "prefix": "103005",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "区/自治县7-9",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "2bacfb6120bc4807b880a480cbb83fef",
+        "type": "symbol",
+        "minzoom": 7.0
+    }, {
+        "filter": ["all", ["==", "capital", 3],
+            ["in", "name_tag", 1, 3, 2]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-size": 13,
+            "text-anchor": "center",
+            "text-allow-overlap": false,
+            "icon-size": 0.8,
+            "text-font": ["REGULAR"],
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "text-max-width": 8,
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-ignore-placement": false
+        },
+        "maxzoom": 10.0,
+        "paint": {
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "rgba(0,0,0,0)",
+            "text-color": "#3c9cec",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 108,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "盟自治州8-10",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "2c635efe5cb54f4d94dcc6e980865097",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["==", "capital", 3],
+            ["in", "name_tag", 1, 3, 2],
+            ["!in", "name_zh", "延边朝鲜族自治州", "塔城地区", "德宏傣族景颇族自治州", "西双版纳傣族自治州", "怒江傈僳族自治州", "伊犁哈萨克自治州"]
+        ],
+        "layout": {
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-size": {
+                "stops": [
+                    [5, 11],
+                    [6, 11],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "bottom",
+            "text-allow-overlap": false,
+            "icon-size": 0.8,
+            "text-font": ["REGULAR"],
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "text-max-width": 8,
+            "text-offset": [0, -0.3],
+            "text-rotation-alignment": "viewport",
+            "text-ignore-placement": false
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "rgba(0,0,0,0)",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 109,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "盟自治州5-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "137fe1cbc80f4c73ba8694cf399c2335",
+        "type": "symbol",
+        "minzoom": 5.0
+    }, {
+        "filter": ["all", ["==", "capital", 3],
+            ["!in", "name_tag", 1, 3, 2]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": 14,
+            "text-anchor": "center",
+            "text-ignore-placement": false,
+            "text-allow-overlap": false,
+            "icon-size": 1,
+            "text-font": ["REGULAR"]
+        },
+        "maxzoom": 11.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#660000",
+            "text-color": "#0d3451",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 110,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "地级市8-11",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "ba61934dea7a4d4dad51c531a39a24d2",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["==", "capital", 3],
+            ["!in", "name_tag", 1, 3, 2],
+            ["!in", "name_zh", "黑河", "丹东"]
+        ],
+        "layout": {
+            "icon-rotation-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-size": {
+                "stops": [
+                    [5, 11],
+                    [6, 11],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "bottom",
+            "text-allow-overlap": false,
+            "icon-size": 0,
+            "icon-image": "circle-brown-11",
+            "text-font": ["REGULAR"],
+            "icon-optional": false,
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-ignore-placement": false
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "icon-translate": [0, 0],
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#0d3451",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 111,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "地级市5-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "0404bb6cc2484202b6d63fffaf0e1ee8",
+        "type": "symbol",
+        "minzoom": 5.0
+    }, {
+        "filter": ["all", ["==", "capital", 2]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [9, 16],
+                    [10, 16],
+                    [11, 16]
+                ],
+                "base": 1
+            }
+        },
+        "maxzoom": 11.0,
+        "paint": {
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#0d3451",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 112,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "省会/直辖市8-11",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "c888b044dd3741c0b7f29e8148a669a0",
+        "type": "symbol",
+        "minzoom": 8.0
+    }, {
+        "filter": ["all", ["==", "capital", 2],
+            ["==", "name_zh", "台北"]
+        ],
+        "layout": {
+            "icon-rotation-alignment": "viewport",
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, -0.5],
+            "text-rotation-alignment": "viewport",
+            "text-size": 14,
+            "text-anchor": "bottom",
+            "icon-size": 0.78,
+            "icon-image": "circle-red-11"
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#0d3451",
+            "text-halo-width": 1,
+            "icon-opacity": 0.9
+        },
+        "layerInfo": {
+            "zindex": 113,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "1ba8b96f",
+            "name": "台北省会15-17",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "cfe7f52b35f5494094420fc363cb6ae8",
+        "type": "symbol",
+        "minzoom": 15.0
+    }, {
+        "filter": ["all", ["==", "name_zh", "澳门"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [4, 11],
+                    [5, 11],
+                    [6, 12],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "right",
+            "icon-size": 0,
+            "icon-image": "circle-red-11"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "icon-translate": [0, 2],
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#0d3451",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 114,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "澳门4-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "a815067af85e4aadb62a7515adec7ae5",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "name_zh", "香港"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [4, 11],
+                    [5, 11],
+                    [6, 12],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "left",
+            "icon-size":0,
+            "icon-image": "circle-red-11"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "icon-translate": [0, 2],
+            "text-halo-color": "rgba(0,0,0,0)",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#0d3451",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 115,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "香港4-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "5cbd33c65cc546f2a259dc3ac3b7f810",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "capital", 2],
+            ["==", "name_zh", "天津"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [4, 11],
+                    [5, 11],
+                    [6, 12],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "top",
+            "icon-size": 0,
+            "icon-image": "circle-red-11"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "icon-translate": [0, 2],
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#229aff",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 116,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "天津4-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "e2c9c81cc5124101b81599fe49be15cb",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "capital", 2],
+            ["!in", "name_zh", "香港", "澳门", "天津"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [0, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": {
+                "stops": [
+                    [4, 11],
+                    [5, 11],
+                    [6, 12],
+                    [7, 12],
+                    [8, 13]
+                ],
+                "base": 1
+            },
+            "text-anchor": "bottom",
+            "icon-size": 0,
+            "icon-image": "circle-red-11"
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#229aff",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 117,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "省会/直辖市4-8",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "4ff17bb2534e4ca28411ae3be8c072ff",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "name_zh", "中华人民共和国"],
+            ["==", "kind", "405001"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 20
+        },
+        "maxzoom": 4.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#599ef2",
+            "text-halo-width": 1.2
+        },
+        "layerInfo": {
+            "zindex": 118,
+            "datatype": "symbol",
+            "prefix": "103002",
+            "sourcemaxzoom": 8.5,
+            "groupid": "1ba8b96f",
+            "name": "中华人民共和国3-4",
+            "describe": "世界地图代表点",
+            "source": "Worldannotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Worldannotation",
+        "id": "42832e54ecfb4d3189faae6ac36abc92",
+        "type": "symbol",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", "275008"],
+            ["!in", "name_zh", "台湾海峡"]
+        ],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 14
+        },
+        "maxzoom": 8.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4588d6",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 119,
+            "datatype": "symbol",
+            "prefix": "102",
+            "sourcemaxzoom": 8.5,
+            "groupid": "1ba8b96f",
+            "name": "海域名4-8",
+            "describe": "世界地图代表点",
+            "source": "Worldannotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Worldannotation",
+        "id": "a522134b774a47b0886d5574131db9c2",
+        "type": "symbol",
+        "minzoom": 4.0
+    }, {
+        "filter": ["all", ["==", "kind", "405002"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 24
+        },
+        "maxzoom": 8.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#347fd7",
+            "text-halo-width": 1.2
+        },
+        "layerInfo": {
+            "zindex": 120,
+            "datatype": "symbol",
+            "prefix": "103001",
+            "sourcemaxzoom": 8.5,
+            "groupid": "1ba8b96f",
+            "name": "世界地图代表点-洲3-8",
+            "describe": "世界地图代表点",
+            "source": "Worldannotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Worldannotation",
+        "id": "8042b384c4824882822667663f7c1b87",
+        "type": "symbol",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "kind", "405003"]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-rotation-alignment": "viewport",
+            "text-size": 15
+        },
+        "maxzoom": 8.5,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "text-color": "#4588d6",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 121,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 8.5,
+            "groupid": "1ba8b96f",
+            "name": "大洋",
+            "describe": "世界地图代表点",
+            "source": "Worldannotation",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Worldannotation",
+        "id": "39b4908146604997b3d9423f6c4b2698",
+        "type": "symbol",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "capital", 1]],
+        "layout": {
+            "symbol-avoid-edges": true,
+            "icon-rotation-alignment": "viewport",
+            "text-pitch-alignment": "viewport",
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-offset": [2.5, 0],
+            "text-rotation-alignment": "viewport",
+            "text-size": 16,
+            "text-anchor": "right",
+            "icon-image": "star-11"
+        },
+        "maxzoom": 4.0,
+        "paint": {
+            "text-halo-color": "#141518",
+            "text-translate-anchor": "viewport",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#229aff",
+            "text-halo-width": 1
+        },
+        "layerInfo": {
+            "zindex": 122,
+            "datatype": "symbol",
+            "prefix": "103004",
+            "sourcemaxzoom": 11.5,
+            "groupid": "1ba8b96f",
+            "name": "北京3-4",
+            "describe": "行政区划代表点",
+            "source": "Adminflag",
+            "groupname": "st行政区划代表点",
+            "sourceminzoom": 3.0
+        },
+        "source": "Merge_1",
+        "source-layer": "Adminflag",
+        "id": "44323e8765c3475d8ee9c942a46abf56",
+        "type": "symbol",
+        "minzoom": 3.0
+    }, {
+        "filter": ["all", ["==", "name_zh", "天安门"]],
+        "layout": {
+            "icon-rotation-alignment": "viewport",
+            "text-line-height": 1.2,
+            "visibility": "visible",
+            "text-field": "{name_zh}",
+            "text-anchor": "center",
+            "text-size": 11,
+            "icon-size": 0.89,
+            "icon-image": "Tiananmen",
+            "symbol-avoid-edges": true,
+            "text-pitch-alignment": "viewport",
+            "text-max-width": 10,
+            "text-offset": [2.6, 0],
+            "text-rotation-alignment": "viewport"
+        },
+        "maxzoom": 17.5,
+        "paint": {
+            "text-halo-color": "#05132b",
+            "icon-color": "#ff0000",
+            "icon-translate-anchor": "viewport",
+            "text-color": "#badbff",
+            "text-halo-width": 1,
+            "text-translate": [0, 0]
+        },
+        "layerInfo": {
+            "zindex": 123,
+            "datatype": "symbol",
+            "prefix": "",
+            "sourcemaxzoom": 17.5,
+            "groupid": "",
+            "name": "天安门",
+            "describe": "PoiAnnotation",
+            "source": "PoiAnnotation",
+            "groupname": "",
+            "sourceminzoom": 3.0
+        },
+        "source": "PoiAnnotation",
+        "source-layer": "PoiAnnotation",
+        "id": "9549911162114cb983b9c2de6249309d",
+        "type": "symbol",
+        "minzoom": 10.0
+    }],
+    "glyphs": "minemap://fonts/{fontstack}/{range}",
+    "version": 8
+}

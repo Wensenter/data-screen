@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重大案事件预警防范系统</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/key_events_pretend.css">
+    <!-- 引入MineMap API插件 -->
+    <link rel="stylesheet" href="./css/minemap.css">
+    <script src="./js/minemap.js"></script>
+    <script src="./js/minemap-echarts.js"></script>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/minemap-template.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <canvas id="canvasID" width="950" height="722">Canvas not supported</canvas>
+        <div id="map"></div>
+        <!-- 头部 -->
+        <div class="head">
+            <p><img src="./img/public/badge.png" alt="">甘肃公安重大案事件预警防范系统</p>
+        </div>
+        <!-- 左侧 -->
+        <div class="left">
+            <!-- 全省线索 -->
+            <div class="watch-charts charts1">
+                <!-- 仪表盘 -->
+                <div id="qsxs"></div>
+                <div class="text">
+                    <span>全省线索</span>
+                    <span class="count"></span>
+                </div>
+            </div>
+            <!-- 全省预警 -->
+            <div class="watch-charts charts2">
+                <!-- 仪表盘 -->
+                <div id="qsyj"></div>
+                <div class="text">
+                    <span>全省预警</span>
+                    <span class="count"></span>
+                </div>
+            </div>
+            <!-- 风险热力 -->
+            <div class="fxrl">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">风险热力</span>
+                </p>
+                <div class="ctx" id="fxrl">
+                    <ul>
+                        <li class="city">张掖市</li>
+                        <li class="stree"></li>
+                        <li class="done"></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 爆点预警 -->
+            <div class="bdyj">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">爆点预警</span> 
+                    <a href="#">More >></a>
+                </p> 
+                <div class="ctx " id="bdyj">
+                    <ul>
+                    </ul>
+                </div>
+                
+            </div>
+            <!-- 合成作战 -->
+            <div class="hczz">
+                <ul>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                    <li><img src="../img/key_personnel_trends/link5.png" width="40px"/><span>合成作战</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 右侧 -->
+        <div class="right">
+            <!-- 人员选择 -->
+            <div class="ryxz">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">人员选择</span>
+                </p>
+                <!-- 人员选择动画 -->
+                <div class="animates">
+                    <em class="lines1 lines"></em>
+                    <em class="lines2 lines"></em>
+                    <em class="lines3 lines"></em>
+                    <em class="lines4 lines"></em>
+                    <em class="lines5 lines"></em>
+                    <em class="lines6 lines"></em>
+                    <div class="active">
+                        <img src="./img/ket_events_pretend/suer-sw.png" alt="">
+                        <span>涉稳</span>
+                    </div>
+                    <div class="active">
+                        <img src="./img/ket_events_pretend/user-sk.png" alt="">
+                        <span>涉恐</span>
+                    </div>
+                    <div class="active">
+                        <img src="./img/ket_events_pretend/user-sj.png" alt="">
+                        <span>涉疆</span>
+                    </div>
+                    <div class="active">
+                        <img src="./img/ket_events_pretend/user-sz.png" alt="">
+                        <span>涉藏</span>
+                    </div>
+                    <p class="btmBigEllipseCircle"></p>
+                    <p class="btmSmallEllipseCircle"></p>
+                </div>
+            </div>
+            <!-- 风控日历 -->
+            <div class="fkrl">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">风控日历</span>
+                </p>
+                <!-- layui日历组件 -->
+                <div id="calendar">
+                    <div id="View">
+                        
+                    </div>
+                    <div id="candarComp"></div>
+                    <!-- <div class="calendar-header">
+                        
+                    </div>
+                    <div class="calendar-body">我是body</div> -->
+                </div>
+            </div>
+            <!-- 人员类型数据 -->
+            <div class="pTypeData">
+                <ul>
+                    <li>涉军人员</li>
+                    <li>特殊利益诉求人员</li>
+                    <li>个人诉求人员</li>
+                    <li><a href="#">More>></a></li>
+                </ul>
+                <div class="details">
+                    <div class="ryzs">
+                        <span><img src="./img/ket_events_pretend/user-account.png" alt=""> 人员总数</span>
+                        <span class="count">200000</span>
+                    </div>
+                    <div class="yjs">
+                        <span><img src="./img/ket_events_pretend/early_warning.png" alt="">预警数</span>
+                        <span class="count">10000</span>
+                    </div>
+                    <div class="hys">
+                        <span><img src="./img/ket_events_pretend/qthyd.png" alt="">群体活跃度</span>
+                        <span class="count">100%</span>
+                    </div>
+                    <div>
+                        <p class="keyPerson">
+                            <span>重点人数</span>
+                            <span class="count">26000</span>
+                        </p>
+                        <p class="attentionPerson">
+                            <span>关注人数</span>
+                            <span class="count">67000</span>
+                        </p>
+                        <p class="normalPerson">
+                            <span>常规人数</span>
+                            <span class="count">875</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="qtts">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">群体态势</span>
+                </p>
+                <div class="ctx" id="mafats">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./layui/layui.js"></script>
+<script src="./js/jquery-3.3-min.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/events_map.js"></script>
+<script src="./js/nongli.js"></script>
+<script src="./js/zhangli.js"></script>
+<script src="./js/key_events_pretent.js"></script>
+</html>

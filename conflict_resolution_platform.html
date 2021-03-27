@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易引发命案矛盾纠纷排查化解平台</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/conflict_resolution_platform.css">
+    <!-- 引入MineMap API插件 -->
+    <link rel="stylesheet" href="./css/minemap.css">
+    <script src="./js/minemap.js"></script>
+    <script src="./js/minemap-echarts.js"></script>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/minemap-template.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div id="map"></div>
+        <!-- 头部 -->
+        <div class="head">
+            <p><img src="./img/public/badge.png" alt="">易引发命案矛盾纠纷排查化解平台</p>
+        </div>
+        <!-- 左侧 -->
+        <div class="left">
+            <div class="mafats">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">命案发案态势</span>
+                </p>
+                <div class="ctx" id="mafats">
+                    
+                </div>
+            </div>
+            <div class="zacyorsshr">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active" onclick="switchForMZ('zacy')">作案成因分析</span>
+                    <span onclick="switchForMZ('sshr')">施受害人分析</span>
+                </p>
+                <div class="ctx" id="zacy">
+                    <div id="zacy1">
+
+                    </div>
+                </div>
+                <div class="ctx" id="sshr" style="display: none;">
+                    <div id="zacyorsshr-1">
+                        
+                    </div>
+                    <div class="labelY">
+                        
+                    </div>
+                    <div id="zacyorsshr-2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 中部 -->
+        <div class="center">
+            <div class="menu">
+                <div class="menu-item active" onclick="switchForScatter(this,'case')">
+                    <span>1</span>
+                    <p>命案档案</p>
+                </div>
+                <div class="menu-item" onclick="switchForScatter(this,'warning')">
+                    <span>2</span>
+                    <p>风险化解预警</p>
+                </div>
+            </div>
+            <div class="fxhjts">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">风险化解态势</span>
+                </p>
+                <div class="ctx" id="fxtshj">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 右侧 -->
+        <div class="right">
+            <div class="hjzk">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">化解状况</span>
+                </p>
+                <div class="ctx">
+                    <div class="panel-item find">
+                        <img src="./img/conflict_resolution_platform/icon-find.png" alt="" class="panel-left">
+                        <div class="panel-right">
+                            <span class="title">发现线索</span>
+                            <span class="num"></span>
+                        </div>
+                    </div>
+                    <div class="panel-item icon-early-warning">
+                        <img src="./img/conflict_resolution_platform/icon-early-warning.png" alt="" class="panel-left">
+                        <div class="panel-right">
+                            <span class="title">触发预警</span>
+                            <span class="num"></span>
+                        </div>
+                    </div>
+                    <div class="panel-item defuse">
+                        <img src="./img/conflict_resolution_platform/icon-defuse.png" alt="" class="panel-left">
+                        <div class="panel-right">
+                            <span class="title">化解预警</span>
+                            <span class="num"></span>
+                        </div>
+                    </div>
+                    <div class="panel-item pending">
+                        <img src="./img/conflict_resolution_platform/icon-pending.png" alt="" class="panel-left">
+                        <div class="panel-right">
+                            <span class="title">今日待处理</span>
+                            <span class="num"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bdyj">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">爆点预警</span>
+                </p>
+                <div class="ctx">
+                    <ul class="yj-list">
+                    </ul>
+                </div>
+            </div>
+            <div class="qbly">
+                <p class="title">
+                    <img src="./img/public/triangle.png" alt="" class="title-triangle">
+                    <span class="active">情报来源</span>
+                </p>
+                <div class="ctx" id="qbly">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loader-container" style="display: none">
+        <div class="loader one"></div>
+        <div class="loader two"></div>
+    </div>
+</body>
+<script src="./js/jquery-3.3-min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/platform_map.js"></script>
+<script src="./js/conflict_resolution_platform.js"></script>
+</html>

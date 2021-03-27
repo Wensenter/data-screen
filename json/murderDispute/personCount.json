@@ -1,0 +1,100 @@
+{
+    "state": 200,
+    "msg": null,
+    "data": {
+        "victimList": [
+            {
+                "ageGroup": 0,
+                "maleNum": 100,
+                "femaleNum": 80
+            },
+            {
+                "ageGroup": 1,
+                "maleNum": 100,
+                "femaleNum": 80
+            },
+            {
+                "ageGroup": 2,
+                "maleNum": 100,
+                "femaleNum": 80
+            },
+            {
+                "ageGroup": 3,
+                "maleNum": 50,
+                "femaleNum": 40
+            },
+            {
+                "ageGroup": 4,
+                "maleNum": 50,
+                "femaleNum": 40
+            },
+            {
+                "ageGroup": 5,
+                "maleNum": 50,
+                "femaleNum": 40
+            },
+            {
+                "ageGroup": 6,
+                "maleNum": 50,
+                "femaleNum": 40
+            },
+            {
+                "ageGroup": 7,
+                "maleNum": 33,
+                "femaleNum": 26
+            },
+            {
+                "ageGroup": 8,
+                "maleNum": 33,
+                "femaleNum": 26
+            }
+        ],
+        "suspectList": [
+            {
+                "ageGroup": 0,
+                "maleNum": 90,
+                "femaleNum": 100
+            },
+            {
+                "ageGroup": 1,
+                "maleNum": 90,
+                "femaleNum": 100
+            },
+            {
+                "ageGroup": 2,
+                "maleNum": 90,
+                "femaleNum": 100
+            },
+            {
+                "ageGroup": 3,
+                "maleNum": 45,
+                "femaleNum": 50
+            },
+            {
+                "ageGroup": 4,
+                "maleNum": 45,
+                "femaleNum": 50
+            },
+            {
+                "ageGroup": 5,
+                "maleNum": 45,
+                "femaleNum": 50
+            },
+            {
+                "ageGroup": 6,
+                "maleNum": 45,
+                "femaleNum": 50
+            },
+            {
+                "ageGroup": 7,
+                "maleNum": 30,
+                "femaleNum": 33
+            },
+            {
+                "ageGroup": 8,
+                "maleNum": 30,
+                "femaleNum": 33
+            }
+        ]
+    }
+}

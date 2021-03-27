@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子人员档案</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/electronic_personnel_file.css">
+    <link rel="stylesheet" href="./css/loading.css">
+    <script src="./js/echarts.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="head">
+            <p><img src="./img/public/badge.png" alt="">重点人员电子档案</p>
+        </div>
+        <div class="body">
+            <div class="left">
+                <!-- 照片 -->
+                <div class="pic-swiper swiper-container">
+                    <div class="swiper-wrapper">
+                    </div>
+                </div>
+                <!-- 风险指数 -->
+                <div class="risk">
+                    <div class="high">高</div>
+                    <div class="risk-ctx">
+                        <span class="name">风险指数</span>
+                        <span class="number"></span>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="arrow">
+                        <img id="riskArrow" src="" alt="">
+                        <span class="num"></span>
+                    </div>
+                </div>
+                <!-- 视频 -->
+                <div class="video">
+                    <video src=""></video>
+                    <div class="play"></div>
+                </div>
+                <!-- 音频 -->
+                <div class="audio">
+                    <audio src=""></audio>
+                    <div class="audio-img">
+                        <div class="play"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="table">
+                    <div class="table-line1"></div>
+                    <div class="table-line2"></div>
+                    <div class="table-line3"></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>姓名</td>
+                                <td><div class="name"></div></td>
+                                <td>管控等级</td>
+                                <td><div class="flag"></div></td>
+                            </tr>
+                            <tr>
+                                <td>联系电话</td>
+                                <td><div class="telephone"></div></td>
+                                <td>身份证号</td>
+                                <td><div class="idCard"></div></td>
+                            </tr>
+                            <tr>
+                                <td>出生日期</td>
+                                <td><div class="birthDate"></div></td>
+                                <td>虚拟账号</td>
+                                <td><div class="virtualAccount"></div></td>
+                            </tr>
+                            <tr>
+                                <td>重点人员类别</td>
+                                <td><div class="personnelCategory"></div></td>
+                                <td>列管单位</td>
+                                <td><div class="controlUnit"></div></td>
+                            </tr>
+                            <tr>
+                                <td>宗教信仰</td>
+                                <td><div class="faith"></div></td>
+                                <td>列管纳控原因</td>
+                                <td><div class="controlReason"></div></td>
+                            </tr>
+                            <tr>
+                                <td>性别</td>
+                                <td><div class="gender"></div></td>
+                                <td>现住地详址</td>
+                                <td><div class="currentResidenceAddr"></div></td>
+                            </tr>
+                            <tr>
+                                <td>民族</td>
+                                <td><div class="nation"></div></td>
+                                <td>户籍地详址</td>
+                                <td><div class="residenceAddr"></div></td>
+                            </tr>
+                            <tr>
+                                <td>婚姻状况</td>
+                                <td><div class="maritalStatus"></div></td>
+                                <td>数据来源</td>
+                                <td><div class="dataFrom"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 底部菜单 -->
+        <div class="menu-list">
+            <ul>
+                <li class="gkgl">
+                    <a href="#">
+                        <div class="icon icon1"></div>
+                        <p class="icon-text">管控信息</p>
+                    </a>
+                </li>
+                <li class="yjxx">
+                    <a href="#">
+                        <div class="icon icon2"></div>
+                        <p class="icon-text">预警信息</p>
+                    </a>
+                </li>
+                <li class="gjxx">
+                    <a href="#">
+                        <div class="icon icon3"></div>
+                        <p class="icon-text">轨迹信息</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon4"></div>
+                        <p class="icon-text">关系信息</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon5"></div>
+                        <p class="icon-text">云上信息</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon6"></div>
+                        <p class="icon-text">生物信息</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon7"></div>
+                        <p class="icon-text">车辆信息</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon8"></div>
+                        <p class="icon-text">财产信息</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 弹窗/风险趋势 -->
+        <div class="fxqs-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        风险趋势
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="fxqs-pop"></div>
+            </div>
+        </div>
+        <!-- 弹窗/管控管理  -->
+        <div class="gkgl-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        管控管理
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="gkgl-pop">
+                    <table>
+                        <thead>
+                            <th>走访人</th>
+                            <th>走访时间</th>
+                            <th>在控状态</th>
+                            <th>走访单位</th>
+                            <th>走访记录</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <p class="sum">共&nbsp;<span class="pageSum">10</span>&nbsp;页/&nbsp;<span class="dataSum">100</span>&nbsp; 条数据</p>
+                        <ul class="pagination-list" id="gkgl-pageInfo">
+                        </ul>
+                        <p class="stairs">跳至<input type="number">页</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 弹窗/预警信息  -->
+        <div class="yjxx-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        预警信息
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="yjxx-pop">
+                    <table>
+                        <thead>
+                            <th>预警编号</th>
+                            <th>模型积分</th>
+                            <th>风险等级</th>
+                            <th>预警时间</th>
+                            <th>动态时间</th>
+                            <th>动态情形</th>
+                            <th>预警处置单位</th>
+                            <th>处置详情</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <p class="sum">共&nbsp;<span class="pageSum">10</span>&nbsp;页/&nbsp;<span class="dataSum">100</span>&nbsp; 条数据</p>
+                        <ul class="pagination-list" id="yjxx-pageInfo">
+                        </ul>
+                        <p class="stairs">跳至<input type="number">页</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 弹窗/轨迹信息 -->
+        <div class="gjxx-pop pop-wrap" style="display: none;">
+            <div class="pop">
+                <h1>
+                    <span class="title">
+                        轨迹信息
+                    </span>
+                    <span class="close"></span>
+                </h1>
+                <div class="ctx" id="gjxx-pop">
+                    <table>
+                        <thead>
+                            <th>动态时间</th>
+                            <th>动态类型</th>
+                            <th>动态情形</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <p class="sum">共&nbsp;<span class="pageSum">10</span>&nbsp;页/&nbsp;<span class="dataSum">100</span>&nbsp; 条数据</p>
+                        <ul class="pagination-list" id="gjxx-pageInfo">
+                        </ul>
+                        <p class="stairs">跳至<input type="number">页</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader-container" style="display: none">
+        <div class="loader one"></div>
+        <div class="loader two"></div>
+    </div>
+</body>
+<script src="./js/jquery-3.3-min.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/electronic_personnel_file.js"></script>
+</html>
